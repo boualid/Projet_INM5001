@@ -9,7 +9,7 @@ package Projet_INM5001;
  *
  * @author bwali
  */
-public class JavaApplication8 {
+public class Principale {
 
     /**
      * @param args the command line arguments
