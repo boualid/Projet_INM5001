@@ -1,0 +1,5 @@
+PretHypo {double pret, double taux, int amortissement, double versement, String frequence}
+
+Maison {double valeur, double miseFond, double tax, double coutEnergie, double fraisProprio}
+
+Client {double revenuAnnuel, double engagementFinancier, Maison maison, double limiteVersement}

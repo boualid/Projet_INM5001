@@ -1,0 +1,19 @@
+
+// Test connection BD
+        Connection conn = null;
+        BaseDeDonnees bd = new BaseDeDonnees();
+        try {
+            conn = BaseDeDonnees.obtConnexion();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally{
+            //finally block used to close resources
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+   
+            // Fin test connexion

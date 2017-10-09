@@ -5,6 +5,11 @@
  */
 package Projet_INM5001;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author bwali
@@ -15,7 +20,20 @@ public class Principale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Test methode requetSelect() BD
+        String reqSelect = "select * from Amortissement";
+        ResultSet resSet = BaseDeDonnees.requeteSelect(reqSelect);
+        /*try {
+            while (resSet.next()) {
+                int idAmort = resSet.getInt("idAmortissement");
+                int dureeAmort = resSet.getInt("dureeAmortissement");
+                System.out.println(idAmort + "\t" + dureeAmort);
+            }
+            // Fin test methode requetSelect()
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }*/
+
     }
     
 }
