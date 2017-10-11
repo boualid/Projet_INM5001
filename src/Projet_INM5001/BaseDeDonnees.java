@@ -47,8 +47,7 @@ public class BaseDeDonnees {
          resSet = stmt.executeQuery(reqSelect);
          //Test début
          System.out.println("Resultat requête");
-         System.out.println(resSet.next());
-         while (resSet.next()) {System.out.println("Resultat requête");
+         while (resSet.next()) {
                 int idAmort = resSet.getInt("idAmortissement");
                 int dureeAmort = resSet.getInt("dureeAmortissement");
                 System.out.println(idAmort + "\t" + dureeAmort);

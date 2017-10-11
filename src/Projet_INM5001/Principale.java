@@ -22,7 +22,7 @@ public class Principale {
     public static void main(String[] args) {
         // Test methode requetSelect() BD
         String reqSelect = "select * from Amortissement";
-        ResultSet resSet = BaseDeDonnees.requeteSelect(reqSelect);
+        BaseDeDonnees.requeteSelect(reqSelect);
         /*try {
             while (resSet.next()) {
                 int idAmort = resSet.getInt("idAmortissement");
