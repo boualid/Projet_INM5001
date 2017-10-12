@@ -36,6 +36,11 @@ public class PretHyp {
         this.frequence = frequence;
         this.maison = maison;
         this.clientEv = clientEv;
+        
+        this.pret = PretHypothecaires.calculePretHypothecaires(clientEv.getMiseFonds(), 
+                clientEv.getLimitVersm(), amortissm, clientEv.getRevAnnuel(), 
+                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
+                .getFraisProp());
     }
     
      //Settrers & geters
@@ -106,6 +111,11 @@ public class PretHyp {
         this.maison = maison;
     }
 
+     //Attributs
+    ////////////
+    
+    
+    
     @Override
     public String toString() {
         return "PretHyp{" + "pret=" + pret + ", taux=" + taux + ", versm=" + versm
