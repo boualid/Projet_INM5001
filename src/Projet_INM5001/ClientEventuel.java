@@ -14,7 +14,8 @@ public class ClientEventuel {
     //Attributs
     ////////////
     private double revAnnuel = 0.0;
-    private double EngagmFinance = 0.0;
+    private double engagmFinance = 0.0;
+    private double miseFonds = 0.0;
     private double limitVersm = 0.0;
 
      //Constructeurs
@@ -23,10 +24,11 @@ public class ClientEventuel {
     public ClientEventuel() {
     }
     
-    public ClientEventuel(double revAnnuel, double EngagmFinance,
+    public ClientEventuel(double revAnnuel, double engagmFinance,double miseFonds,
             double limitVersm) {
         this.revAnnuel = revAnnuel;
-        this.EngagmFinance = EngagmFinance;
+        this.engagmFinance = engagmFinance;
+        this.miseFonds = miseFonds;
         this.limitVersm = limitVersm;
     }
 
@@ -50,10 +52,37 @@ public class ClientEventuel {
         this.revAnnuel = revAnnuel;
     }
 
+    public double getEngagmFinance() {
+        return engagmFinance;
+    }
+
+    public void setEngagmFinance(double engagmFinance) {
+        this.engagmFinance = engagmFinance;
+    }
+
+    public double getMiseFonds() {
+        return miseFonds;
+    }
+
+    public void setMiseFonds(double miseFonds) {
+        this.miseFonds = miseFonds;
+    }
+
+    public double getLimitVersm() {
+        return limitVersm;
+    }
+
+    public void setLimitVersm(double limitVersm) {
+        this.limitVersm = limitVersm;
+    }
+
     @Override
     public String toString() {
-        return "ClientEventuel{" + "revAnnuel=" + revAnnuel + 
-                ", EngagmFinance=" + EngagmFinance + ", limitVersm=" + limitVersm + '}';
+        return "ClientEventuel{" + "revAnnuel=" + revAnnuel 
+                + ", engagmFinance=" + engagmFinance + ", miseFonds=" + miseFonds 
+                + ", limitVersm=" + limitVersm + '}';
     }
+
+    
 
 }

@@ -624,4 +624,11 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
+
+
+    //Attributs
+    ////////////
+    private PretHypothecaires pretHyp = null;
+    private ClientEventuel clientEv = null;
+    private Maison maison = null;
 }

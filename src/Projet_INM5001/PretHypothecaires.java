@@ -69,4 +69,123 @@ public class PretHypothecaires {
 
     }
 
+    /**
+ *
+ * @author Leopold
+ */
+    
+     //Attributs
+    ////////////
+    private double pret = 0.0;
+    private double taux = 0.0;
+    private double versm = 0.0;
+    private int amortissm = 0;
+    private String frequence = "";
+    private ClientEventuel clientEv = null;
+    private Maison maison = null;
+
+     //Constructeurs
+    ////////////////
+
+    public PretHypothecaires() {
+    }
+    
+    public PretHypothecaires(double pret, int amortissm, Maison maison, 
+            ClientEventuel clientEv) {
+        this.pret = pret;
+        this.amortissm = amortissm;
+        this.clientEv = clientEv;
+        
+        maison.setValeur( calculePretHypothecaires(clientEv.getMiseFonds(), 
+                clientEv.getLimitVersm(), amortissm, clientEv.getRevAnnuel(), 
+                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
+                .getFraisProp()) );
+        if (maison.getValeur() > 0) {
+            this.pret = maison.getValeur() - clientEv.getMiseFonds();
+        }
+        
+        this.maison = maison;
+    }
+    
+     //Settrers & geters
+    ////////////////////
+    public double getTaux() {
+        return taux;
+    }
+
+    public void setTaux(double taux) {
+        this.taux = taux;
+    }
+
+    public double getVersm() {
+        return versm;
+    }
+
+    public void setVersm(double versm) {
+        this.versm = versm;
+    }
+
+    public int getAmortissm() {
+        return amortissm;
+    }
+
+    public void setAmortissm(int amortissm) {
+        this.amortissm = amortissm;
+    }
+
+    public String getFrequence() {
+        return frequence;
+    }
+
+    public void setFrequence(String frequence) {
+        this.frequence = frequence;
+    }
+    
+    /**
+     * Get the value of pret
+     *
+     * @return the value of pret
+     */
+    public double getPret() {
+        return pret;
+    }
+
+    /**
+     * Set the value of pret
+     *
+     * @param pret new value of pret
+     */ 
+    public void setPret(double pret) {
+        this.pret = pret;
+    }
+
+    public ClientEventuel getClientEv() {
+        return clientEv;
+    }
+
+    public void setClientEv(ClientEventuel clientEv) {
+        this.clientEv = clientEv;
+    }
+
+    public Maison getMaison() {
+        return maison;
+    }
+
+    public void setMaison(Maison maison) {
+        this.maison = maison;
+    }
+
+     //Attributs
+    ////////////
+    
+    
+    
+    @Override
+    public String toString() {
+        return "PretHyp{" + "pret=" + pret + ", taux=" + taux + ", versm=" + versm
+                + ", amortissm=" + amortissm + ", frequence=" + frequence +
+                ", clientEv=" + clientEv + ", maison=" + maison + '}';
+    }
+
+    
 }

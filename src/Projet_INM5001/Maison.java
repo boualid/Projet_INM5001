@@ -14,7 +14,7 @@ public class Maison {
      //Attributs
     ////////////    
     private double valeur = 0.0;
-    private double tax = 0.0;
+    private double taxMunicipScol = 0.0;
     private double coutEnerg = 0.0;
     private double fraisProp = 0.0;
 
@@ -22,7 +22,7 @@ public class Maison {
     ////////////////
     public Maison(double valeur, double tax, double coutEnerg, double fraisProp) {
         this.valeur = valeur;
-        this.tax = tax;
+        this.taxMunicipScol = tax;
         this.coutEnerg = coutEnerg;
         this.fraisProp = fraisProp;
     }
@@ -42,7 +42,7 @@ public class Maison {
     }
 
     public double getTax() {
-        return tax;
+        return taxMunicipScol;
     }
 
     public double getCoutEnerg() {
@@ -58,7 +58,7 @@ public class Maison {
     }
 
     public void setTax(double tax) {
-        this.tax = tax;
+        this.taxMunicipScol = tax;
     }
 
     public void setCoutEnerg(double coutEnerg) {
@@ -71,7 +71,7 @@ public class Maison {
 
     @Override
     public String toString() {
-        return "Maison{" + "valeur=" + valeur + ", tax=" + tax + 
+        return "Maison{" + "valeur=" + valeur + ", tax=" + taxMunicipScol + 
                 ", coutEnerg=" + coutEnerg + ", fraisProp=" + fraisProp + '}';
     }
 

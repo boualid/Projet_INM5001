@@ -34,6 +34,10 @@ public class Principale {
             ex.printStackTrace();
         }*/
 
+        
+        // Test calcul pret hypothécaire (pretHypClient)
+        
+        // Fin test calcul pret hypothécaire (pretHypClient)
     }
     
 }
