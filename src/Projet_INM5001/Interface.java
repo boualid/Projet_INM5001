@@ -498,7 +498,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
             try{
-          int taxMunicipalesScol = Integer.parseInt(jTMisedefonds.getText());
+          double taxMunicipalesScol = Double.parseDouble(jTMisedefonds.getText());
           maison.setTaxMunicipScol(taxMunicipalesScol);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Taxes municipales et scolaires ».");
@@ -508,7 +508,7 @@ public class Interface extends javax.swing.JFrame {
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
           try{
            if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
-                int limitVersement = Integer.parseInt(jTMois1.getText());
+                double limitVersement = Double.parseDouble(jTMois1.getText());
                 clientEv.setLimitVersm(limitVersement);
            }
         }catch(NumberFormatException e){
@@ -517,6 +517,8 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
+        Messages.setText("");
+        
         jTMois3ActionPerformed(evt);
         jTMois2ActionPerformed(evt);
         jTTaxesmunicipalesActionPerformed(evt);
@@ -542,14 +544,15 @@ public class Interface extends javax.swing.JFrame {
         
         //Tests
         //jTextField7.setText(amort + clientEv.getMiseFonds()""); 
-        
-        /*jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
-                + " Egagements Financiers" + clientEv.getEngagmFinance() 
+        /*
+        jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
+                + " Egagements Financiers=" + clientEv.getEngagmFinance() 
                 + " Revenus bruts(pas an)=" + clientEv.getRevAnnuel() 
                 + " Limite versement=" +clientEv.getLimitVersm() 
                 + " Amortissment=" + amort
                 + " Cout energie=" + maison.getCoutEnerg() 
-                + " Frais copropriété=" + maison.getFraisProp()); 
+                + " Frais copropriété=" + maison.getFraisProp() 
+                + " Taxes municipales" + maison.getTaxMunicipScol()); 
         */
         //Affichage du résultata (valeur de la maison)
         jTextField7.setText(maison.getValeur() + "");
@@ -577,7 +580,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
           try{
-          int engagements = Integer.parseInt(jTEngagements.getText());
+          double engagements = Double.parseDouble(jTEngagements.getText());
           clientEv.setEngagmFinance(engagements);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Engagements financiers ».");
@@ -586,7 +589,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTMois2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois2ActionPerformed
             try{
-          int coutEnergie = Integer.parseInt(jTMisedefonds.getText());
+          double coutEnergie = Double.parseDouble(jTMois2.getText());
           maison.setCoutEnerg(coutEnergie);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Coûts d'énergie ».");
@@ -595,7 +598,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTMois3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois3ActionPerformed
            try{
-          int fraisProprietaire = Integer.parseInt(jTMisedefonds.getText());
+          double fraisProprietaire = Double.parseDouble(jTMois3.getText());
           maison.setFraisProp(fraisProprietaire);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
