@@ -76,6 +76,8 @@ public class ClientEventuel {
         this.limitVersm = limitVersm;
     }
 
+     //Methodes
+    ////////////
     @Override
     public String toString() {
         return "ClientEventuel{" + "revAnnuel=" + revAnnuel 

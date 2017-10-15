@@ -20,9 +20,10 @@ public class Maison {
 
      //Constructeurs
     ////////////////
-    public Maison(double valeur, double tax, double coutEnerg, double fraisProp) {
+    public Maison(double valeur, double taxMunicipScol, double coutEnerg,
+            double fraisProp) {
         this.valeur = valeur;
-        this.taxMunicipScol = tax;
+        this.taxMunicipScol = taxMunicipScol;
         this.coutEnerg = coutEnerg;
         this.fraisProp = fraisProp;
     }
@@ -41,7 +42,7 @@ public class Maison {
         return valeur;
     }
 
-    public double getTax() {
+    public double getTaxMunicipScol() {
         return taxMunicipScol;
     }
 
@@ -57,8 +58,8 @@ public class Maison {
         this.valeur = valeur;
     }
 
-    public void setTax(double tax) {
-        this.taxMunicipScol = tax;
+    public void setTaxMunicipScol(double taxMunicipScol) {
+        this.taxMunicipScol = taxMunicipScol;
     }
 
     public void setCoutEnerg(double coutEnerg) {
@@ -69,9 +70,11 @@ public class Maison {
         this.fraisProp = fraisProp;
     }
 
+     //Methodes
+    ////////////
     @Override
     public String toString() {
-        return "Maison{" + "valeur=" + valeur + ", tax=" + taxMunicipScol + 
+        return "Maison{" + "valeur=" + valeur + ", taxMunicipScol=" + taxMunicipScol + 
                 ", coutEnerg=" + coutEnerg + ", fraisProp=" + fraisProp + '}';
     }
 

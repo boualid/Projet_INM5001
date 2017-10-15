@@ -470,9 +470,14 @@ public class Interface extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     //Methodes pour 'ActionPerformed'
+    //////////////////////////////////
+    
     private void jTRevenusbrutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRevenusbrutsActionPerformed
           try{
-          Double revenusBruts = Double.parseDouble(jTRevenusbruts.getText());           
+          Double revenusBruts = Double.parseDouble(jTRevenusbruts.getText());
+          clientEv.setRevAnnuel(revenusBruts);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Revenus Bruts ».");
         }
@@ -480,7 +485,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTMisedefondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMisedefondsActionPerformed
           try{
-          Double revenusBruts = Double.parseDouble(jTMisedefonds.getText());           
+          Double miseDeFonds = Double.parseDouble(jTMisedefonds.getText());
+          clientEv.setMiseFonds(miseDeFonds);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Mise de fonds ».");
         }
@@ -492,7 +498,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
             try{
-          int revenusBruts = Integer.parseInt(jTMisedefonds.getText());           
+          int taxMunicipalesScol = Integer.parseInt(jTMisedefonds.getText());
+          maison.setTaxMunicipScol(taxMunicipalesScol);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Taxes municipales et scolaires ».");
         } 
@@ -501,7 +508,8 @@ public class Interface extends javax.swing.JFrame {
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
           try{
            if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
-                int revenusBruts = Integer.parseInt(jTMois1.getText());  
+                int limitVersement = Integer.parseInt(jTMois1.getText());
+                clientEv.setLimitVersm(limitVersement);
            }
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ «Limiter vos versements mensuels. " );
@@ -509,7 +517,28 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
-       
+        jTMois3ActionPerformed(evt);
+        jTMois2ActionPerformed(evt);
+        jTTaxesmunicipalesActionPerformed(evt);
+        jTMois1ActionPerformed(evt);
+        jTMisedefondsActionPerformed(evt);
+        jTEngagementsActionPerformed(evt);
+        jTRevenusbrutsActionPerformed(evt);
+        
+        /*
+        try {
+            double tauxInteret = Double.parseDouble(jTextField3.getText());        
+        } catch (NumberFormatException e) {
+         Messages.setText("Entrer un montant dans le champ «Taux d'intérêt." );
+        }*/
+        
+        String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
+        try {
+            int amort = Integer.parseInt(amortChn.replace("ans", "").trim());
+            jTextField7.setText("" + amort);//test
+        } catch (NumberFormatException e) {
+            Messages.setText("");
+        }
     }//GEN-LAST:event_ButCalculerActionPerformed
 
     private void ButSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButSortirActionPerformed
@@ -525,11 +554,13 @@ public class Interface extends javax.swing.JFrame {
         jTMois3.setText("");
         jTTaxesmunicipales.setText("");
         jTRevenusbruts.setText("");
+        Messages.setText("");
     }//GEN-LAST:event_ButEffacerActionPerformed
 
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
           try{
-          int engagements = Integer.parseInt(jTEngagements.getText());           
+          int engagements = Integer.parseInt(jTEngagements.getText());
+          clientEv.setEngagmFinance(engagements);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Engagements financiers ».");
         }
@@ -537,7 +568,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTMois2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois2ActionPerformed
             try{
-          int revenusBruts = Integer.parseInt(jTMisedefonds.getText());           
+          int coutEnergie = Integer.parseInt(jTMisedefonds.getText());
+          maison.setCoutEnerg(coutEnergie);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Coûts d'énergie ».");
         }
@@ -545,7 +577,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void jTMois3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois3ActionPerformed
            try{
-          int revenusBruts = Integer.parseInt(jTMisedefonds.getText());           
+          int fraisProprietaire = Integer.parseInt(jTMisedefonds.getText());
+          maison.setFraisProp(fraisProprietaire);
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
         }
@@ -604,7 +637,8 @@ public class Interface extends javax.swing.JFrame {
 
     //Attributs
     ////////////
-    private PretHypothecaires pretHyp = null;
-    private ClientEventuel clientEv = null;
-    private Maison maison = null;
+    private PretHypothecaires pretHyp = new PretHypothecaires();
+    //private ClientEventuel clientEv = null;
+    private ClientEventuel clientEv = new ClientEventuel();
+    private Maison maison = new Maison();
 }

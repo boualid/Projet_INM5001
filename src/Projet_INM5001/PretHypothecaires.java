@@ -175,9 +175,11 @@ public class PretHypothecaires {
         this.maison = maison;
     }
 
-     //Attributs
+     //Methodes
     ////////////
-    
+    public int anChnEnMois(String an){
+        return Integer.parseInt(an.replace("ans", "").trim());
+    }
     
     
     @Override
