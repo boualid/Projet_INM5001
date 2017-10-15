@@ -525,20 +525,38 @@ public class Interface extends javax.swing.JFrame {
         jTEngagementsActionPerformed(evt);
         jTRevenusbrutsActionPerformed(evt);
         
-        /*
-        try {
-            double tauxInteret = Double.parseDouble(jTextField3.getText());        
-        } catch (NumberFormatException e) {
-         Messages.setText("Entrer un montant dans le champ «Taux d'intérêt." );
-        }*/
+        //double tauxInteret = tryChnEnDouble(jTextField3.getText(), "Entrer un "
+        //        + "montant dans le champ «Taux d'intérêt.");
         
         String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
-        try {
-            int amort = Integer.parseInt(amortChn.replace("ans", "").trim());
-            jTextField7.setText("" + amort);//test
-        } catch (NumberFormatException e) {
-            Messages.setText("");
+        //Met nombre d'années en chiffres seulement
+        amortChn = amortChn.replace("ans", "").trim();
+        int amort = 12 * tryChnEnInt(amortChn, "Vous devez choisir un "
+                + "amortissement");//Convertit en nombre de mois
+        
+        //Pour calculer la valeur de la maison
+        maison.setValeur( PretHypothecaires.calculePretHypothecaires(clientEv
+                .getMiseFonds(), clientEv.getLimitVersm(), amort, clientEv.getRevAnnuel(), 
+                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
+                .getFraisProp()) );
+        
+        //Tests
+        //jTextField7.setText(amort + clientEv.getMiseFonds()""); 
+        
+        /*jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
+                + " Egagements Financiers" + clientEv.getEngagmFinance() 
+                + " Revenus bruts(pas an)=" + clientEv.getRevAnnuel() 
+                + " Limite versement=" +clientEv.getLimitVersm() 
+                + " Amortissment=" + amort
+                + " Cout energie=" + maison.getCoutEnerg() 
+                + " Frais copropriété=" + maison.getFraisProp()); 
+        */
+        //Affichage du résultata (valeur de la maison)
+        jTextField7.setText(maison.getValeur() + "");
+        if (maison.getValeur() <= 0) {
+            Messages.setText("Vous n'êtes pas admissibles pour un prêt");
         }
+       
     }//GEN-LAST:event_ButCalculerActionPerformed
 
     private void ButSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButSortirActionPerformed
@@ -588,6 +606,28 @@ public class Interface extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jTextField7ActionPerformed
 
+    //Methodes
+    //////////
+    private double tryChnEnDouble(String chaine, String msg){
+        double dbl = 0.0;
+        try {
+            dbl = Double.parseDouble(chaine);        
+        } catch (NumberFormatException e) {
+         Messages.setText(msg);
+        }
+        return dbl;
+    }
+    
+    private int tryChnEnInt(String chaine, String msg){
+        int entier = 0;
+        try {
+            entier = Integer.parseInt(chaine);        
+        } catch (NumberFormatException e) {
+         Messages.setText(msg);
+        }
+        return entier;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButCalculer;
@@ -637,8 +677,7 @@ public class Interface extends javax.swing.JFrame {
 
     //Attributs
     ////////////
-    private PretHypothecaires pretHyp = new PretHypothecaires();
-    //private ClientEventuel clientEv = null;
     private ClientEventuel clientEv = new ClientEventuel();
     private Maison maison = new Maison();
+    private PretHypothecaires pretHyp = null;
 }

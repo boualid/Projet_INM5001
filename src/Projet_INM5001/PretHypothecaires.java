@@ -95,16 +95,12 @@ public class PretHypothecaires {
         this.pret = pret;
         this.amortissm = amortissm;
         this.clientEv = clientEv;
-        
-        maison.setValeur( calculePretHypothecaires(clientEv.getMiseFonds(), 
-                clientEv.getLimitVersm(), amortissm, clientEv.getRevAnnuel(), 
-                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
-                .getFraisProp()) );
-        if (maison.getValeur() > 0) {
-            this.pret = maison.getValeur() - clientEv.getMiseFonds();
-        }
-        
         this.maison = maison;
+        
+        /*if (maison.getValeur() > 0) {
+            this.pret = maison.getValeur() - clientEv.getMiseFonds();
+        }*/
+        
     }
     
      //Settrers & geters
