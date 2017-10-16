@@ -9,7 +9,7 @@ CACHE 10;
 -- Insertion table : Amortissement
 
 INSERT INTO Amortissement (idAmortissement, dureeAmortissement)
-VALUES (seq_amort.nextval,6);
+VALUES (seq_amort.nextval, 6);
 
 INSERT INTO Amortissement (idAmortissement, dureeAmortissement)
-VALUES (seq_amort.nextval,12);
+VALUES (seq_amort.nextval, 12);
