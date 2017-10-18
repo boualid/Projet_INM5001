@@ -47,11 +47,19 @@ public class BaseDeDonnees {
     }
 
     public static void fermConnexion() {
+        fermStatement(stmt);
+        fermConnexion(conn);
+    }
+
+    public static void fermStatement(Statement stmt) {
         try{
             if(stmt != null)
                 stmt.close();
         }catch(SQLException se){
         }
+    }
+    
+    public static void fermConnexion(Connection conn) {
         try{
             if(conn != null)
                 conn.close();
@@ -60,7 +68,7 @@ public class BaseDeDonnees {
         }
         System.out.println("\nClosed database successfully...");//test connexion fermée
     }
-
+    
     public static ResultSet requeteSelect(String reqSelect) throws SQLException{
         
         ResultSet resSet = null;

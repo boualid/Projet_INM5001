@@ -63,7 +63,9 @@ public class Principale {
         String reqSSql = "INSERT INTO Amortissement "
                 + "(idAmortissement, dureeAmortissement)"
                 + "VALUES (seq_amort.nextval, ?)";
+        //System.out.println(requeteInserAmortssm(reqSSql, 24));
         //System.out.println(requeteInserAmortssm(reqSSql, 36));
+        //System.out.println(requeteInserAmortssm(reqSSql, 48));
         //Fin test
     }
 
@@ -112,16 +114,11 @@ public class Principale {
                     conn.rollback();
                 } catch(SQLException excep) {
                     ex.printStackTrace();
-                }//fin try-catch Roll-back
+                }//fin try-catch (Roll-back)
             }
         } finally {
-            try {
-                if(preStmt != null) preStmt.close();
-                conn.setAutoCommit(true);   
-            } catch (SQLException ex) {
-            }
-            BaseDeDonnees.fermConnexion();
-            
+            BaseDeDonnees.fermStatement(preStmt);
+            BaseDeDonnees.fermConnexion(conn);
         }//fin try-catch-finally
         
         return nbLignes;
