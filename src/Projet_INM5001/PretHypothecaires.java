@@ -11,7 +11,7 @@ package Projet_INM5001;
  */
 public class PretHypothecaires {
 
-    public static double tauxHypothecairesEnVigueur = 4.3;
+    public static double tauxHypothecairesEnVigueur = 3.89;
     public static double taxRevenu = 15.5;
     public static double taxMunicipaleEtScolaire = 2800.00;
 
@@ -45,30 +45,53 @@ public class PretHypothecaires {
         double revenuNetMensuelle = 0.0;
         double percentage = 0.0;
         double chargesAnnuelle = 0.0;
-
-        tauxGeneral = (tauxHypothecairesEnVigueur * 5) + 15.5 + 1.55;
+        double taxaAplicable = 0.0;
+        tauxGeneral = (tauxHypothecairesEnVigueur *6.12 );
+        System.out.println(tauxGeneral);
         mesualiteNet = versementMensuel - ((versementMensuel * tauxGeneral) / 100);
-        pretHypothecaires = (mesualiteNet * ammortissement * 12);
-
-        tax = (revenuBrut * taxRevenu) / 100;
+        pretHypothecaires = (mesualiteNet * ammortissement );
+        System.out.println(ammortissement);
+        taxaAplicable = PretHypothecaires.calculeTaxRevenu(revenuBrut);
+        tax = (revenuBrut * taxaAplicable) / 100;        
         chargesAnnuelle = (engagementFinancier + coutEnergie + fraisCopropriete) * 12;
         revenuNet = revenuBrut - (tax + chargesAnnuelle + taxMunicipaleEtScolaire);
-
         revenuNetMensuelle = revenuNet / 12;
-
         percentage = (revenuNetMensuelle * 40) / 100;
-
         if (percentage > versementMensuel) {
             resultat = pretHypothecaires + miseDeFonds;
-
         } else {
             resultat = 0.0;
         }
-
         return resultat;
-
     }
+    /**
+     * 
+     * @param revenu revenu brute annuelle du client
+     * @return taxe applicable suivant marge salaire
+     */
 
+    public static double calculeTaxRevenu (double revenu){
+        double taxSurSalaire = 0.0;
+        if (revenu < 25000){
+            taxSurSalaire = 15.5;
+        } 
+        else if(25000 <=  revenu ||  revenu <= 40000 ){
+            taxSurSalaire = 20.5;
+        }
+        else if(40000 < revenu ||  revenu <= 55000 ){
+            taxSurSalaire = 27.5;
+        }
+        else if(55000 < revenu ||  revenu <= 750000 ){
+            taxSurSalaire = 33.5;
+        }
+        else if(75000 < revenu ||  revenu <= 1150000 ){
+            taxSurSalaire = 39.5;
+        }
+        else {
+          taxSurSalaire = 44.5;  
+        }
+        return taxSurSalaire;
+    }
     /**
  *
  * @author Leopold
