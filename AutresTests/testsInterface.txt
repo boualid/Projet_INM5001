@@ -1,0 +1,17 @@
+
+//Tests (récupérations correctes des données sur l'interface)
+        //jTextField7.setText(amort + ""); 
+        /*
+        jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
+                + " Egagements Financiers=" + clientEv.getEngagmFinance() 
+                + " Revenus bruts(pas an)=" + clientEv.getRevAnnuel() 
+                + " Limite versement=" +clientEv.getLimitVersm() 
+                + " Amortissment=" + amort
+                + " Cout energie=" + maison.getCoutEnerg() 
+                + " Frais copropriété=" + maison.getFraisProp() 
+                + " Taxes municipales" + maison.getTaxMunicipScol()); 
+        */
+
+        //Code pour récupérer le taux d'intérêt sur l'interface
+        //double tauxInteret = tryChnEnDouble(jTextField3.getText(), "Entrer un "
+        //        + "montant dans le champ «Taux d'intérêt.");

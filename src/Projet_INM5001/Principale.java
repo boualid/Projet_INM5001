@@ -66,6 +66,7 @@ public class Principale {
         //System.out.println(requeteInserAmortssm(reqSSql, 24));
         //System.out.println(requeteInserAmortssm(reqSSql, 36));
         //System.out.println(requeteInserAmortssm(reqSSql, 48));
+        //System.out.println(requeteInserAmortssm(reqSSql, 60));
         //Fin test
     }
 
@@ -110,7 +111,7 @@ public class Principale {
             ex.printStackTrace();
             if (conn != null) {
                 try {
-                    System.err.print("Transaction annulée (rolled back)");
+                    System.err.print("Annulation de la transaction (rolled back)");
                     conn.rollback();
                 } catch(SQLException excep) {
                     ex.printStackTrace();
@@ -118,6 +119,10 @@ public class Principale {
             }
         } finally {
             BaseDeDonnees.fermStatement(preStmt);
+            try {
+                conn.setAutoCommit(true);
+            } catch (SQLException ex) {
+            }
             BaseDeDonnees.fermConnexion(conn);
         }//fin try-catch-finally
         
