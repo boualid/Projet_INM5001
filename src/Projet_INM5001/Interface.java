@@ -46,7 +46,6 @@ public class Interface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -70,6 +69,8 @@ public class Interface extends javax.swing.JFrame {
         ButEffacer = new javax.swing.JButton();
         ButSortir = new javax.swing.JButton();
         Messages = new javax.swing.JLabel();
+        hypoticaire = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Prêt Hypothécaires");
@@ -141,6 +142,11 @@ public class Interface extends javax.swing.JFrame {
         jCnom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jCnom.setForeground(java.awt.Color.gray);
         jCnom.setText("Non");
+        jCnom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCnomActionPerformed(evt);
+            }
+        });
 
         jTMois1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,10 +165,6 @@ public class Interface extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(java.awt.Color.gray);
         jLabel6.setText("* Type de prêt et terme : ");
-
-        jComboBox1.setEditable(true);
-        jComboBox1.setForeground(java.awt.Color.gray);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taux fixe 10 ans", "Taux fixe 7 ans", "Taux fixe 4 ans", "Taux fixe 2 ans", "Taux fixe 1 ans" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.gray);
@@ -276,6 +278,9 @@ public class Interface extends javax.swing.JFrame {
 
         Messages.setForeground(new java.awt.Color(255, 0, 0));
 
+        jTextField4.setForeground(java.awt.Color.gray);
+        jTextField4.setText("4 ans");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -300,7 +305,6 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(jTMois2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel16))))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,9 +313,14 @@ public class Interface extends javax.swing.JFrame {
                                 .addComponent(jLabel9))
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(216, 216, 216)
-                                .addComponent(ButEffacer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(216, 216, 216)
+                                        .addComponent(ButEffacer)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jTextField4)
+                                        .addGap(147, 147, 147)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,7 +340,9 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(hypoticaire)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTTaxesmunicipales, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -417,14 +428,14 @@ public class Interface extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTTaxesmunicipales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -436,23 +447,28 @@ public class Interface extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel19))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButCalculer)
-                            .addComponent(ButEffacer)
-                            .addComponent(ButSortir))
-                        .addGap(23, 23, 23))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCoui)
                             .addComponent(jTMois1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(242, 242, 242)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(hypoticaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButCalculer)
+                    .addComponent(ButEffacer)
+                    .addComponent(ButSortir))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -493,7 +509,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTMisedefondsActionPerformed
 
     private void jCouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCouiActionPerformed
-        // TODO add your handling code here:
+        if(jCoui.isSelected()) {
+            jCnom.setSelected(false);           
+        }
     }//GEN-LAST:event_jCouiActionPerformed
 
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
@@ -511,9 +529,13 @@ public class Interface extends javax.swing.JFrame {
                 double limitVersement = Double.parseDouble(jTMois1.getText());
                 clientEv.setLimitVersm(limitVersement);
            }
+           if(jCnom.isSelected() && !(jTMois1.getText().isEmpty())){           
+                        Messages.setText("le champ «Limiter vos versements mensuels.» doit être vide"  ); 
+           }         
         }catch(NumberFormatException e){
          Messages.setText("Entrer un montant dans le champ «Limiter vos versements mensuels. " );
         }
+          
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
@@ -556,6 +578,7 @@ public class Interface extends javax.swing.JFrame {
         */
         //Affichage du résultata (valeur de la maison)
         jTextField7.setText(maison.getValeur() + "");
+        hypoticaire.setText(PretHypothecaires.pretHypothecaires + "");
         if (maison.getValeur() <= 0) {
             Messages.setText("Vous n'êtes pas admissibles pour un prêt");
         }
@@ -576,6 +599,11 @@ public class Interface extends javax.swing.JFrame {
         jTTaxesmunicipales.setText("");
         jTRevenusbruts.setText("");
         Messages.setText("");
+        
+        jCnom.setSelected(false);
+        jCoui.setSelected(false);
+        
+        
     }//GEN-LAST:event_ButEffacerActionPerformed
 
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
@@ -609,6 +637,13 @@ public class Interface extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jTextField7ActionPerformed
 
+    private void jCnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCnomActionPerformed
+               if(jCnom.isSelected()){
+                   jCoui.setSelected(false);
+                   jTMois1.setText(" "); 
+                }
+    }//GEN-LAST:event_jCnomActionPerformed
+
     //Methodes
     //////////
     private double tryChnEnDouble(String chaine, String msg){
@@ -638,8 +673,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton ButSortir;
     private javax.swing.JLabel JprêtHypothécaire;
     private javax.swing.JLabel Messages;
+    private javax.swing.JTextField hypoticaire;
     private javax.swing.JCheckBox jCnom;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JCheckBox jCoui;
     private javax.swing.JLabel jLabel1;
@@ -673,6 +708,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTRevenusbruts;
     private javax.swing.JTextField jTTaxesmunicipales;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
