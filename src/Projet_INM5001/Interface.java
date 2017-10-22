@@ -1,5 +1,8 @@
 package Projet_INM5001;
 
+
+import javax.swing.KeyStroke;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -357,11 +360,6 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Messages, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,9 +394,7 @@ public class Interface extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel10)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(119, 119, 119)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel13)
@@ -438,9 +434,13 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTTaxesmunicipales, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)))
+                                .addComponent(jLabel12))
+                            .addComponent(Messages, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -450,11 +450,11 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(278, 278, 278))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Messages, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JprêtHypothécaire))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
+                .addComponent(JprêtHypothécaire)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Messages, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jdonnéesperso)
@@ -491,12 +491,13 @@ public class Interface extends javax.swing.JFrame {
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jTMois2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jTMois3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTMois2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14)
+                                        .addComponent(jTMois3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel16))
+                                    .addComponent(jLabel11))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTTaxesmunicipales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -549,21 +550,11 @@ public class Interface extends javax.swing.JFrame {
     //////////////////////////////////
     
     private void jTRevenusbrutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRevenusbrutsActionPerformed
-          try{
-          Double revenusBruts = Double.parseDouble(jTRevenusbruts.getText());
-          clientEv.setRevAnnuel(revenusBruts);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Revenus Bruts ».");
-        }
+         
     }//GEN-LAST:event_jTRevenusbrutsActionPerformed
 
     private void jTMisedefondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMisedefondsActionPerformed
-          try{
-          Double miseDeFonds = Double.parseDouble(jTMisedefonds.getText());
-          clientEv.setMiseFonds(miseDeFonds);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Mise de fonds ».");
-        }
+      
     }//GEN-LAST:event_jTMisedefondsActionPerformed
 
     private void jCouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCouiActionPerformed
@@ -573,73 +564,118 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jCouiActionPerformed
 
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
-            try{
-          double taxMunicipalesScol = Double.parseDouble(jTMisedefonds.getText());
-          maison.setTaxMunicipScol(taxMunicipalesScol);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Taxes municipales et scolaires ».");
-        } 
+
     }//GEN-LAST:event_jTTaxesmunicipalesActionPerformed
 
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
-          try{
-           if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
-                double limitVersement = Double.parseDouble(jTMois1.getText());
-                clientEv.setLimitVersm(limitVersement);
-           }
-           if(jCnom.isSelected() && !(jTMois1.getText().isEmpty())){           
-                        Messages.setText("le champ «Limiter vos versements mensuels.» doit être vide"  ); 
-           }         
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ «Limiter vos versements mensuels. " );
-        }
-          
+
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
-        Messages.setText("");
         
-        jTMois3ActionPerformed(evt);
-        jTMois2ActionPerformed(evt);
-        jTTaxesmunicipalesActionPerformed(evt);
-        jTMois1ActionPerformed(evt);
-        jTMisedefondsActionPerformed(evt);
-        jTEngagementsActionPerformed(evt);
-        jTRevenusbrutsActionPerformed(evt);
+        String revenusbrut = jTRevenusbruts.getText();
+        String engagement = jTEngagements.getText();
+        String misedefond = jTMisedefonds.getText();
+        String verseMensuelparmoi  = jTMois1.getText();
+        String taxemunicipales = jTTaxesmunicipales.getText();
+        String coutenergie = jTMois2.getText();
+        String fraisproprietaire = jTMois3.getText();
         
-        //double tauxInteret = tryChnEnDouble(jTextField3.getText(), "Entrer un "
-        //        + "montant dans le champ «Taux d'intérêt.");
         
-        String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
-        //Met nombre d'années en chiffres seulement
-        amortChn = amortChn.replace("ans", "").trim();
-        int amort = 12 * tryChnEnInt(amortChn, "Vous devez choisir un "
-                + "amortissement");//Convertit en nombre de mois
-        
-        //Pour calculer la valeur de la maison
-        maison.setValeur( PretHypothecaires.calculePretHypothecaires(clientEv
-                .getMiseFonds(), clientEv.getLimitVersm(), amort, clientEv.getRevAnnuel(), 
-                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
-                .getFraisProp()) );
-        
-        //Tests
-        //jTextField7.setText(amort + clientEv.getMiseFonds()""); 
-        /*
-        jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
-                + " Egagements Financiers=" + clientEv.getEngagmFinance() 
-                + " Revenus bruts(pas an)=" + clientEv.getRevAnnuel() 
-                + " Limite versement=" +clientEv.getLimitVersm() 
-                + " Amortissment=" + amort
-                + " Cout energie=" + maison.getCoutEnerg() 
-                + " Frais copropriété=" + maison.getFraisProp() 
-                + " Taxes municipales" + maison.getTaxMunicipScol()); 
-        */
-        //Affichage du résultata (valeur de la maison)
-        jTValeurmaximale.setText(maison.getValeur() + "");
-        JTprêtHypothécaire.setText(PretHypothecaires.pretHypothecaires + "");
-        if (maison.getValeur() <= 0) {
-            Messages.setText("Vous n'êtes pas admissibles pour un prêt");
-        }
+          if(!revenusbrut.matches("[0-9]{1,6}")){
+                 ButCalculer.setEnabled(false);
+                 Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
+            }else if(!engagement.matches("[0-9]{1,6}")){
+                 ButCalculer.setEnabled(false);
+                 Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
+            }else if(!misedefond.matches("[0-9]{1,6}")){
+                 ButCalculer.setEnabled(false);
+                 Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
+                
+            }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
+                  ButCalculer.setEnabled(false);
+                  Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
+            }else if(!taxemunicipales.matches("[0-9]{1,6}")){
+                  ButCalculer.setEnabled(false);               
+                  Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
+            }else if(!coutenergie.matches("[0-9]{1,6}")){
+                  ButCalculer.setEnabled(false);
+                  Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
+            }else if(!fraisproprietaire.matches("[0-9]{1,6}")){
+                  ButCalculer.setEnabled(false);
+                  Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
+            }else {    
+                
+                    //revenusbrut
+                     Double revenusBruts = Double.parseDouble(revenusbrut);
+                     clientEv.setRevAnnuel(revenusBruts);
+                     //engagement
+                      Double engagements = Double.parseDouble(engagement);
+                      clientEv.setEngagmFinance(engagements);                
+                      //mise de fond
+                     Double miseDeFonds = Double.parseDouble(misedefond);
+                     clientEv.setMiseFonds(miseDeFonds);
+                     //versement Mensuel par mois
+                     if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
+                     double limitVersement = Double.parseDouble(verseMensuelparmoi);
+                     clientEv.setLimitVersm(limitVersement);
+                     }
+                     if(jCnom.isSelected() && !(jTMois1.getText().isEmpty())){           
+                     Messages.setText("le champ «Limiter vos versements mensuels.» doit être vide"  ); 
+                     }  
+                     //taxe Munisipale
+                     double taxMunicipalesScol = Double.parseDouble(taxemunicipales);
+                     maison.setTaxMunicipScol(taxMunicipalesScol);
+                     //Coût d'éergie
+                     double coutEnergie = Double.parseDouble(coutenergie);
+                     maison.setCoutEnerg(coutEnergie);
+                     //fraisproprietaire
+                      double fraisProprietaire = Double.parseDouble(fraisproprietaire);
+                      maison.setFraisProp(fraisProprietaire);
+                     
+                     jTMois3ActionPerformed(evt);
+                     jTMois2ActionPerformed(evt);
+                     jTTaxesmunicipalesActionPerformed(evt);
+                     jTMois1ActionPerformed(evt);
+                     jTMisedefondsActionPerformed(evt);
+                     jTEngagementsActionPerformed(evt);
+                     jTRevenusbrutsActionPerformed(evt);
+
+                        //double tauxInteret = tryChnEnDouble(jTextField3.getText(), "Entrer un "
+                        //        + "montant dans le champ «Taux d'intérêt.");
+
+                     String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
+                        //Met nombre d'années en chiffres seulement
+                     amortChn = amortChn.replace("ans", "").trim();
+                     int amort = 12 * tryChnEnInt(amortChn, "Vous devez choisir un "
+                                + "amortissement");//Convertit en nombre de mois
+
+                        //Pour calculer la valeur de la maison
+                     maison.setValeur( PretHypothecaires.calculePretHypothecaires(clientEv
+                                .getMiseFonds(), clientEv.getLimitVersm(), amort, clientEv.getRevAnnuel(), 
+                                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
+                                .getFraisProp()) );
+
+                        //Tests
+                        //jTextField7.setText(amort + clientEv.getMiseFonds()""); 
+                        /*
+                        jTextField7.setText("Mise de fonds=" + clientEv.getMiseFonds() 
+                                + " Egagements Financiers=" + clientEv.getEngagmFinance() 
+                                + " Revenus bruts(pas an)=" + clientEv.getRevAnnuel() 
+                                + " Limite versement=" +clientEv.getLimitVersm() 
+                                + " Amortissment=" + amort
+                                + " Cout energie=" + maison.getCoutEnerg() 
+                                + " Frais copropriété=" + maison.getFraisProp() 
+                                + " Taxes municipales" + maison.getTaxMunicipScol()); 
+                        */
+                        //Affichage du résultata (valeur de la maison)
+                        jTValeurmaximale.setText(maison.getValeur() + "");
+                        JTprêtHypothécaire.setText(PretHypothecaires.pretHypothecaires + "");
+                        if (maison.getValeur() <= 0) {
+                            Messages.setText("Vous n'êtes pas admissibles pour un prêt");
+                        }
+                                 
+                            }       
        
     }//GEN-LAST:event_ButCalculerActionPerformed
 
@@ -663,35 +699,21 @@ public class Interface extends javax.swing.JFrame {
         
         jCnom.setSelected(false);
         jCoui.setSelected(false);
+        ButCalculer.setEnabled(true);
         
         
     }//GEN-LAST:event_ButEffacerActionPerformed
 
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
-          try{
-          double engagements = Double.parseDouble(jTEngagements.getText());
-          clientEv.setEngagmFinance(engagements);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Engagements financiers ».");
-        }
+         
     }//GEN-LAST:event_jTEngagementsActionPerformed
 
     private void jTMois2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois2ActionPerformed
-            try{
-          double coutEnergie = Double.parseDouble(jTMois2.getText());
-          maison.setCoutEnerg(coutEnergie);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Coûts d'énergie ».");
-        }
+      
     }//GEN-LAST:event_jTMois2ActionPerformed
 
     private void jTMois3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois3ActionPerformed
-           try{
-          double fraisProprietaire = Double.parseDouble(jTMois3.getText());
-          maison.setFraisProp(fraisProprietaire);
-        }catch(NumberFormatException e){
-         Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
-        }
+
     }//GEN-LAST:event_jTMois3ActionPerformed
 
     private void jTValeurmaximaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTValeurmaximaleActionPerformed
