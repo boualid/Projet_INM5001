@@ -477,7 +477,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTRevenusbrutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRevenusbrutsActionPerformed
         Double revenusBruts = tryChnEnDouble(jTRevenusbruts.getText(), "Entrer "
                 + "un montant dans le champ « Revenus Bruts ».");
-        clientEv.setRevAnnuel(revenusBruts);
         
         jTEngagementsActionPerformed(evt);
     }//GEN-LAST:event_jTRevenusbrutsActionPerformed
@@ -485,7 +484,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTMisedefondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMisedefondsActionPerformed
          double miseDeFonds = tryChnEnDouble(jTMisedefonds.getText(), "Entrer un"
                  + " montant dans le champ « Mise de fonds ».");
-        clientEv.setMiseFonds(miseDeFonds);
         
         jTMois1ActionPerformed(evt);
     }//GEN-LAST:event_jTMisedefondsActionPerformed
@@ -497,25 +495,22 @@ public class Interface extends javax.swing.JFrame {
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
         double taxMunicipalesScol = tryChnEnDouble(jTMisedefonds.getText(),
                 "Entrer un montant dans le champ « Taxes municipales et scolaires ».");    
-        maison.setTaxMunicipScol(taxMunicipalesScol);
         
         jTMois2ActionPerformed(evt);
     }//GEN-LAST:event_jTTaxesmunicipalesActionPerformed
 
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
-        if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
+        if(jCoui.isSelected()){   
               double limitVersement =tryChnEnDouble(jTMois1.getText(), "Entrer "
                       + "un montant dans le champ «Limiter vos versements mensuels. " );
-              clientEv.setLimitVersm(limitVersement);
-        
-            jTTaxesmunicipalesActionPerformed(evt);
         }
+            jTTaxesmunicipalesActionPerformed(evt);
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
-       
-        Messages.setText("");
         jTRevenusbrutsActionPerformed(evt);
+        Messages.setText("ButCalculerActionPerformed");
+        System.out.println("");//test
                
     }//GEN-LAST:event_ButCalculerActionPerformed
 
@@ -538,7 +533,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
         double engagements = tryChnEnDouble(jTEngagements.getText(), "Entrer un"
                 + " montant dans le champ « Engagements financiers ».");
-        clientEv.setEngagmFinance(engagements);
         
         jTMisedefondsActionPerformed(evt);
     }//GEN-LAST:event_jTEngagementsActionPerformed
@@ -546,7 +540,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTMois2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois2ActionPerformed
         double coutEnergie = tryChnEnDouble(jTMois2.getText(), "Entrer un "
                 + "montant dans le champ « Coûts d'énergie ».");    
-        maison.setCoutEnerg(coutEnergie);
         
         jTMois3ActionPerformed(evt);
     }//GEN-LAST:event_jTMois2ActionPerformed
@@ -554,7 +547,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTMois3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois3ActionPerformed
          double fraisProprietaire = tryChnEnDouble(jTMois3.getText(), "Entrer "
                  + "un montant dans le champ « Frais de copropriété ».");  
-        maison.setFraisProp(fraisProprietaire);
         
         calcAffichValMaison();
     }//GEN-LAST:event_jTMois3ActionPerformed
@@ -595,15 +587,20 @@ public class Interface extends javax.swing.JFrame {
         amort = 12 * tryChnEnInt(amortChn, "Vous devez choisir un "
                 + "amortissement");
         
-        //Pour calculer la valeur de la maison
-        maison.setValeur( PretHypothecaires.calculePretHypothecaires(clientEv
-                .getMiseFonds(), clientEv.getLimitVersm(), amort, clientEv.getRevAnnuel(), 
-                clientEv.getEngagmFinance(), maison.getCoutEnerg(), maison
-                .getFraisProp()) );
+        //Pour calculer la valeur de la maison et montant du prêt
+        valeurMaison = ( PretHypothecaires.calculePretHypothecaires(miseDeFonds,
+                limitVersement, amort, revenusBruts, engagements, coutEnergie,
+                 fraisProprietaire) );
+        
         
         //Affichage du résultata (valeur de la maison)
-        jTextField7.setText(maison.getValeur() + "");
-        if (maison.getValeur() <= 0) {
+        jTextField7.setText(valeurMaison + "");
+        
+        if (valeurMaison > 0) {
+            montantPret = valeurMaison - miseDeFonds;
+            // ... Mettre affichage 'montatn' du pret
+        }
+        if (valeurMaison <= 0) {
             Messages.setText("Vous n'êtes pas admissibles pour un prêt");
         }
     }
@@ -654,9 +651,15 @@ public class Interface extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-    //Attributs
+     //Attributs
     ////////////
-    private ClientEventuel clientEv = new ClientEventuel();
-    private Maison maison = new Maison();
-    private PretHypothecaires pretHyp = null;
+    
+    //Données perso
+    double revenusBruts, miseDeFonds, engagements, limitVersement;
+    //Infos de la maison
+    double taxMunicipalesScol, coutEnergie, fraisProprietaire, valeurMaison;
+    //Infos du prêt
+    int amort;
+    double montantPret;
+    
 }
