@@ -58,6 +58,42 @@ public class PretHypothecairesTest {
         assertEquals(expResult, result, 0.0);
         
     }
+    @Test
+    public void testCalculePretHypothecaires1() {
+        System.out.println("calculePretHypothecaires-1");
+        double miseDeFonds = 35000;
+        double versementMensuel = 750;
+        int ammortissement = 60;
+        double revenuBrut = 50000;
+        double engagementFinancier = 600;
+        double coutEnergie = 125;
+        double fraisCopropriete = 0.0;
+        
+        double expResult = 69286.94;
+        double result = PretHypothecaires.calculePretHypothecaires(miseDeFonds,
+                versementMensuel, ammortissement, revenuBrut, engagementFinancier,
+                coutEnergie, fraisCopropriete);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testCalculePretHypothecaires2() {
+        System.out.println("calculePretHypothecaires-2");
+        double miseDeFonds = 35000;
+        double versementMensuel = 750;
+        int ammortissement = 180;
+        double revenuBrut = 50000;
+        double engagementFinancier = 600;
+        double coutEnergie = 125;
+        double fraisCopropriete = 0.0;
+        
+        double expResult = 137860.82;
+        double result = PretHypothecaires.calculePretHypothecaires(miseDeFonds,
+                versementMensuel, ammortissement, revenuBrut, engagementFinancier,
+                coutEnergie, fraisCopropriete);
+        assertEquals(expResult, result, 0.0);
+        
+    }
 
     /**
      * Test of calculeTaxRevenu method, of class PretHypothecaires.
