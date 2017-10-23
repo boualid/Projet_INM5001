@@ -726,12 +726,14 @@ public class Interface extends javax.swing.JFrame {
 
 
             //Affichage : valeur de la maison
-            jTValeurmaximale.setText(df.format(valeurMaison));
+            //jTValeurmaximale.setText(df.format(valeurMaison));
+            jTValeurmaximale.setText(valeurMaison + "");
 
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
                 //Affichage : montant du prêt
-                JTprêtHypothécaire.setText(df.format(montantPret));
+                //JTprêtHypothécaire.setText(df.format(montantPret));
+                JTprêtHypothécaire.setText(montantPret + "");
             }
             if (valeurMaison <= 0) {
                 Messages.setText("Vous n'êtes pas admissibles pour un prêt");

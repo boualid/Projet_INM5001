@@ -47,7 +47,7 @@ public class PretHypothecaires {
         double chargesAnnuelle = 0.0;
         double taxaAplicable = 0.0;
         tauxGeneral = (tauxHypothecairesEnVigueur *6.12 );
-        System.out.println(tauxGeneral);
+        //System.out.println(tauxGeneral);
         mesualiteNet = versementMensuel - ((versementMensuel * tauxGeneral) / 100);
         pretHypothecaires = (mesualiteNet * ammortissement );
         pretHypothecaires= (double) Math.round(pretHypothecaires * 100) / 100;
@@ -76,17 +76,17 @@ public class PretHypothecaires {
         double taxSurSalaire = 0.0;
         if (revenu < 25000){
             taxSurSalaire = 15.5;
-        } 
-        else if(25000 <=  revenu ||  revenu <= 40000 ){
+        } //changement de || en && 
+        else if(25000 <=  revenu && revenu <= 40000 ){
             taxSurSalaire = 20.5;
         }
-        else if(40000 < revenu ||  revenu <= 55000 ){
+        else if(40000 < revenu && revenu <= 55000 ){
             taxSurSalaire = 27.5;
-        }
-        else if(55000 < revenu ||  revenu <= 750000 ){
+        } //Erreur: changement 75000 par 750000
+        else if(55000 < revenu &&  revenu <= 75000 ){
             taxSurSalaire = 33.5;
-        }
-        else if(75000 < revenu ||  revenu <= 1150000 ){
+        } //Erreur: changement 1150000 par 115000
+        else if(75000 < revenu &&  revenu <= 115000 ){
             taxSurSalaire = 39.5;
         }
         else {
