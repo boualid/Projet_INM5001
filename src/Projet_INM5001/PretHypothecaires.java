@@ -14,7 +14,7 @@ public class PretHypothecaires {
     public static double tauxHypothecairesEnVigueur = 3.89;
     public static double taxRevenu = 15.5;
     public static double taxMunicipaleEtScolaire = 2800.00;
-
+    public static double pretHypothecaires = 0.0;
     /**
      *
      * @param miseDeFonds : montant utiliser comme mise de fonds pour l'achat de
@@ -39,7 +39,7 @@ public class PretHypothecaires {
         double resultat = 0.0;
         double tauxGeneral = 0.0;
         double mesualiteNet = 0.0;
-        double pretHypothecaires = 0.0;
+        
         double revenuNet = 0.0;
         double tax = 0.0;
         double revenuNetMensuelle = 0.0;

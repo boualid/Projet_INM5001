@@ -51,7 +51,7 @@ public class Principale {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interface().setVisible(true);
-            }
+                }
         }); 
     
         //Test début methode pour un "select" table Amortissement de la BD
