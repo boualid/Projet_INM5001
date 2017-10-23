@@ -14,7 +14,7 @@ public class PretHypothecaires {
     public static double tauxHypothecairesEnVigueur = 3.89;
     public static double taxRevenu = 15.5;
     public static double taxMunicipaleEtScolaire = 2800.00;
-    public static double pretHypothecaires = 0.0;
+    public static double pretHypothecaires = 0.00;
     /**
      *
      * @param miseDeFonds : montant utiliser comme mise de fonds pour l'achat de
@@ -50,7 +50,8 @@ public class PretHypothecaires {
         System.out.println(tauxGeneral);
         mesualiteNet = versementMensuel - ((versementMensuel * tauxGeneral) / 100);
         pretHypothecaires = (mesualiteNet * ammortissement );
-        System.out.println(ammortissement);
+        pretHypothecaires= (double) Math.round(pretHypothecaires * 100) / 100;
+        //System.out.println(ammortissement);
         taxaAplicable = PretHypothecaires.calculeTaxRevenu(revenuBrut);
         tax = (revenuBrut * taxaAplicable) / 100;        
         chargesAnnuelle = (engagementFinancier + coutEnergie + fraisCopropriete) * 12;
@@ -59,6 +60,7 @@ public class PretHypothecaires {
         percentage = (revenuNetMensuelle * 40) / 100;
         if (percentage > versementMensuel) {
             resultat = pretHypothecaires + miseDeFonds;
+            resultat = (double) Math.round(resultat* 100) / 100;
         } else {
             resultat = 0.0;
         }
