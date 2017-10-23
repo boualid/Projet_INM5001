@@ -5,10 +5,6 @@
  */
 package Projet_INM5001;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,22 +17,7 @@ public class PretHypothecairesTest {
     public PretHypothecairesTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of calculePretHypothecaires method, of class PretHypothecaires.
      */

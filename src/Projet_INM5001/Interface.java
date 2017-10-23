@@ -696,7 +696,7 @@ public class Interface extends javax.swing.JFrame {
     //Methodes
     //////////
         
-        private int tryChnEnInt(String chaine, String msgErr){
+        protected int tryChnEnInt(String chaine, String msgErr){
         int entier = 0;
         try {
             entier = Integer.parseInt(chaine);        
@@ -705,15 +705,21 @@ public class Interface extends javax.swing.JFrame {
         }
         return entier;
     }
+        
+    protected int anChEnMoisChiff(String anCh){
+        
+        //Met nombre d'années en chiffres seulement
+        anCh = anCh.replace("ans", "").trim();
+        
+        //Convertit en nombre de mois et retourne le résultat
+        return 12 * tryChnEnInt(anCh, "Vous devez choisir un amortissement");
+    }
 
     private void calcAffichValMaison() {
         
         DecimalFormat df = new DecimalFormat("0.00");
         String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
-        //Met nombre d'années en chiffres seulement
-        amortChn = amortChn.replace("ans", "").trim();
-        //Convertit en nombre de mois
-        amort = 12 * tryChnEnInt(amortChn, "Vous devez choisir un amortissement");
+        amort = anChEnMoisChiff(amortChn);
         
         if (amort != 0) {
 
