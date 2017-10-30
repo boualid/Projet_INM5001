@@ -737,11 +737,22 @@ public class Interface extends javax.swing.JFrame {
 
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
+                
+                if (miseFonds < ((valeurMaison * 5) / 100)){
+                  //montantPret = 0;
+                  //valeurMaison= 0;
+                  Messages.setText("Un mise de fonds  de 5%  est exigee selon le prix de maison  !");
+                  jTValeurmaximale.setText(0.0 + "");
+                  JTprêtHypothécaire.setText(0.0 + "");
+                  
+                }
+                else{
                 //Affichage : montant du prêt
                 //JTprêtHypothécaire.setText(df.format(montantPret));
                 JTprêtHypothécaire.setText(montantPret + "");
             }
-            if (valeurMaison <= 0) {
+            }
+            if (valeurMaison == 0) {
                 Messages.setText("Vous n'êtes pas admissibles pour un prêt");
             }
         } else {
