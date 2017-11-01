@@ -722,42 +722,44 @@ public class Interface extends javax.swing.JFrame {
         amort = anChEnMoisChiff(amortChn);
         
         if (amort != 0) {
-
-            //Pour calculer la valeur de la maison et montant du prêt
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                      fraisProprio);
-            //Formatage du résultat
-            //aleurMaison = df.format(valeurMaison);
-
 
             //Affichage : valeur de la maison
-            //jTValeurmaximale.setText(df.format(valeurMaison));
             jTValeurmaximale.setText(valeurMaison + "");
 
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
+                montantAssuranceHypo = AssuranceHypothecaire.
+                        assurancePretHypo(montantPret, valeurMaison);
                 
                 if (miseFonds < ((valeurMaison * 5) / 100)){
-                  //montantPret = 0;
-                  //valeurMaison= 0;
-                  Messages.setText("Un mise de fonds  de 5%  est exigee selon le prix de maison  !");
+                    // METTRE UN POP-UP ICI : Utilisez le message dans Messages.setText()
+                    Messages.setText("Une mise de fonds  de 5% de du prix de la "
+                          + "maisonest exigée !");
                   jTValeurmaximale.setText(0.0 + "");
                   JTprêtHypothécaire.setText(0.0 + "");
                   
+                } else if (montantAssuranceHypo != 0) {
+                    // METTRE LE POP-UP ICI : Utilisez le message dans 
+                    //System.out.println()
+                    System.out.println("Une assurance hypothécaire, d'une valeur"
+                            + "de : " + df.format(montantAssuranceHypo) 
+                            + ",est obligatoire pour ce prêt");
                 }
                 else{
-                //Affichage : montant du prêt
-                //JTprêtHypothécaire.setText(df.format(montantPret));
-                JTprêtHypothécaire.setText(montantPret + "");
+                    //Affichage : montant du prêt
+                    //JTprêtHypothécaire.setText(df.format(montantPret));
+                    JTprêtHypothécaire.setText(montantPret + "");
+                }
+            } else if (valeurMaison == 0) {
+                Messages.setText("Vous n'êtes pas admissibles pour un prêt: "
+                        + "40% de vos dépenses mensuelles fixes dépasse votre"
+                        + "limite de versement mensuelle");
             }
-            }
-            if (valeurMaison == 0) {
-                Messages.setText("Vous n'êtes pas admissibles pour un prêt");
-            }
-        } else {
-            Messages.setText("Vous devez choisir un amortissement");
         }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -823,5 +825,6 @@ public class Interface extends javax.swing.JFrame {
     //Infos du prêt
     int amort;
     double montantPret;
+    double montantAssuranceHypo;
     
 }
