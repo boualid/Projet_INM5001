@@ -93,7 +93,7 @@ public class Interface extends javax.swing.JFrame {
 
         JprêtHypothécaire.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         JprêtHypothécaire.setForeground(java.awt.Color.darkGray);
-        JprêtHypothécaire.setText("Calcule Prêt Hypothécaires");
+        JprêtHypothécaire.setText("Calcul Prêt Hypothécaire");
 
         jdonnéesperso.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jdonnéesperso.setForeground(java.awt.Color.gray);
@@ -442,7 +442,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,7 +534,7 @@ public class Interface extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

@@ -1,3 +1,5 @@
+
+--Création de tables
 CREATE TABLE Client(
 	noClient INTEGER,
 	dateCreation DATE,

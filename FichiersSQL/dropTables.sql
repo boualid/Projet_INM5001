@@ -1,4 +1,6 @@
-﻿DROP TABLE Pret;
+
+-- Suppression des tables
+DROP TABLE Pret;
 
 DROP TABLE Amortissement;
 
