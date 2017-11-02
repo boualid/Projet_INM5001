@@ -726,9 +726,6 @@ public class Interface extends javax.swing.JFrame {
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                      fraisProprio);
 
-            //Affichage : valeur de la maison
-            jTValeurmaximale.setText(valeurMaison + "");
-
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
                 montantAssuranceHypo = AssuranceHypothecaire.
@@ -736,27 +733,30 @@ public class Interface extends javax.swing.JFrame {
                 
                 if (miseFonds < ((valeurMaison * 5) / 100)){
                     // METTRE UN POP-UP ICI : Utilisez le message dans Messages.setText()
-                    Messages.setText("Une mise de fonds  de 5% de du prix de la "
-                          + "maisonest exigée !");
+                    Messages.setText("Une mise de fonds  de 5% du prix de la "
+                          + "maison est exigée !");
                   jTValeurmaximale.setText(0.0 + "");
                   JTprêtHypothécaire.setText(0.0 + "");
                   
-                } else if (montantAssuranceHypo != 0) {
-                    // METTRE LE POP-UP ICI : Utilisez le message dans 
-                    //System.out.println()
-                    System.out.println("Une assurance hypothécaire, d'une valeur"
-                            + "de : " + df.format(montantAssuranceHypo) 
-                            + ",est obligatoire pour ce prêt");
-                }
-                else{
-                    //Affichage : montant du prêt
-                    //JTprêtHypothécaire.setText(df.format(montantPret));
+                } else{
+                    if (montantAssuranceHypo != 0) {
+                        // METTRE LE POP-UP ICI : Utilisez le message dans 
+                        //System.out.println()
+                        //CRÉER UN LABEL POUR AFFICHER : montantAssuranceHypo
+                        System.out.println("Une assurance hypothécaire, d'une valeur"
+                                + "de : " + df.format(montantAssuranceHypo) 
+                                + ",est obligatoire pour ce prêt");
+                    }
+                    //Affichage : valeur de la maison et montant du prêt
+                    jTValeurmaximale.setText(valeurMaison + "");
                     JTprêtHypothécaire.setText(montantPret + "");
                 }
             } else if (valeurMaison == 0) {
                 Messages.setText("Vous n'êtes pas admissibles pour un prêt: "
                         + "40% de vos dépenses mensuelles fixes dépasse votre"
                         + "limite de versement mensuelle");
+                jTValeurmaximale.setText(0.0 + "");
+                JTprêtHypothécaire.setText(0.0 + "");
             }
         }
         
