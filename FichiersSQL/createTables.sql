@@ -11,7 +11,7 @@ CREATE TABLE Client(
 
 CREATE TABLE Amortissement(
 	idAmortissement INTEGER,
-	dureeAmortissement INTEGER,
+	dureeAmortissement VARCHAR2(10),
 	CONSTRAINT pk_amortissement PRIMARY KEY (idAmortissement)
 )
 /

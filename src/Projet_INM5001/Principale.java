@@ -82,8 +82,8 @@ public class Principale {
         System.out.printf("%-20s\t%-20s\n", "idAmortissement","dureeAmortissement");
          while (resSet.next()) {
                 int idAmort = resSet.getInt("idAmortissement");
-                int dureeAmort = resSet.getInt("dureeAmortissement");
-                System.out.printf("%-20d\t%-20d\n", idAmort, dureeAmort);
+                String dureeAmort = resSet.getString("dureeAmortissement");
+                System.out.printf("%-20d\t%-20s\n", idAmort, dureeAmort);
          }
          
        } catch (SQLException ex) {
