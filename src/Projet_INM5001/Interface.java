@@ -1,8 +1,18 @@
 package Projet_INM5001;
 
 
+import java.awt.Color;
+import java.awt.Font;
 import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,13 +25,49 @@ import javax.swing.KeyStroke;
  * @author bwali
  */
 public class Interface extends javax.swing.JFrame {
-
+    /***********************
+     * CONSTANTES
+     ***********************/
+    private static final String MSG_ERR_REVBRUT = "Entrer un montant positif dans le champ « Revenus Bruts ».";
+    private static final String MSG_ERR_ENG = "Entrer un montant positif dans le champ « Engagements financiers ».";
+    private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif dans le champ « Mise de fonds ».";
+    private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
+    private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
+    private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
+    private static final String MSG_ERR_FRAISPROP = "Entrer un montant dans le champ « Frais de copropriété ».";
+   
+    
     /**
      * Creates new form Interface
      */
     public Interface() {
         initComponents();
     }
+     
+
+    public void msg_erreur(String msg){
+     JFrame frame = new JFrame();
+    
+         //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
+         //ui.put("OptionPane.messagebackground", new ColorUIResource(241,240,240));
+         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
+         UIManager.put("OptionPane.background", new ColorUIResource(241,240,240));
+         UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241,240,240));
+         
+         UIManager.put("Button.background", new ColorUIResource(241,240,240));
+         UIManager.put("Button.foreground", new ColorUIResource(241,240,240));
+
+
+ 
+         JOptionPane.showMessageDialog(frame, msg ,"Alerte",JOptionPane.WARNING_MESSAGE );
+  
+     
+         
+      }
+         
+         
+            
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -591,25 +637,26 @@ public class Interface extends javax.swing.JFrame {
         
           if(!revenusbrut.matches("[0-9]{1,6}")){
                  ButCalculer.setEnabled(false);
-                 Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
+                 msg_erreur(MSG_ERR_REVBRUT);
+                 //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
             }else if(!engagement.matches("[0-9]{1,6}")){
                  ButCalculer.setEnabled(false);
-                 Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
+                 //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
             }else if(!misedefond.matches("[0-9]{1,6}")){
                  ButCalculer.setEnabled(false);
-                 Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
+                 //Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
             }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
                   ButCalculer.setEnabled(false);
-                  Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
+                 // Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
             }else if(!taxemunicipales.matches("[0-9]{1,6}")){
                   ButCalculer.setEnabled(false);               
-                  Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
+                  //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
             }else if(!coutenergie.matches("[0-9]{1,6}")){
                   ButCalculer.setEnabled(false);
-                  Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
+                  //Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
             }else if(!fraisproprietaire.matches("[0-9]{1,6}")){
                   ButCalculer.setEnabled(false);
-                  Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
+                  //Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
             }else {    
                 
                     //revenusbrut
