@@ -35,7 +35,13 @@ public class Interface extends javax.swing.JFrame {
     private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
     private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
     private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
-    private static final String MSG_ERR_FRAISPROP = "Entrer un montant dans le champ « Frais de copropriété ».";
+    private static final String MSG_ALERTE_MISE_FONDS = "Une mise de fonds  de "
+            + "5% du prix de la maison est exigée !";
+    private static final String MSG_INFO_ASS_HYPO = "Une assurance hypothécaire"
+            + " (SCHL/Genworth) est obligatoire pour ce prêt";
+    private static final String MSG_INFO_NON_ADMISSIBLE = "Vous n'êtes pas "
+            + "admissibles pour un prêt: 40% de vos dépenses mensuelles fixes "
+            + "dépasse votre limite de versement mensuelle";
 
     /**
      * Creates new form Interface
@@ -44,11 +50,11 @@ public class Interface extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void msg_erreur(String msg) {
+    public void msg_erreur(String msg, String titre, int msgType) {
         JFrame frame = new JFrame();
 
         //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
-        //ui.put("OptionPane.messagebackground", new ColorUIResource(241,240,240));
+            UIManager.put("OptionPane.messageForeground", Color.RED);
         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
         UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241, 240, 240));
@@ -56,7 +62,7 @@ public class Interface extends javax.swing.JFrame {
         UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
         UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
 
-        JOptionPane.showMessageDialog(frame, msg, "Alerte", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(frame,msg, titre, msgType);
 
     }
 
@@ -121,6 +127,7 @@ public class Interface extends javax.swing.JFrame {
         jTAssuranceHypothecaire = new javax.swing.JTextField();
         jLabelMontantPrime = new javax.swing.JLabel();
         jButtonPagePrincipale = new javax.swing.JButton();
+        jButtonPagePrincipale1 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -411,10 +418,20 @@ public class Interface extends javax.swing.JFrame {
         jButtonPagePrincipale.setBackground(new java.awt.Color(11, 109, 11));
         jButtonPagePrincipale.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPagePrincipale.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPagePrincipale.setText("page d'acceil");
+        jButtonPagePrincipale.setText("Sortir");
         jButtonPagePrincipale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPagePrincipaleActionPerformed(evt);
+            }
+        });
+
+        jButtonPagePrincipale1.setBackground(new java.awt.Color(11, 109, 11));
+        jButtonPagePrincipale1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonPagePrincipale1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPagePrincipale1.setText("Acceil");
+        jButtonPagePrincipale1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPagePrincipale1ActionPerformed(evt);
             }
         });
 
@@ -425,6 +442,52 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(119, 119, 119)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jTMois2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel16))))
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(113, 113, 113)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(ButEffacer))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(jButtonPagePrincipale1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(jButtonPagePrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel19)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jTMois3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ButCalculer)
+                                .addGap(266, 266, 266))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -464,50 +527,7 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(250, 250, 250)
-                        .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(119, 119, 119)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTMois2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel16))))
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(113, 113, 113)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(ButEffacer))))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel19)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTMois3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel14))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButCalculer)
-                                .addGap(39, 39, 39)
-                                .addComponent(jButtonPagePrincipale)
-                                .addGap(40, 40, 40)))))
+                        .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -587,7 +607,8 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ButEffacer)
                             .addComponent(ButCalculer)
-                            .addComponent(jButtonPagePrincipale))
+                            .addComponent(jButtonPagePrincipale)
+                            .addComponent(jButtonPagePrincipale1))
                         .addGap(148, 148, 148))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(532, 532, 532)
@@ -653,7 +674,7 @@ public class Interface extends javax.swing.JFrame {
 
         if (!revenusbrut.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_REVBRUT);
+            msg_erreur(MSG_ERR_REVBRUT, "Erreur", JOptionPane.ERROR_MESSAGE);
             //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
         } else if (!engagement.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
@@ -757,13 +778,17 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_JTprêtHypothécaireActionPerformed
 
     private void jButtonPagePrincipaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipaleActionPerformed
-        new InterfacePrinciple().setVisible(true);
-        this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_jButtonPagePrincipaleActionPerformed
 
     private void jTAssuranceHypothecaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTAssuranceHypothecaireActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTAssuranceHypothecaireActionPerformed
+
+    private void jButtonPagePrincipale1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipale1ActionPerformed
+       new InterfacePrinciple().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonPagePrincipale1ActionPerformed
 
     //Methodes
     //////////
@@ -801,9 +826,8 @@ public class Interface extends javax.swing.JFrame {
                 montantPret = valeurMaison - miseFonds;
 
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
-                    // METTRE UN POP-UP ICI : Utilisez le message dans Messages.setText()
-                    Messages.setText("Une mise de fonds  de 5% du prix de la "
-                            + "maison est exigée !");
+                    msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
+                    Messages.setText(MSG_ALERTE_MISE_FONDS);
                     jTValeurmaximale.setText(0.0 + "");
                     JTprêtHypothécaire.setText(0.0 + "");
                     jTAssuranceHypothecaire.setText(0.0 + "");
@@ -811,10 +835,7 @@ public class Interface extends javax.swing.JFrame {
                     montantAssuranceHypo = AssuranceHypothecaire.
                             assurancePretHypo(montantPret, valeurMaison);
                     if (montantAssuranceHypo != 0) {
-                        // METTRE LE POP-UP ICI : Utilisez le message dans 
-                        JOptionPane.showMessageDialog(rootPane, "Une assurance "
-                                + "hypothécaire (SCHL/Genworth) est obligatoire"
-                                + " pour ce prêt");
+                        msg_erreur(MSG_INFO_ASS_HYPO, "Message", JOptionPane.INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText(jLabelMontantPrime.getText()
                         + " : " + "Obligatoire !");
                     }
@@ -824,9 +845,8 @@ public class Interface extends javax.swing.JFrame {
                     jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo));
                 }
             } else if (valeurMaison == 0) {
-                Messages.setText("Vous n'êtes pas admissibles pour un prêt: "
-                        + "40% de vos dépenses mensuelles fixes dépasse votre"
-                        + "limite de versement mensuelle");
+                msg_erreur(MSG_INFO_NON_ADMISSIBLE, "Message", JOptionPane.INFORMATION_MESSAGE);
+                Messages.setText(MSG_INFO_NON_ADMISSIBLE);
                 jTValeurmaximale.setText(0.0 + "");
                 JTprêtHypothécaire.setText(0.0 + "");
                 jTAssuranceHypothecaire.setText(0.0 + "");
@@ -877,6 +897,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel JprêtHypothécaire;
     private javax.swing.JLabel Messages;
     private javax.swing.JButton jButtonPagePrincipale;
+    private javax.swing.JButton jButtonPagePrincipale1;
     private javax.swing.JCheckBox jCnom;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JCheckBox jCoui;

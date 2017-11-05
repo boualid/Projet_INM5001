@@ -79,7 +79,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jButtonInterfacePrincipale.setBackground(new java.awt.Color(11, 109, 11));
         jButtonInterfacePrincipale.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonInterfacePrincipale.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonInterfacePrincipale.setText("Page d'acceil");
+        jButtonInterfacePrincipale.setText("Acceil");
         jButtonInterfacePrincipale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInterfacePrincipaleActionPerformed(evt);
@@ -392,8 +392,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(354, 354, 354)
-                        .addComponent(jButtonInterfacePrincipale)
-                        .addGap(88, 88, 88)
+                        .addComponent(jButtonInterfacePrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
                         .addComponent(jButtonInterface)
                         .addGap(98, 98, 98)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
