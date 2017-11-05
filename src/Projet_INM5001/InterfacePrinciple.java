@@ -62,7 +62,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         jButtonQuitter.setBackground(new java.awt.Color(11, 109, 11));
         jButtonQuitter.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonQuitter.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonQuitter.setText("Sortir");
+        jButtonQuitter.setText("Quitter");
         jButtonQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQuitterActionPerformed(evt);

@@ -422,7 +422,7 @@ public class Interface extends javax.swing.JFrame {
         jButtonPagePrincipale.setBackground(new java.awt.Color(11, 109, 11));
         jButtonPagePrincipale.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPagePrincipale.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPagePrincipale.setText("Sortir");
+        jButtonPagePrincipale.setText("Quitter");
         jButtonPagePrincipale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPagePrincipaleActionPerformed(evt);
@@ -432,7 +432,7 @@ public class Interface extends javax.swing.JFrame {
         jButtonPagePrincipale1.setBackground(new java.awt.Color(11, 109, 11));
         jButtonPagePrincipale1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPagePrincipale1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPagePrincipale1.setText("Acceil");
+        jButtonPagePrincipale1.setText("Accueil");
         jButtonPagePrincipale1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPagePrincipale1ActionPerformed(evt);
@@ -476,8 +476,8 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
-                                .addComponent(jButtonPagePrincipale1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
+                                .addComponent(jButtonPagePrincipale1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButtonPagePrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(71, 71, 71)
@@ -852,6 +852,7 @@ public class Interface extends javax.swing.JFrame {
                     }
                     //Affichage : valeur de la maison, montant prêt et assurance
                     jTValeurmaximale.setText(valeurMaison + ""+"$");
+                    montantPret = (double) Math.round(montantPret* 100) / 100;
                     JTprêtHypothécaire.setText(montantPret + ""+"$");
                     jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + ""+"$");
                 }

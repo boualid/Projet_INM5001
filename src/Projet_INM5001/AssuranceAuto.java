@@ -79,7 +79,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jButtonInterfacePrincipale.setBackground(new java.awt.Color(11, 109, 11));
         jButtonInterfacePrincipale.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonInterfacePrincipale.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonInterfacePrincipale.setText("Acceil");
+        jButtonInterfacePrincipale.setText("Accueil");
         jButtonInterfacePrincipale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInterfacePrincipaleActionPerformed(evt);
@@ -99,7 +99,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(11, 109, 11));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Sortir");
+        jButton1.setText("Quitter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
