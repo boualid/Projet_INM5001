@@ -68,7 +68,7 @@ public class PretHypothecaires {
     }
     
     public static double calculeversement( double revenuBrut, double engagementFinancier, 
-            double coutEnergie, double fraisCopropriete) {
+        double coutEnergie, double fraisCopropriete) {
         double taxaAplicable = 0.0;
         double tax = 0.0;
         double chargesAnnuelle = 0.0;

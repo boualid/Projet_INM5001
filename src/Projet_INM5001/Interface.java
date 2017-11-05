@@ -380,17 +380,20 @@ public class Interface extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18)
                                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelMontantPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -685,9 +688,11 @@ public class Interface extends javax.swing.JFrame {
             ButCalculer.setEnabled(false);
             msg_erreur(MSG_ERR_MISEDEFOND , "Erreur", JOptionPane.ERROR_MESSAGE);
             
-        }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
+        }else if(jCoui.isSelected()){
+            if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
             ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_VERSMENSUEL , "Erreur", JOptionPane.ERROR_MESSAGE);              
+            msg_erreur(MSG_ERR_VERSMENSUEL , "Erreur", JOptionPane.ERROR_MESSAGE); 
+            }
         }else if (!taxemunicipales.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_TAXEMUNICIPALE , "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
@@ -747,6 +752,7 @@ public class Interface extends javax.swing.JFrame {
         jTValeurmaximale.setText("");
         JTprêtHypothécaire.setText("");
         Messages.setText("");
+        jTAssuranceHypothecaire.setText("");
 
         jCnom.setSelected(false);
         jCoui.setSelected(false);
@@ -833,9 +839,9 @@ public class Interface extends javax.swing.JFrame {
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
-                    jTValeurmaximale.setText(0.0 + "");
-                    JTprêtHypothécaire.setText(0.0 + "");
-                    jTAssuranceHypothecaire.setText(0.0 + "");
+                    jTValeurmaximale.setText(0.0 +""+ "$");
+                    JTprêtHypothécaire.setText(0.0 +""+ "$");
+                    jTAssuranceHypothecaire.setText(0.0 +""+ "$");
                 } else {
                     montantAssuranceHypo = AssuranceHypothecaire.
                             assurancePretHypo(montantPret, valeurMaison);
@@ -845,16 +851,16 @@ public class Interface extends javax.swing.JFrame {
                         + " : " + "Obligatoire !");
                     }
                     //Affichage : valeur de la maison, montant prêt et assurance
-                    jTValeurmaximale.setText(valeurMaison + "");
-                    JTprêtHypothécaire.setText(montantPret + "");
-                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo));
+                    jTValeurmaximale.setText(valeurMaison + ""+"$");
+                    JTprêtHypothécaire.setText(montantPret + ""+"$");
+                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + ""+"$");
                 }
             } else if (valeurMaison == 0) {
                 msg_erreur(MSG_INFO_NON_ADMISSIBLE, "Message", JOptionPane.INFORMATION_MESSAGE);
                 Messages.setText(MSG_INFO_NON_ADMISSIBLE);
-                jTValeurmaximale.setText(0.0 + "");
-                JTprêtHypothécaire.setText(0.0 + "");
-                jTAssuranceHypothecaire.setText(0.0 + "");
+                jTValeurmaximale.setText(0.0 +""+"$");
+                JTprêtHypothécaire.setText(0.0 + ""+"$");
+                jTAssuranceHypothecaire.setText(0.0 +""+ "$");
             }
         }
 
