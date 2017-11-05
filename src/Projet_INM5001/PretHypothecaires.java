@@ -58,12 +58,31 @@ public class PretHypothecaires {
         revenuNet = revenuBrut - (tax + chargesAnnuelle + taxMunicipaleEtScolaire);
         revenuNetMensuelle = revenuNet / 12;
         percentage = (revenuNetMensuelle * 40) / 100;
-        if (percentage > versementMensuel) {
+        //if (percentage > versementMensuel) {
             resultat = pretHypothecaires + miseDeFonds;
             resultat = (double) Math.round(resultat* 100) / 100;
-        } else {
-            resultat = 0.0;
-        }
+       // } else {
+           // resultat = 0.0;
+        //}
+        return resultat;
+    }
+    
+    public static double calculeversement( double revenuBrut, double engagementFinancier, 
+            double coutEnergie, double fraisCopropriete) {
+        double taxaAplicable = 0.0;
+        double tax = 0.0;
+        double chargesAnnuelle = 0.0;
+        double revenuNet = 0.0;
+        double revenuNetMensuelle = 0.0;
+        double resultat = 0.0;
+        taxaAplicable = PretHypothecaires.calculeTaxRevenu(revenuBrut);
+        tax = (revenuBrut * taxaAplicable) / 100;  
+        chargesAnnuelle = (engagementFinancier + coutEnergie + fraisCopropriete) * 12;
+        revenuNet = revenuBrut - (tax + chargesAnnuelle + taxMunicipaleEtScolaire);
+        revenuNetMensuelle = revenuNet / 12;
+        resultat = (revenuNetMensuelle * 40) / 100;
+        resultat = (double) Math.round(resultat* 100) / 100;
+        System.out.println(resultat);
         return resultat;
     }
     /**

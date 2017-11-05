@@ -1,6 +1,5 @@
 package Projet_INM5001;
 
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DecimalFormat;
@@ -19,15 +18,17 @@ import javax.swing.plaf.ColorUIResource;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author bwali
  */
 public class Interface extends javax.swing.JFrame {
-    /***********************
+
+    /**
+     * *********************
      * CONSTANTES
-     ***********************/
+     **********************
+     */
     private static final String MSG_ERR_REVBRUT = "Entrer un montant positif dans le champ « Revenus Bruts ».";
     private static final String MSG_ERR_ENG = "Entrer un montant positif dans le champ « Engagements financiers ».";
     private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif dans le champ « Mise de fonds ».";
@@ -35,39 +36,29 @@ public class Interface extends javax.swing.JFrame {
     private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
     private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
     private static final String MSG_ERR_FRAISPROP = "Entrer un montant dans le champ « Frais de copropriété ».";
-   
-    
+
     /**
      * Creates new form Interface
      */
     public Interface() {
         initComponents();
     }
-     
 
-    public void msg_erreur(String msg){
-     JFrame frame = new JFrame();
-    
-         //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
-         //ui.put("OptionPane.messagebackground", new ColorUIResource(241,240,240));
-         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
-         UIManager.put("OptionPane.background", new ColorUIResource(241,240,240));
-         UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241,240,240));
-         
-         UIManager.put("Button.background", new ColorUIResource(241,240,240));
-         UIManager.put("Button.foreground", new ColorUIResource(241,240,240));
+    public void msg_erreur(String msg) {
+        JFrame frame = new JFrame();
 
+        //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
+        //ui.put("OptionPane.messagebackground", new ColorUIResource(241,240,240));
+        //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
+        UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
+        UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241, 240, 240));
 
- 
-  JOptionPane.showMessageDialog(frame, msg ,"Alerte",JOptionPane.WARNING_MESSAGE );
-  
-     
-         
-      }
-         
-         
-            
-            
+        UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
+        UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
+
+        JOptionPane.showMessageDialog(frame, msg, "Alerte", JOptionPane.WARNING_MESSAGE);
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -594,30 +585,29 @@ public class Interface extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-     //Methodes pour 'ActionPerformed'
+    //Methodes pour 'ActionPerformed'
     //////////////////////////////////
-    
+
     private void jTRevenusbrutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRevenusbrutsActionPerformed
-        
+
     }//GEN-LAST:event_jTRevenusbrutsActionPerformed
 
     private void jTMisedefondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMisedefondsActionPerformed
-        
+
     }//GEN-LAST:event_jTMisedefondsActionPerformed
 
     private void jCouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCouiActionPerformed
-        if(jCoui.isSelected()) {
-            jCnom.setSelected(false);           
+        if (jCoui.isSelected()) {
+            jCnom.setSelected(false);
         }
     }//GEN-LAST:event_jCouiActionPerformed
 
     private void jTTaxesmunicipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTaxesmunicipalesActionPerformed
-        
+
     }//GEN-LAST:event_jTTaxesmunicipalesActionPerformed
 
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
-        
+
     }//GEN-LAST:event_jTMois1ActionPerformed
 
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
@@ -625,70 +615,72 @@ public class Interface extends javax.swing.JFrame {
         Messages.setText("");
         //Messages.setText("ButCalculerActionPerformed");
         //System.out.println("");//test
-        
+
         String revenusbrut = jTRevenusbruts.getText().trim();
         String engagement = jTEngagements.getText().trim();
         String misedefond = jTMisedefonds.getText().trim();
-        String verseMensuelparmoi  = jTMois1.getText().trim();
+        String verseMensuelparmoi = jTMois1.getText().trim();
         String taxemunicipales = jTTaxesmunicipales.getText().trim();
         String coutenergie = jTMois2.getText().trim();
         String fraisproprietaire = jTMois3.getText().trim();
-        
-        
-          if(!revenusbrut.matches("[0-9]{1,6}")){
-                 ButCalculer.setEnabled(false);
-                 msg_erreur(MSG_ERR_REVBRUT);
-                 //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
-            }else if(!engagement.matches("[0-9]{1,6}")){
-                 ButCalculer.setEnabled(false);
-                 //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
-            }else if(!misedefond.matches("[0-9]{1,6}")){
-                 ButCalculer.setEnabled(false);
-                 //Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
-            }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
-                  ButCalculer.setEnabled(false);
-                 // Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
-            }else if(!taxemunicipales.matches("[0-9]{1,6}")){
-                  ButCalculer.setEnabled(false);               
-                  //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
-            }else if(!coutenergie.matches("[0-9]{1,6}")){
-                  ButCalculer.setEnabled(false);
-                  //Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
-            }else if(!fraisproprietaire.matches("[0-9]{1,6}")){
-                  ButCalculer.setEnabled(false);
-                  //Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
-            }else {    
-                
-                    //revenusbrut
-                     revBruts = Double.parseDouble(revenusbrut);
-                     //engagement
-                      engagm = Double.parseDouble(engagement);
-                      //mise de fond
-                     miseFonds = Double.parseDouble(misedefond);
-                     //versement Mensuel par mois
-                     if(jCoui.isSelected() && !(jTMois1.getText().isEmpty())){   
-                     limitVersement = Double.parseDouble(verseMensuelparmoi);
-                     }
-                     if(jCnom.isSelected() && !(jTMois1.getText().isEmpty())){           
-                     Messages.setText("le champ «Limiter vos versements mensuels.» doit être vide"  ); 
-                     }  
-                     //taxe Munisipale
-                     taxMunicipalesScol = Double.parseDouble(taxemunicipales);
-                     //Coût d'éergie
-                     coutEnerg = Double.parseDouble(coutenergie);
-                     //fraisproprietaire
-                      fraisProprio = Double.parseDouble(fraisproprietaire);
-                     
-                      calcAffichValMaison();
-                      
-                     jTMois3ActionPerformed(evt);
-                     jTMois2ActionPerformed(evt);
-                     jTTaxesmunicipalesActionPerformed(evt);
-                     jTMois1ActionPerformed(evt);
-                     jTMisedefondsActionPerformed(evt);
-                     jTEngagementsActionPerformed(evt);
-                     jTRevenusbrutsActionPerformed(evt);
+
+        if (!revenusbrut.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            msg_erreur(MSG_ERR_REVBRUT);
+            //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
+        } else if (!engagement.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
+        } else if (!misedefond.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            //Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
+        }//else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
+        //  ButCalculer.setEnabled(false);
+        // Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
+        //            }
+        else if (!taxemunicipales.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
+        } else if (!coutenergie.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            //Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
+        } else if (!fraisproprietaire.matches("[0-9]{1,6}")) {
+            ButCalculer.setEnabled(false);
+            //Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
+        } else {
+
+            //revenusbrut
+            revBruts = Double.parseDouble(revenusbrut);
+            //engagement
+            engagm = Double.parseDouble(engagement);
+            //mise de fond
+            miseFonds = Double.parseDouble(misedefond);
+            //versement Mensuel par mois
+            if (jCoui.isSelected() && !(jTMois1.getText().isEmpty())) {
+                limitVersement = Double.parseDouble(verseMensuelparmoi);
             }
+
+            //taxe Munisipale
+            taxMunicipalesScol = Double.parseDouble(taxemunicipales);
+            //Coût d'éergie
+            coutEnerg = Double.parseDouble(coutenergie);
+            //fraisproprietaire
+            fraisProprio = Double.parseDouble(fraisproprietaire);
+            
+            if (jCnom.isSelected() && (jTMois1.getText().isEmpty())) {
+                limitVersement = PretHypothecaires.calculeversement(revBruts, engagm, coutEnerg, fraisProprio); 
+                jTMois1.setText(limitVersement +"");
+            }
+            calcAffichValMaison();
+
+            jTMois3ActionPerformed(evt);
+            jTMois2ActionPerformed(evt);
+            jTTaxesmunicipalesActionPerformed(evt);
+            jTMois1ActionPerformed(evt);
+            jTMisedefondsActionPerformed(evt);
+            jTEngagementsActionPerformed(evt);
+            jTRevenusbrutsActionPerformed(evt);
+        }
     }//GEN-LAST:event_ButCalculerActionPerformed
 
     private void ButEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButEffacerActionPerformed
@@ -702,36 +694,35 @@ public class Interface extends javax.swing.JFrame {
         jTValeurmaximale.setText("");
         JTprêtHypothécaire.setText("");
         Messages.setText("");
-        
-        
+
         jCnom.setSelected(false);
         jCoui.setSelected(false);
         ButCalculer.setEnabled(true);
-        
-        
+
+
     }//GEN-LAST:event_ButEffacerActionPerformed
 
     private void jTEngagementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEngagementsActionPerformed
-        
+
     }//GEN-LAST:event_jTEngagementsActionPerformed
 
     private void jTMois2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois2ActionPerformed
-        
+
     }//GEN-LAST:event_jTMois2ActionPerformed
 
     private void jTMois3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois3ActionPerformed
-        
+
     }//GEN-LAST:event_jTMois3ActionPerformed
 
     private void jTValeurmaximaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTValeurmaximaleActionPerformed
-       
+
     }//GEN-LAST:event_jTValeurmaximaleActionPerformed
 
     private void jCnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCnomActionPerformed
-               if(jCnom.isSelected()){
-                   jCoui.setSelected(false);
-                   jTMois1.setText(""); 
-                }
+        if (jCnom.isSelected()) {
+            jCoui.setSelected(false);
+            jTMois1.setText("");
+        }
     }//GEN-LAST:event_jCnomActionPerformed
 
     private void JTprêtHypothécaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTprêtHypothécaireActionPerformed
@@ -745,56 +736,55 @@ public class Interface extends javax.swing.JFrame {
 
     //Methodes
     //////////
-        
-        protected int tryChnEnInt(String chaine, String msgErr){
+    protected int tryChnEnInt(String chaine, String msgErr) {
         int entier = 0;
         try {
-            entier = Integer.parseInt(chaine);        
+            entier = Integer.parseInt(chaine);
         } catch (NumberFormatException e) {
-         Messages.setText(msgErr);
+            Messages.setText(msgErr);
         }
         return entier;
     }
-        
-    protected int anChEnMoisChiff(String anCh){
-        
+
+    protected int anChEnMoisChiff(String anCh) {
+
         //Met nombre d'années en chiffres seulement
         anCh = anCh.replace("ans", "").trim();
-        
+
         //Convertit en nombre de mois et retourne le résultat
         return 12 * tryChnEnInt(anCh, "Vous devez choisir un amortissement");
     }
 
     private void calcAffichValMaison() {
-        
+
         DecimalFormat df = new DecimalFormat("0.00");
         String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
         amort = anChEnMoisChiff(amortChn);
-        
+
         if (amort != 0) {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
-                     fraisProprio);
+                    fraisProprio);
 
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
                 montantAssuranceHypo = AssuranceHypothecaire.
                         assurancePretHypo(montantPret, valeurMaison);
-                
-                if (miseFonds < ((valeurMaison * 5) / 100)){
+
+                if (miseFonds < ((valeurMaison * 5) / 100)) {
                     // METTRE UN POP-UP ICI : Utilisez le message dans Messages.setText()
                     Messages.setText("Une mise de fonds  de 5% du prix de la "
-                          + "maison est exigée !");
-                  jTValeurmaximale.setText(0.0 + "");
-                  JTprêtHypothécaire.setText(0.0 + "");
-                  
-                } else{
+                            + "maison est exigée !");
+                    jTValeurmaximale.setText(0.0 + "");
+                    JTprêtHypothécaire.setText(0.0 + "");
+
+                } else {
                     if (montantAssuranceHypo != 0) {
                         // METTRE LE POP-UP ICI : Utilisez le message dans 
                         //System.out.println()
                         //CRÉER UN LABEL POUR AFFICHER : montantAssuranceHypo
                         System.out.println("Une assurance hypothécaire, d'une valeur"
-                                + "de : " + df.format(montantAssuranceHypo) 
+                                + "de : " + df.format(montantAssuranceHypo)
                                 + ",est obligatoire pour ce prêt");
                     }
                     //Affichage : valeur de la maison et montant du prêt
@@ -809,9 +799,9 @@ public class Interface extends javax.swing.JFrame {
                 JTprêtHypothécaire.setText(0.0 + "");
             }
         }
-        
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -899,10 +889,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
 
-
-     //Attributs
+    //Attributs
     ////////////
-    
     //Données perso
     double revBruts, miseFonds, engagm, limitVersement;
     //Infos de la maison
@@ -911,5 +899,5 @@ public class Interface extends javax.swing.JFrame {
     int amort;
     double montantPret;
     double montantAssuranceHypo;
-    
+
 }
