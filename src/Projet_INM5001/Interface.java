@@ -35,13 +35,14 @@ public class Interface extends javax.swing.JFrame {
     private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
     private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
     private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
+    private static final String MSG_ERR_FRAIS_PROP= "Entrer un montant dans le champ « Frais de copropriété ».";
     private static final String MSG_ALERTE_MISE_FONDS = "Une mise de fonds  de "
             + "5% du prix de la maison est exigée !";
     private static final String MSG_INFO_ASS_HYPO = "Une assurance hypothécaire"
             + " (SCHL/Genworth) est obligatoire pour ce prêt";
     private static final String MSG_INFO_NON_ADMISSIBLE = "Vous n'êtes pas "
-            + "admissibles pour un prêt: 40% de vos dépenses mensuelles fixes "
-            + "dépasse votre limite de versement mensuelle";
+            + "admissible pour un prêt: 40% de vos dépenses mensuelles fixes "
+            + "dépasse votre limite de versement mensuel";
 
     /**
      * Creates new form Interface
@@ -677,22 +678,26 @@ public class Interface extends javax.swing.JFrame {
             msg_erreur(MSG_ERR_REVBRUT, "Erreur", JOptionPane.ERROR_MESSAGE);
             //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
         } else if (!engagement.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_ENG , "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
         } else if (!misedefond.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
-            //Messages.setText("Entrer un montant positif dans le champ « Mise de fonds ».");
-        }//else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
-        //  ButCalculer.setEnabled(false);
-        // Messages.setText("Entrer un montant positif dans le champ «Limiter vos versements mensuels. " );              
-        //            }
-        else if (!taxemunicipales.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_MISEDEFOND , "Erreur", JOptionPane.ERROR_MESSAGE);
+            
+        }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
+            ButCalculer.setEnabled(false);
+            msg_erreur(MSG_ERR_COUTENERGIE , "Erreur", JOptionPane.ERROR_MESSAGE);              
+        }else if (!taxemunicipales.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_TAXEMUNICIPALE , "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
         } else if (!coutenergie.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_COUTENERGIE, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
         } else if (!fraisproprietaire.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_FRAIS_PROP, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
         } else {
