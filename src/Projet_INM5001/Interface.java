@@ -117,6 +117,9 @@ public class Interface extends javax.swing.JFrame {
         JTprêtHypothécaire = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabelAssuranceHypo = new javax.swing.JLabel();
+        jTAssuranceHypothecaire = new javax.swing.JTextField();
+        jLabelMontantPrime = new javax.swing.JLabel();
         jButtonPagePrincipale = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -336,6 +339,19 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Projet_INM5001/Logo.png"))); // NOI18N
 
+        jLabelAssuranceHypo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelAssuranceHypo.setForeground(new java.awt.Color(0, 173, 82));
+        jLabelAssuranceHypo.setText("Assurance prêt Hypothécaire");
+
+        jTAssuranceHypothecaire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTAssuranceHypothecaireActionPerformed(evt);
+            }
+        });
+
+        jLabelMontantPrime.setForeground(new java.awt.Color(0, 173, 82));
+        jLabelMontantPrime.setText("Prime (SCHL/Genworth)");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -348,19 +364,25 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(105, 105, 105))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelMontantPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +399,13 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addGap(18, 18, 18)
                 .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMontantPrime)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jButtonPagePrincipale.setBackground(new java.awt.Color(11, 109, 11));
@@ -473,8 +501,7 @@ public class Interface extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTMois3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel14)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addComponent(jLabel14))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ButCalculer)
@@ -734,6 +761,10 @@ public class Interface extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonPagePrincipaleActionPerformed
 
+    private void jTAssuranceHypothecaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTAssuranceHypothecaireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTAssuranceHypothecaireActionPerformed
+
     //Methodes
     //////////
     protected int tryChnEnInt(String chaine, String msgErr) {
@@ -768,8 +799,6 @@ public class Interface extends javax.swing.JFrame {
 
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
-                montantAssuranceHypo = AssuranceHypothecaire.
-                        assurancePretHypo(montantPret, valeurMaison);
 
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     // METTRE UN POP-UP ICI : Utilisez le message dans Messages.setText()
@@ -777,19 +806,22 @@ public class Interface extends javax.swing.JFrame {
                             + "maison est exigée !");
                     jTValeurmaximale.setText(0.0 + "");
                     JTprêtHypothécaire.setText(0.0 + "");
-
+                    jTAssuranceHypothecaire.setText(0.0 + "");
                 } else {
+                    montantAssuranceHypo = AssuranceHypothecaire.
+                            assurancePretHypo(montantPret, valeurMaison);
                     if (montantAssuranceHypo != 0) {
                         // METTRE LE POP-UP ICI : Utilisez le message dans 
-                        //System.out.println()
-                        //CRÉER UN LABEL POUR AFFICHER : montantAssuranceHypo
-                        System.out.println("Une assurance hypothécaire, d'une valeur"
-                                + "de : " + df.format(montantAssuranceHypo)
-                                + ",est obligatoire pour ce prêt");
+                        JOptionPane.showMessageDialog(rootPane, "Une assurance "
+                                + "hypothécaire (SCHL/Genworth) est obligatoire"
+                                + " pour ce prêt");
+                        jLabelMontantPrime.setText(jLabelMontantPrime.getText()
+                        + " : " + "Obligatoire !");
                     }
-                    //Affichage : valeur de la maison et montant du prêt
+                    //Affichage : valeur de la maison, montant prêt et assurance
                     jTValeurmaximale.setText(valeurMaison + "");
                     JTprêtHypothécaire.setText(montantPret + "");
+                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo));
                 }
             } else if (valeurMaison == 0) {
                 Messages.setText("Vous n'êtes pas admissibles pour un prêt: "
@@ -797,6 +829,7 @@ public class Interface extends javax.swing.JFrame {
                         + "limite de versement mensuelle");
                 jTValeurmaximale.setText(0.0 + "");
                 JTprêtHypothécaire.setText(0.0 + "");
+                jTAssuranceHypothecaire.setText(0.0 + "");
             }
         }
 
@@ -868,6 +901,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAssuranceHypo;
+    private javax.swing.JLabel jLabelMontantPrime;
     private javax.swing.JLabel jMisedefonds;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -875,6 +910,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jRevenusbruts;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTAssuranceHypothecaire;
     private javax.swing.JTextField jTEngagements;
     private javax.swing.JTextField jTMisedefonds;
     private javax.swing.JTextField jTMois1;
