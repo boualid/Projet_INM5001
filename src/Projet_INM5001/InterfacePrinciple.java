@@ -32,6 +32,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         jButtonAssurance = new javax.swing.JButton();
         jButtonQuitter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +70,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.darkGray);
-        jLabel1.setText("Simulateur de calcul Prêt Hypothécaire & Assurance Hypothécaire et Auto ");
+        jLabel1.setText("<html><center>Simulateur de calcul: <br> Prêt Hypothécaire & Assurance Prêt Hypothécaire <br>Assurance Auto</center></html> ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,16 +86,22 @@ public class InterfacePrinciple extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(jButtonQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel1)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGap(254, 254, 254)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPrêt)
                     .addComponent(jButtonAssurance)
@@ -106,7 +113,10 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,19 +127,19 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonPrêtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrêtActionPerformed
-        new Interface().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButtonPrêtActionPerformed
-
     private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButtonQuitterActionPerformed
 
     private void jButtonAssuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAssuranceActionPerformed
         new AssuranceAuto().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAssuranceActionPerformed
+
+    private void jButtonPrêtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrêtActionPerformed
+        new Interface().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonPrêtActionPerformed
 
 
 
@@ -138,6 +148,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPrêt;
     private javax.swing.JButton jButtonQuitter;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

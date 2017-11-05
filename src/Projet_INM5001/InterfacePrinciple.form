@@ -23,7 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -54,20 +58,27 @@
                           <Component id="jButtonQuitter" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="610" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="79" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="342" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace pref="200" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonPrêt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAssurance" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,8 +149,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Simulateur de calcul Pr&#xea;t Hypoth&#xe9;caire &amp; Assurance Hypoth&#xe9;caire et Auto "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Simulateur de calcul: &lt;br&gt; Pr&#xea;t Hypoth&#xe9;caire &amp; Assurance Pr&#xea;t Hypoth&#xe9;caire &lt;br&gt;Assurance Auto&lt;/center&gt;&lt;/html&gt; "/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
         </Component>
       </SubComponents>
     </Container>
