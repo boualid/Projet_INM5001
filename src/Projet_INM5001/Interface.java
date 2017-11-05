@@ -507,9 +507,9 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(jCnom)
                                         .addGap(18, 18, 18)
                                         .addComponent(jCoui)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTMois1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTMois1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel4))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTEngagements, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -687,7 +687,7 @@ public class Interface extends javax.swing.JFrame {
             
         }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
             ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_COUTENERGIE , "Erreur", JOptionPane.ERROR_MESSAGE);              
+            msg_erreur(MSG_ERR_VERSMENSUEL , "Erreur", JOptionPane.ERROR_MESSAGE);              
         }else if (!taxemunicipales.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_TAXEMUNICIPALE , "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
