@@ -125,8 +125,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel5.setForeground(java.awt.Color.gray);
         jLabel5.setText("Kilométrage annuel effectué avec le véhicule");
 
-        jTextField1.setText("jTextField1");
-
         jLabel6.setText("par année");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -179,7 +177,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\bwali\\Desktop\\Voiture.png")); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Projet_INM5001/auto.png"))); // NOI18N
         jLabel22.setText("jLabel22");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -189,8 +187,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Projet_INM5001/Personne.png"))); // NOI18N
         jLabel21.setText("jLabel21");
 
-        jLabel2.setBackground(new java.awt.Color(79, 76, 76));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.gray);
         jLabel2.setText("Vous");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
