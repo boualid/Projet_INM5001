@@ -26,8 +26,7 @@ public class Interface extends javax.swing.JFrame {
 
     /**
      * *********************
-     * CONSTANTES
-     **********************
+     * CONSTANTES *********************
      */
     private static final String MSG_ERR_REVBRUT = "Entrer un montant positif dans le champ « Revenus Bruts ».";
     private static final String MSG_ERR_ENG = "Entrer un montant positif dans le champ « Engagements financiers ».";
@@ -35,7 +34,7 @@ public class Interface extends javax.swing.JFrame {
     private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
     private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
     private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
-    private static final String MSG_ERR_FRAIS_PROP= "Entrer un montant dans le champ « Frais de copropriété ».";
+    private static final String MSG_ERR_FRAIS_PROP = "Entrer un montant dans le champ « Frais de copropriété ».";
     private static final String MSG_ALERTE_MISE_FONDS = "Une mise de fonds  de "
             + "5% du prix de la maison est exigée !";
     private static final String MSG_INFO_ASS_HYPO = "Une assurance hypothécaire"
@@ -55,7 +54,7 @@ public class Interface extends javax.swing.JFrame {
         JFrame frame = new JFrame();
 
         //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
-            UIManager.put("OptionPane.messageForeground", Color.RED);
+        UIManager.put("OptionPane.messageForeground", Color.RED);
         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
         UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241, 240, 240));
@@ -63,7 +62,7 @@ public class Interface extends javax.swing.JFrame {
         UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
         UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
 
-        JOptionPane.showMessageDialog(frame,msg, titre, msgType);
+        JOptionPane.showMessageDialog(frame, msg, titre, msgType);
 
     }
 
@@ -681,20 +680,20 @@ public class Interface extends javax.swing.JFrame {
             msg_erreur(MSG_ERR_REVBRUT, "Erreur", JOptionPane.ERROR_MESSAGE);
             //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
         } else if (!engagement.matches("[0-9]{1,6}")) {
-            msg_erreur(MSG_ERR_ENG , "Erreur", JOptionPane.ERROR_MESSAGE);
+            msg_erreur(MSG_ERR_ENG, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
         } else if (!misedefond.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_MISEDEFOND , "Erreur", JOptionPane.ERROR_MESSAGE);
-            
-        }else if(jCoui.isSelected()){
-            if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
-            ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_VERSMENSUEL , "Erreur", JOptionPane.ERROR_MESSAGE); 
+            msg_erreur(MSG_ERR_MISEDEFOND, "Erreur", JOptionPane.ERROR_MESSAGE);
+
+        } else if (jCoui.isSelected()) {
+            if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
+                ButCalculer.setEnabled(false);
+                msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
             }
-        }else if (!taxemunicipales.matches("[0-9]{1,6}")) {
-            msg_erreur(MSG_ERR_TAXEMUNICIPALE , "Erreur", JOptionPane.ERROR_MESSAGE);
+        } else if (!taxemunicipales.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_TAXEMUNICIPALE, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
         } else if (!coutenergie.matches("[0-9]{1,6}")) {
@@ -724,10 +723,10 @@ public class Interface extends javax.swing.JFrame {
             coutEnerg = Double.parseDouble(coutenergie);
             //fraisproprietaire
             fraisProprio = Double.parseDouble(fraisproprietaire);
-            
+
             if (jCnom.isSelected() && (jTMois1.getText().isEmpty())) {
-                limitVersement = PretHypothecaires.calculeversement(revBruts, engagm, coutEnerg, fraisProprio); 
-                jTMois1.setText(limitVersement +"");
+                limitVersement = PretHypothecaires.calculeversement(revBruts, engagm, coutEnerg, fraisProprio);
+                jTMois1.setText(limitVersement + "");
             }
             calcAffichValMaison();
 
@@ -797,7 +796,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTAssuranceHypothecaireActionPerformed
 
     private void jButtonPagePrincipale1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipale1ActionPerformed
-       new InterfacePrinciple().setVisible(true);
+        new InterfacePrinciple().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonPagePrincipale1ActionPerformed
 
@@ -839,29 +838,29 @@ public class Interface extends javax.swing.JFrame {
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
-                    jTValeurmaximale.setText(0.0 +""+ "$");
-                    JTprêtHypothécaire.setText(0.0 +""+ "$");
-                    jTAssuranceHypothecaire.setText(0.0 +""+ "$");
+                    jTValeurmaximale.setText(0.0 + "" + "$");
+                    JTprêtHypothécaire.setText(0.0 + "" + "$");
+                    jTAssuranceHypothecaire.setText(0.0 + "" + "$");
                 } else {
                     montantAssuranceHypo = AssuranceHypothecaire.
                             assurancePretHypo(montantPret, valeurMaison);
                     if (montantAssuranceHypo != 0) {
                         msg_erreur(MSG_INFO_ASS_HYPO, "Message", JOptionPane.INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText(jLabelMontantPrime.getText()
-                        + " : " + "Obligatoire !");
+                                + " : " + "Obligatoire !");
                     }
                     //Affichage : valeur de la maison, montant prêt et assurance
-                    jTValeurmaximale.setText(valeurMaison + ""+"$");
-                    montantPret = (double) Math.round(montantPret* 100) / 100;
-                    JTprêtHypothécaire.setText(montantPret + ""+"$");
-                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + ""+"$");
+                    jTValeurmaximale.setText(valeurMaison + "" + "$");
+                    montantPret = (double) Math.round(montantPret * 100) / 100;
+                    JTprêtHypothécaire.setText(montantPret + "" + "$");
+                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + "" + "$");
                 }
             } else if (valeurMaison == 0) {
                 msg_erreur(MSG_INFO_NON_ADMISSIBLE, "Message", JOptionPane.INFORMATION_MESSAGE);
                 Messages.setText(MSG_INFO_NON_ADMISSIBLE);
-                jTValeurmaximale.setText(0.0 +""+"$");
-                JTprêtHypothécaire.setText(0.0 + ""+"$");
-                jTAssuranceHypothecaire.setText(0.0 +""+ "$");
+                jTValeurmaximale.setText(0.0 + "" + "$");
+                JTprêtHypothécaire.setText(0.0 + "" + "$");
+                jTAssuranceHypothecaire.setText(0.0 + "" + "$");
             }
         }
 
