@@ -838,9 +838,9 @@ public class Interface extends javax.swing.JFrame {
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
-                    jTValeurmaximale.setText(0.0 + "" + "$");
-                    JTprêtHypothécaire.setText(0.0 + "" + "$");
-                    jTAssuranceHypothecaire.setText(0.0 + "" + "$");
+                    jTValeurmaximale.setText(0.0 + " " + "$");
+                    JTprêtHypothécaire.setText(0.0 + " " + "$");
+                    jTAssuranceHypothecaire.setText(0.0 + " " + "$");
                 } else {
                     montantAssuranceHypo = AssuranceHypothecaire.
                             assurancePretHypo(montantPret, valeurMaison);
@@ -850,17 +850,17 @@ public class Interface extends javax.swing.JFrame {
                                 + " : " + "Obligatoire !");
                     }
                     //Affichage : valeur de la maison, montant prêt et assurance
-                    jTValeurmaximale.setText(valeurMaison + "" + "$");
+                    jTValeurmaximale.setText(valeurMaison + " " + "$");
                     montantPret = (double) Math.round(montantPret * 100) / 100;
-                    JTprêtHypothécaire.setText(montantPret + "" + "$");
-                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + "" + "$");
+                    JTprêtHypothécaire.setText(montantPret + " " + "$");
+                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " " + "$");
                 }
             } else if (valeurMaison == 0) {
                 msg_erreur(MSG_INFO_NON_ADMISSIBLE, "Message", JOptionPane.INFORMATION_MESSAGE);
                 Messages.setText(MSG_INFO_NON_ADMISSIBLE);
-                jTValeurmaximale.setText(0.0 + "" + "$");
-                JTprêtHypothécaire.setText(0.0 + "" + "$");
-                jTAssuranceHypothecaire.setText(0.0 + "" + "$");
+                jTValeurmaximale.setText(0.0 + " " + "$");
+                JTprêtHypothécaire.setText(0.0 + " " + "$");
+                jTAssuranceHypothecaire.setText(0.0 + " " + "$");
             }
         }
 
