@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Projet_INM5001;
+//import javax.swing.JComboBox;
 
+package Projet_INM5001;
+import javax.swing.JComboBox;
 /**
  *
  * @author bwali
  */
 public class AssuranceAuto extends javax.swing.JFrame {
+    private JComboBox liste1;
 
     /**
      * Creates new form AssuranceAuto
@@ -17,6 +20,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
     public AssuranceAuto() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,13 +117,23 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel3.setForeground(java.awt.Color.gray);
         jLabel3.setText("Marque du Véhicule");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 6" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.gray);
         jLabel4.setText("Nom");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(java.awt.Color.gray);
@@ -132,6 +146,11 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel7.setText("Date de naissance");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(java.awt.Color.gray);
@@ -448,6 +467,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonInterfacePrincipaleActionPerformed
 
+  
     private void jButtonInterfaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInterfaceActionPerformed
         new Interface().setVisible(true);
         this.setVisible(false);
@@ -456,6 +476,20 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
           System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        Object[] elements = new Object[]{"Element 1", "Element 2", "Element 3", "Element 4", "Element 5"};
+        liste1 = new JComboBox(elements);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     /**
      * @param args the command line arguments

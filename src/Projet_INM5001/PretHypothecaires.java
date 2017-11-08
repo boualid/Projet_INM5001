@@ -7,7 +7,7 @@ package Projet_INM5001;
 
 /**
  *
- * @author naim
+ * @author naim ouakaf
  */
 public class PretHypothecaires {
 
