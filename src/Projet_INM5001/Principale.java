@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,8 +61,7 @@ public class Principale {
   
     
         //Test début methode pour un "select" table Amortissement de la BD
-        String reqSelect = "select * from Amortissement";
-        requeteSelectAmortssm(reqSelect);
+        requeteSelectAmortssm();
         //Fin test
         
         //Test début methode pour un "insert" table Amortissement de la BD
@@ -75,9 +75,10 @@ public class Principale {
         //Fin test
     }
 
-    
-    public static void requeteSelectAmortssm(String reqSelect) {
+            public static ArrayList<String> requeteSelectAmortssm() {
         
+        String reqSelect = "select * from Amortissement";
+        ArrayList<String> tab = new ArrayList<>();
         ResultSet resSet = null;
         
        try {
@@ -89,6 +90,8 @@ public class Principale {
                 int idAmort = resSet.getInt("idAmortissement");
                 String dureeAmort = resSet.getString("dureeAmortissement");
                 System.out.printf("%-20d\t%-20s\n", idAmort, dureeAmort);
+                
+                tab.add(dureeAmort);
          }
          
        } catch (SQLException ex) {
@@ -96,7 +99,9 @@ public class Principale {
        } finally {
             BaseDeDonnees.fermConnexion();
         }
+       return tab;
     }
+
     
     public static int requeteInserAmortssm(String reqSql, int nbMois) {
         int nbLignes = 0;

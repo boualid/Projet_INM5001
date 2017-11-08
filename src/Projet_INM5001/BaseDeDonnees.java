@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -87,5 +88,33 @@ public class BaseDeDonnees {
         
         return preStmt;
     }
+    
+        public static ArrayList<String> requeteSelectAmortssm() {
+        
+        String reqSelect = "select * from Amortissement";
+        ArrayList<String> tab = null;
+        ResultSet resSet = null;
+        
+       try {
+         resSet = BaseDeDonnees.requeteSelect(reqSelect);
+         
+         System.out.println("Resultat requête");
+        System.out.printf("%-20s\t%-20s\n", "idAmortissement","dureeAmortissement");
+         while (resSet.next()) {
+                int idAmort = resSet.getInt("idAmortissement");
+                String dureeAmort = resSet.getString("dureeAmortissement");
+                System.out.printf("%-20d\t%-20s\n", idAmort, dureeAmort);
+                
+                tab.add(dureeAmort);
+         }
+         
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       } finally {
+            BaseDeDonnees.fermConnexion();
+        }
+       return tab;
+    }
+
 
 }

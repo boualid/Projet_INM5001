@@ -12,21 +12,29 @@ package Projet_INM5001;
 public class AssuranceHypothecaire {
     
 
-        public static final double[] RATIO_PRET_VALEUR = {80, 85, 90, 95};
-
-    public static final double[] TAUX_DE_PRIME = {1.80, 2.40, 3.15};
-
+    public static final double[] RATIO_PRET_VALEUR = {65, 75, 80, 85, 90, 95};
+    public static final double[] TAUX_DE_PRIME = {0.60, 0.75, 1.25, 1.80, 2.40, 3.15};
+    
     public static double assurancePretHypo(double pretHypo, double valeurMaison){
         double assurancePretHypo = 0.0;
-        double ratioPretValeur = 100 * (pretHypo / valeurMaison);
+        double ratioPretValeur = (pretHypo / valeurMaison) * 100;
         
-        for (int i = 0; i < 3; i++) {
-            if (ratioPretValeur > RATIO_PRET_VALEUR[i]
-                    && ratioPretValeur <= RATIO_PRET_VALEUR[i + 1]) {
-                     assurancePretHypo = pretHypo * TAUX_DE_PRIME[i] / 100;
+        if (ratioPretValeur <= RATIO_PRET_VALEUR[0]) {
+            assurancePretHypo = pretHypo * TAUX_DE_PRIME[0] / 100;
+        } else {
+            for (int i = 0; i <= 4; i++) {
+                if (ratioPretValeur > RATIO_PRET_VALEUR[i]
+                        && ratioPretValeur <= RATIO_PRET_VALEUR[i + 1]) {
+                    assurancePretHypo = pretHypo * TAUX_DE_PRIME[i + 1] / 100;
+                }
             }
         }
         return assurancePretHypo;
+    }
+    
+    public static boolean assurancePretHypoObligatoire(double pretHypo, 
+            double valeurMaison){
+        return (pretHypo / valeurMaison) * 100 > 80;
     }
     
 }

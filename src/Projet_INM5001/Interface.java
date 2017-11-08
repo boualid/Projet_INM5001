@@ -3,6 +3,7 @@ package Projet_INM5001;
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -234,7 +235,11 @@ public class Interface extends javax.swing.JFrame {
 
         jComboBox2.setEditable(true);
         jComboBox2.setForeground(java.awt.Color.gray);
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5 ans ", "10 ans ", "15 ans", "20 ans", "25 ans", "  " }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(java.awt.Color.gray);
@@ -795,8 +800,21 @@ public class Interface extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonPagePrincipale1ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    
     //Methodes
     //////////
+    private void initialConboBox2(){
+        ArrayList<String> tab = BaseDeDonnees.requeteSelectAmortssm();
+        for (int i = 0; i < tab.size(); i++) {
+            //jComboBox2.getSelectedItem(tab.get(i));
+            jComboBox2.addItem(tab.get(i));
+        }
+    }
+    
     protected int tryChnEnInt(String chaine, String msgErr) {
         int entier = 0;
         try {
@@ -950,6 +968,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
+
+    //Initialisation de jComboBox2
+    //jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(BaseDeDonnees.requeteSelectAmortssm().toArray(new String[0])));
 
     //Attributs
     ////////////

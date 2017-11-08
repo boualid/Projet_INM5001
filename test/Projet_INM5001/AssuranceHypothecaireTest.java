@@ -34,7 +34,7 @@ public class AssuranceHypothecaireTest {
         System.out.println("assurancePretHypo80");
         double pretHypo = 80.0;
         double valeurMaison = 100;
-        double expResult = 0.0;
+        double expResult = 80.0 *1.25 / 100;
         double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
         assertEquals(expResult, result, 0.0);
     }
@@ -64,6 +64,55 @@ public class AssuranceHypothecaireTest {
         double expResult = 95 * 3.15 / 100;
         double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
         assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testAssurancePretHypoPlusDe95() {
+        System.out.println("assurancePretHypoPlusDe95");
+        double pretHypo = 96;
+        double valeurMaison = 100.0;
+        double expResult = 0.0;
+        double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of assurancePretHypoObligatoire method, of class AssuranceHypothecaire.
+     */
+    @Test
+    public void testAssurancePretHypoObligatoire() {
+        System.out.println("assurancePretHypoObligatoire");
+        double pretHypo = 0.0;
+        double valeurMaison = 1.0;
+        boolean expResult = false;
+        boolean result = AssuranceHypothecaire.assurancePretHypoObligatoire(pretHypo, valeurMaison);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testAssurancePretHypoObligatoire40() {
+        System.out.println("assurancePretHypoObligatoire40");
+        double pretHypo = 40.0;
+        double valeurMaison = 100.0;
+        boolean expResult = false;
+        boolean result = AssuranceHypothecaire.assurancePretHypoObligatoire(pretHypo, valeurMaison);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testAssurancePretHypoObligatoire80() {
+        System.out.println("assurancePretHypoObligatoire80");
+        double pretHypo = 80.0;
+        double valeurMaison = 100.0;
+        boolean expResult = false;
+        boolean result = AssuranceHypothecaire.assurancePretHypoObligatoire(pretHypo, valeurMaison);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testAssurancePretHypoObligatoire90() {
+        System.out.println("assurancePretHypoObligatoire90");
+        double pretHypo = 90.0;
+        double valeurMaison = 100.0;
+        boolean expResult = true;
+        boolean result = AssuranceHypothecaire.assurancePretHypoObligatoire(pretHypo, valeurMaison);
+        assertEquals(expResult, result);
     }
     
 }
