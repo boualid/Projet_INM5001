@@ -58,7 +58,7 @@ public class Principale {
             }
         });
   
-    
+    /*
         //Test début methode pour un "select" table Amortissement de la BD
         String reqSelect = "select * from Amortissement";
         requeteSelectAmortssm(reqSelect);
@@ -133,5 +133,6 @@ public class Principale {
         
         return nbLignes;
     }
-    
+*/
+ }    
 }
