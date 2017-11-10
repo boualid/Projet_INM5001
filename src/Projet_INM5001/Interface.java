@@ -2,6 +2,10 @@ package Projet_INM5001;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,13 +32,20 @@ public class Interface extends javax.swing.JFrame {
      * *********************
      * CONSTANTES *********************
      */
-    private static final String MSG_ERR_REVBRUT = "Entrer un montant positif dans le champ « Revenus Bruts ».";
-    private static final String MSG_ERR_ENG = "Entrer un montant positif dans le champ « Engagements financiers ».";
-    private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif dans le champ « Mise de fonds ».";
-    private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
-    private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
-    private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
-    private static final String MSG_ERR_FRAIS_PROP = "Entrer un montant dans le champ « Frais de copropriété ».";
+    private static final String MSG_ERR_REVBRUT = "Entrer un montant positif "
+            + "dans le champ « Revenus Bruts ».";
+    private static final String MSG_ERR_ENG = "Entrer un montant positif dans le"
+            + " champ « Engagements financiers ».";
+    private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif "
+            + "dans le champ « Mise de fonds ».";
+    private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif"
+            + " dans le champ «Limiter vos versements mensuels. ";
+    private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant "
+            + "positif dans le champ « Taxes municipales et scolaires ».";
+    private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif "
+            + "dans le champ « Coûts d'énergie ».";
+    private static final String MSG_ERR_FRAIS_PROP = "Entrer un montant dans le "
+            + "champ « Frais de copropriété ».";
     private static final String MSG_ALERTE_MISE_FONDS = "Une mise de fonds  de "
             + "5% du prix de la maison est exigée !";
     private static final String MSG_INFO_ASS_HYPO = "Une assurance hypothécaire"
@@ -48,6 +59,7 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        requeteSelectAmortssm();
     }
 
     public void msg_erreur(String msg, String titre, int msgType) {
@@ -57,7 +69,8 @@ public class Interface extends javax.swing.JFrame {
         UIManager.put("OptionPane.messageForeground", Color.RED);
         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
-        UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241, 240, 240));
+        UIManager.getLookAndFeelDefaults().put("Panel.background", 
+                new ColorUIResource(241, 240, 240));
 
         UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
         UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
@@ -65,7 +78,27 @@ public class Interface extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(frame, msg, titre, msgType);
 
     }
-
+  
+    private void requeteSelectAmortssm() {
+        
+        Connection conn = null;
+        PreparedStatement preStmt = null;
+       try {
+          conn = BaseDeDonnees.obtConnexion();
+          String reqSql = "select * from amortissement";
+          preStmt = conn.prepareStatement(reqSql);
+          ResultSet rs = preStmt.executeQuery();
+         while (rs.next()) {
+                int idAmort = rs.getInt("idAmortissement");
+                String dureeAmort = rs.getString("dureeAmortissement");
+                jComboBox2.addItem(dureeAmort);
+         }    
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       } finally {
+            BaseDeDonnees.fermConnexion();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -233,7 +266,7 @@ public class Interface extends javax.swing.JFrame {
 
         jComboBox2.setEditable(true);
         jComboBox2.setForeground(java.awt.Color.gray);
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5 ans ", "10 ans ", "15 ans", "20 ans", "25 ans", "  " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sélectionner" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(java.awt.Color.gray);
@@ -831,9 +864,10 @@ public class Interface extends javax.swing.JFrame {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                     fraisProprio);
-
+                    System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
                 montantPret = valeurMaison - miseFonds;
+                
 
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
