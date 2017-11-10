@@ -21,24 +21,24 @@ public class AssurenceAutoImp {
      * @param age : age conducteur.
      * @param experience : experience de conduite de conducteur.
      * @param dossier : dossier au pres de la saaq du conducteur.
-     * @param type : type d'assurence 
+     * @param type : type d'assurence
      * @return montant a payer par le client.
      */
     public static double calculeAssurenceAuto(String marque, String modele, int annee, int kilometrage,
             String sex, int age, int experience, String dossier, String type) {
-        final double coefficientfixe = 1.33;
+
         double resultat = 0.0;
         double coefficientVoiture = 0.0;
         double coefficientDriver = 0.0;
         double coefficientType = 0.0;
-        double coefficientVariable = 0.0;
+
         coefficientVoiture = AssurenceAutoImp.calculeCoefficientVoiture(marque, modele, annee, kilometrage);
         coefficientDriver = AssurenceAutoImp.calculeCoefficientDriver(sex, age, experience, dossier);
         coefficientType = AssurenceAutoImp.calculeCoefficientType(type);
-        coefficientVariable = (((coefficientVoiture * 60) + (coefficientDriver * 20) + (coefficientType * 20)) / 100);
+        resultat = (((coefficientVoiture) + (coefficientDriver)) * (coefficientType));
 
-        resultat = coefficientVariable * coefficientfixe;
-
+        resultat = resultat = (double) Math.round(resultat * 100) / 100;
+        System.out.println("le resultat finale est :" + resultat + "$");
         return resultat;
     }
 
@@ -62,42 +62,49 @@ public class AssurenceAutoImp {
         coefficientAnnee = AssurenceAutoImp.xAnnee(annee);
         coefficientKilometrage = AssurenceAutoImp.xkilometrage(kilometrage);
 
-        resultat = (coefficientMarque + coefficientModele + coefficientAnnee + coefficientKilometrage);
+        resultat = (((coefficientMarque + coefficientModele) * coefficientAnnee) * coefficientKilometrage);
+        resultat = resultat = (double) Math.round(resultat * 100) / 100;
+        System.out.println("le resultat Coefficient Voiture est :" + resultat + "$");
         return resultat;
     }
 
     /**
      *
-     * @param marque : marque de la voiture 
-     * @return  un Coefficient pour la marque de la voiture
+     * @param marque : marque de la voiture
+     * @return un Coefficient pour la marque de la voiture
      */
     public static double xMarque(String marque) {
         double resultat = 0.0;
         switch (marque) {
-            case "Lamburguini":
+            case "lamburguini":
             case "mazarati":
-                resultat = 22.00;
+            case "bugatti":
+                resultat = 640.00;
                 break;
-            case "Mercedes":
-            case "Bmw":
-            case "Audi":
-            case "Porshe":
-                resultat = 14.0;
+                
+            case "mercedes":
+            case "bmw":
+            case "audi":
+            case "porshe":
+                resultat = 380.0;
                 break;
-            case "Gmc":
-            case "Mazda":
-            case "Honda":
-            case "Toyota":
-            case "Ford":
-                resultat = 10.0;
+                
+            case "mazda":
+            case "honda":
+            case "toyota":
+            case "ford":
+                resultat = 120.0;
                 break;
-            case "Camion":
-                resultat = 13.00;
+                
+            case "camion":
+                resultat = 330.00;
                 break;
-            case "Moto":
-                resultat = 12.00;
+                
+            case "moto":
+                resultat = 110.00;
 
         }
+        System.out.println("le resultat Coefficient marque est :" + resultat + "$");
         return resultat;
     }
 
@@ -109,41 +116,47 @@ public class AssurenceAutoImp {
     public static double xModele(String modele) {
         double resultat = 0.0;
         switch (modele) {
-            case "huracan":
             case "aventador":
-                resultat = 21.00;
+            case "quattroporte":
+            case "veyron":
+                resultat = 420.00;
                 break;
-            case "S600":
-            case "X6":
-            case "A7":
-            case "Panamera":
-            case "Boxter":
-                resultat = 15.0;
+                
+            case "s600":
+            case "x6":
+            case "a7":
+            case "panamera":
+            
+                resultat = 440.0;
                 break;
-            case "C250":
-            case "X3":
-            case "X4":
-            case "A4":
-            case "A3":
-            case "Fiesta":
-            case "Yaris":
-            case "Corolla":
-            case "Civic":
-            case "Yokon":
-            case "C3":
-                resultat = 10.0;
+                
+            case "c250":
+            case "x3":
+            case "a3":
+            case "fiesta":
+            case "yaris":
+            case "corolla":
+            case "civic":
+            case "mazda3":               
+                resultat = 120.0;
                 break;
-            case "Cammionette":
-                resultat = 11.00;
+                
+            case "cammionette":               
+                resultat = 210.00;
                 break;
-            case "Poid Lourd":
-                resultat = 20.00;
+                
+            case "poid Lourd":                
+                resultat = 500.00;
                 break;
+                
             case "125cc":
-                resultat = 13.00;
+                resultat = 130.00;
+                break;
+                
             case "50cc":
-                resultat = 6.00;
+                resultat = 90.00;
         }
+        System.out.println("le resultat Coefficient Modele est :" + resultat + "$");
         return resultat;
     }
 
@@ -155,20 +168,21 @@ public class AssurenceAutoImp {
     public static double xAnnee(double annee) {
         double resultat = 0.0;
         double agevoiture = 2018 - annee;
-
-        if (agevoiture > 0 || agevoiture <= 1) {
+        System.out.println("anne voiture :" + agevoiture);
+        if (agevoiture > 0 && agevoiture <= 1) {
             resultat = 1.0;
-        } else if (agevoiture > 1 || agevoiture <= 3) {
-            resultat = 0.85;
-        } else if (agevoiture > 3 || agevoiture <= 5) {
-            resultat = 0.65;
-        } else if (agevoiture > 5 || agevoiture <= 8) {
-            resultat = 0.55;
-        } else if (agevoiture > 8 || agevoiture <= 10) {
-            resultat = 0.45;
+        } else if (agevoiture > 1 && agevoiture <= 3) {
+            resultat = 0.95;
+        } else if (agevoiture > 3 && agevoiture <= 5) {
+            resultat = 0.90;
+        } else if (agevoiture > 5 && agevoiture <= 8) {
+            resultat = 0.83;
+        } else if (agevoiture > 8 && agevoiture <= 10) {
+            resultat = 0.79;
         } else if (agevoiture > 10) {
-            resultat = 0.30;
+            resultat = 0.66;
         }
+        System.out.println("le resultat Coefficient Annee est :" + resultat + "$");
         return resultat;
     }
 
@@ -180,20 +194,20 @@ public class AssurenceAutoImp {
     public static double xkilometrage(double kilometrage) {
         double resultat = 0.0;
 
-        if (kilometrage > 0 || kilometrage <= 22000.00) {
+        if (kilometrage > 0 && kilometrage <= 22000.00) {
             resultat = 1.0;
-        } else if (kilometrage > 22000.00 || kilometrage <= 50000.00) {
-            resultat = 0.85;
-        } else if (kilometrage > 50000.00 || kilometrage <= 80000.00) {
-            resultat = 0.70;
-        } else if (kilometrage > 80000.00 || kilometrage <= 110000.00) {
-            resultat = 0.60;
-        } else if (kilometrage > 110000.00 || kilometrage <= 160000.00) {
-            resultat = 0.53;
+        } else if (kilometrage > 22000.00 && kilometrage <= 50000.00) {
+            resultat = 0.95;
+        } else if (kilometrage > 50000.00 && kilometrage <= 80000.00) {
+            resultat = 0.92;
+        } else if (kilometrage > 80000.00 && kilometrage <= 110000.00) {
+            resultat = 0.83;
+        } else if (kilometrage > 110000.00 && kilometrage <= 160000.00) {
+            resultat = 0.73;
         } else if (kilometrage > 160000.00) {
-            resultat = 0.45;
+            resultat = 0.75;
         }
-
+        System.out.println("le resultat Coefficient Kilometrage est :" + resultat + "$");
         return resultat;
     }
 
@@ -218,6 +232,8 @@ public class AssurenceAutoImp {
         coefficientdossier = AssurenceAutoImp.xDossier(dossier);
 
         resultat = (coefficientsex + coefficientage + coefficientexperience + coefficientdossier);
+        resultat = resultat = (double) Math.round(resultat * 100) / 100;
+        System.out.println("le resultat Coefficient Driver est :" + resultat + "$");
         return resultat;
     }
 
@@ -230,12 +246,13 @@ public class AssurenceAutoImp {
         double resultat = 0.0;
         switch (sex) {
             case "male":
-                resultat = 7;
+                resultat = 10;
                 break;
             case "female":
-                resultat = 5;
+                resultat = 7;
                 break;
         }
+        System.out.println("le resultat Coefficient Sex est :" + resultat + "$");
         return resultat;
     }
 
@@ -246,19 +263,20 @@ public class AssurenceAutoImp {
      */
     public static double xAge(int age) {
         double resultat = 0.0;
-        if (age >= 25 || age <= 25) {
-            resultat = 15.0;
-        } else if (age > 25 || age <= 35) {
+        if (age >= 25 && age <= 25) {
+            resultat = 19.0;
+        } else if (age > 25 && age <= 35) {
+            resultat = 15;
+        } else if (age > 30 && age <= 40) {
+            resultat = 12;
+        } else if (age > 40 && age <= 55) {
             resultat = 10;
-        } else if (age > 30 || age <= 40) {
-            resultat = 8;
-        } else if (age > 40 || age <= 55) {
-            resultat = 7;
-        } else if (age > 55 || age <= 65) {
+        } else if (age > 55 && age <= 65) {
             resultat = 9;
         } else if (age > 65) {
-            resultat = 11;
+            resultat = 13;
         }
+        System.out.println("le resultat Coefficient Age est :" + resultat + "$");
         return resultat;
     }
 
@@ -269,17 +287,18 @@ public class AssurenceAutoImp {
      */
     public static double xExperience(int experience) {
         double resultat = 0.0;
-        if (experience >= 0 || experience <= 1) {
-            resultat = 16.0;
-        } else if (experience > 1 || experience <= 3) {
-            resultat = 12;
-        } else if (experience > 3 || experience <= 7) {
-            resultat = 8;
-        } else if (experience > 7 || experience <= 15) {
-            resultat = 6;
+        if (experience >= 0 && experience <= 1) {
+            resultat = 20.0;
+        } else if (experience > 1 && experience <= 3) {
+            resultat = 17.00;
+        } else if (experience > 3 && experience <= 7) {
+            resultat = 15.00;
+        } else if (experience > 7 && experience <= 15) {
+            resultat = 12.00;
         } else if (experience > 15) {
-            resultat = 5;
+            resultat = 10.00;
         }
+        System.out.println("le resultat Coefficient Experience est :" + resultat + "$");
         return resultat;
     }
 
@@ -291,23 +310,24 @@ public class AssurenceAutoImp {
     public static double xDossier(String dossier) {
         double resultat = 0.0;
         switch (dossier) {
-            case "Exellent":
-                resultat = 3;
-                break;
-            case "Bon":
+            case "exellent":
                 resultat = 6;
                 break;
-            case "Moyenne":
-                resultat = 10;
+            case "bon":
+                resultat = 11;
                 break;
-            case "Mauvais":
-                resultat = 14;
-                break;
-            case "Tres Mauvais":
+            case "moyenne":
                 resultat = 19;
+                break;
+            case "mauvais":
+                resultat = 46;
+                break;
+            case "tres Mauvais":
+                resultat = 62;
                 break;
 
         }
+        System.out.println("le resultat Coefficient Dossier est :" + resultat + "$");
         return resultat;
     }
 
@@ -319,19 +339,20 @@ public class AssurenceAutoImp {
     public static double calculeCoefficientType(String type) {
         double resultat = 0.0;
         switch (type) {
-            case "Simple Base":
-                resultat = 8;
+            case "simple base":
+                resultat = 0.16;
                 break;
-            case "Simple TRisque":
-                resultat = 13;
+            case "simple tr":
+                resultat = 0.24;
                 break;
-            case "Double Base":
-                resultat = 13;
+            case "double base":
+                resultat = 0.27;
                 break;
-            case "Bouble TRisque":
-                resultat = 19;
+            case "double tr":
+                resultat = 0.35;
                 break;
         }
+        System.out.println("le resultat Coefficient Type est :" + resultat + "$");
         return resultat;
     }
 

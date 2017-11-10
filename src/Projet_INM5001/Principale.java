@@ -24,6 +24,7 @@ public class Principale {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
           /**
      * @param args the command line arguments
      */
@@ -57,8 +58,8 @@ public class Principale {
                 new InterfacePrinciple().setVisible(true);
             }
         });
-  
-    
+  //(String marque, String modele, int annee, int kilometrage,String sex, int age, int experience, String dossier, String type)
+        AssurenceAutoImp.calculeAssurenceAuto("porche", "panamera", 2017, 20000, "male", 45, 18, "bon", "double tr");
         //Test début methode pour un "select" table Amortissement de la BD
         String reqSelect = "select * from Amortissement";
         requeteSelectAmortssm(reqSelect);

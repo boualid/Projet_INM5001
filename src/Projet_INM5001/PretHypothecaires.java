@@ -62,7 +62,7 @@ public class PretHypothecaires {
         percentage = (revenuNetMensuelle * 40) / 100;
         //if (percentage > versementMensuel) {
         resultat = pretHypothecaires + miseDeFonds;
-        resultat = (double) Math.round(resultat * 100) / 100;
+        //resultat = (double) Math.round(resultat * 100) / 100;
        
         return resultat;
     }
