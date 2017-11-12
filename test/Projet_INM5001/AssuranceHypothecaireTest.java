@@ -74,7 +74,43 @@ public class AssuranceHypothecaireTest {
         double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
         assertEquals(expResult, result, 0.0);
     }
-
+    @Test
+    public void testAssurancePretHypoMoinsDe65() {
+        System.out.println("assurancePretHypoMoinsDe65");
+        double pretHypo = 60;
+        double valeurMaison = 100.0;
+        double expResult = 60 * 0.60 / 100;
+        double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testAssurancePretHypo65() {
+        System.out.println("assurancePretHypo65");
+        double pretHypo = 65;
+        double valeurMaison = 100.0;
+        double expResult = 65 * 0.60 / 100;
+        double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testAssurancePretHypo70() {
+        System.out.println("assurancePretHypo70");
+        double pretHypo = 70;
+        double valeurMaison = 100.0;
+        double expResult = 70 * 0.75 / 100;
+        double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testAssurancePretHypo78() {
+        System.out.println("assurancePretHypo78");
+        double pretHypo = 78;
+        double valeurMaison = 100.0;
+        double expResult = 78 * 1.25 / 100;
+        double result = AssuranceHypothecaire.assurancePretHypo(pretHypo, valeurMaison);
+        assertEquals(expResult, result, 0.0);
+    }
+    
     /**
      * Test of assurancePretHypoObligatoire method, of class AssuranceHypothecaire.
      */
@@ -113,6 +149,30 @@ public class AssuranceHypothecaireTest {
         boolean expResult = true;
         boolean result = AssuranceHypothecaire.assurancePretHypoObligatoire(pretHypo, valeurMaison);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of mensualite method, of class AssuranceHypothecaire.
+     */
+    @Test
+    public void testMensualite() {
+        System.out.println("mensualite");
+        double pret = 0.0;
+        double interetAnnuel = 0.0;
+        int amortissement = 0;
+        double expResult = 0.0;
+        double result = AssuranceHypothecaire.mensualite(pret, interetAnnuel, amortissement);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testMensualite1() {
+        System.out.println("mensualite1");
+        double pret = 100000.0;
+        double interetAnnuel = 0.05;
+        int amortissement = 180;
+        double expResult = 790.79;
+        double result = AssuranceHypothecaire.mensualite(pret, interetAnnuel, amortissement);
+        assertEquals(expResult, result, 0.01);
     }
     
 }

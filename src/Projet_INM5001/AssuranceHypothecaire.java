@@ -37,4 +37,15 @@ public class AssuranceHypothecaire {
         return (pretHypo / valeurMaison) * 100 > 80;
     }
     
+    public static double mensualite(double pret, double interetAnnuel, 
+            int amortissement){
+        double interetMensuel = interetAnnuel / 12;
+        double denominateur = 1 - 1 / Math.pow(1 + interetMensuel, amortissement);
+        if (denominateur != 0)
+            return pret * interetMensuel / denominateur;
+        else if (amortissement != 0)
+            return  pret / amortissement;
+        else
+            return pret;
+    }
 }
