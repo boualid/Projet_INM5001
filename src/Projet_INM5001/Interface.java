@@ -165,6 +165,7 @@ public class Interface extends javax.swing.JFrame {
         jLabelMensuelAvecAss = new javax.swing.JLabel();
         jButtonPagePrincipale = new javax.swing.JButton();
         jButtonPagePrincipale1 = new javax.swing.JButton();
+        jTMensualiteAssHypo = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -485,6 +486,12 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jTMensualiteAssHypo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTMensualiteAssHypoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -579,13 +586,19 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(250, 250, 250)
                         .addComponent(JprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTMensualiteAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(278, 278, 278))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTMensualiteAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(252, 252, 252))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(JprêtHypothécaire)
@@ -851,6 +864,10 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jTMensualiteAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteAssHypoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTMensualiteAssHypoActionPerformed
+
     
     //Methodes
     //////////
@@ -894,7 +911,7 @@ public class Interface extends javax.swing.JFrame {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                     fraisProprio);
-                    System.out.print("valeur de la maison" + valeurMaison);
+                    //System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
                 
                 
@@ -905,6 +922,7 @@ public class Interface extends javax.swing.JFrame {
                     jTValeurmaximale.setText(0.0 + " " + "$");
                     JTprêtHypothécaire.setText(0.0 + " " + "$");
                     jTAssuranceHypothecaire.setText(0.0 + " " + "$");
+                    jTMensualiteAssHypo.setText(0.0 + " " + "$");
                 } else {
                     montantPret = valeurMaison - miseFonds;
                     assuranceHypoObligatoire = AssuranceHypothecaire
@@ -915,7 +933,7 @@ public class Interface extends javax.swing.JFrame {
                             .mensualite(montantPret, 3.89, amort);
                     
                     if (assuranceHypoObligatoire) {
-                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.WARNING_MESSAGE);
+                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText(jLabelMontantPrime.getText()
                         + " : Obligatoire !");
                     } else {
@@ -931,10 +949,12 @@ public class Interface extends javax.swing.JFrame {
                     montantPret = (double) Math.round(montantPret * 100) / 100;
                     JTprêtHypothécaire.setText(montantPret + " " + "$");
                     jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " " + "$");
+                    jTMensualiteAssHypo.setText(0.0 + " " + "$");
+
                     if (assuranceHypoObligatoire 
-                            || assuranceHypoOptionnelleAccepter == 0){
-                        jLabelMensuelAvecAss.setText(jLabelMensuelAvecAss.getText()
-                                + df.format(limitVersement + mensualiteAssuranceHypo));
+                            || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){
+                        double limVers = Double.parseDouble(jTMois1.getText());
+                        jTMensualiteAssHypo.setText(df.format(limVers + mensualiteAssuranceHypo));
                     }
                 }
             } else if (valeurMaison == 0) {
@@ -943,6 +963,7 @@ public class Interface extends javax.swing.JFrame {
                 jTValeurmaximale.setText(0.0 + " " + "$");
                 JTprêtHypothécaire.setText(0.0 + " " + "$");
                 jTAssuranceHypothecaire.setText(0.0 + " " + "$");
+                jTMensualiteAssHypo.setText(0.0 + " " + "$");
             }
         }
 
@@ -1027,6 +1048,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTAssuranceHypothecaire;
     private javax.swing.JTextField jTEngagements;
+    private javax.swing.JTextField jTMensualiteAssHypo;
     private javax.swing.JTextField jTMisedefonds;
     private javax.swing.JTextField jTMois1;
     private javax.swing.JTextField jTMois2;
