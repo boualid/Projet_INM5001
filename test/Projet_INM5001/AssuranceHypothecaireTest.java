@@ -168,7 +168,7 @@ public class AssuranceHypothecaireTest {
     public void testMensualite1() {
         System.out.println("mensualite1");
         double pret = 100000.0;
-        double interetAnnuel = 0.05;
+        double interetAnnuel = 5.0 /100;
         int amortissement = 180;
         double expResult = 790.79;
         double result = AssuranceHypothecaire.mensualite(pret, interetAnnuel, amortissement);

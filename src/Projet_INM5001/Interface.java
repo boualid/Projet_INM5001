@@ -914,8 +914,6 @@ public class Interface extends javax.swing.JFrame {
                     //System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
                 
-                
-
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
@@ -930,31 +928,34 @@ public class Interface extends javax.swing.JFrame {
                     montantAssuranceHypo = AssuranceHypothecaire
                             .assurancePretHypo(montantPret, valeurMaison);
                     mensualiteAssuranceHypo = AssuranceHypothecaire
-                            .mensualite(montantPret, 3.89, amort);
+                            .mensualite(montantAssuranceHypo, 0.0389, amort);
                     
                     if (assuranceHypoObligatoire) {
-                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.INFORMATION_MESSAGE);
-                        jLabelMontantPrime.setText(jLabelMontantPrime.getText()
-                        + " : Obligatoire !");
+                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane
+                                .INFORMATION_MESSAGE);
+                        jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
+                                + "Obligatoire !");
                     } else {
                         //msg_erreur(MSG_INFO_ASS_HYPO_OPT, "Message", JOptionPane.YES_NO_OPTION);
                         assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog
                                 (rootPane, MSG_INFO_ASS_HYPO_OPT, "Message", 
                                 JOptionPane.YES_NO_OPTION);
-                        jLabelMontantPrime.setText(jLabelMontantPrime.getText()
-                        + " : Optionnelle !");
+                        jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
+                        + "Optionnelle !");
                     }
                     //Affichage : valeur de la maison, montants prêt et assurance
                     jTValeurmaximale.setText(valeurMaison + " " + "$");
                     montantPret = (double) Math.round(montantPret * 100) / 100;
                     JTprêtHypothécaire.setText(montantPret + " " + "$");
-                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " " + "$");
-                    jTMensualiteAssHypo.setText(0.0 + " " + "$");
+                    jTAssuranceHypothecaire.setText("");
+                    jTMensualiteAssHypo.setText("");
 
                     if (assuranceHypoObligatoire 
                             || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){
+                        jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " $");
                         double limVers = Double.parseDouble(jTMois1.getText());
-                        jTMensualiteAssHypo.setText(df.format(limVers + mensualiteAssuranceHypo));
+                        jTMensualiteAssHypo.setText(df.format(limVers 
+                                + mensualiteAssuranceHypo) + " $");
                     }
                 }
             } else if (valeurMaison == 0) {
