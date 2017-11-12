@@ -89,32 +89,86 @@ public class BaseDeDonnees {
         return preStmt;
     }
     
-        public static ArrayList<String> requeteSelectAmortssm() {
-        
-        String reqSelect = "select * from Amortissement";
-        ArrayList<String> tab = null;
-        ResultSet resSet = null;
+    protected static void requeteSelect() {
         
        try {
-         resSet = BaseDeDonnees.requeteSelect(reqSelect);
-         
-         System.out.println("Resultat requête");
-        System.out.printf("%-20s\t%-20s\n", "idAmortissement","dureeAmortissement");
-         while (resSet.next()) {
-                int idAmort = resSet.getInt("idAmortissement");
-                String dureeAmort = resSet.getString("dureeAmortissement");
-                System.out.printf("%-20d\t%-20s\n", idAmort, dureeAmort);
-                
-                tab.add(dureeAmort);
+          conn = BaseDeDonnees.obtConnexion();
+          //Mois
+          String reqSqlMois = "select * from mois";
+          preStmt = conn.prepareStatement(reqSqlMois);
+          ResultSet rsMois = preStmt.executeQuery();
+         while (rsMois.next()) {
+                String mois = rsMois.getString("mois");
+                AssuranceAuto.jComboMois.addItem(mois);
+         } 
+         //État Matrimonial
+         String reqSqlEtat = "select * from ETAT_MATRIMONIAL";
+          preStmt = conn.prepareStatement(reqSqlEtat);
+          ResultSet rsEtat = preStmt.executeQuery();
+         while (rsEtat.next()) {
+                String etat = rsEtat.getString("Etat");
+                AssuranceAuto.jComboEtat.addItem(etat);
+         } 
+         //nbr d'année en tant que conducteur principale
+          String reqSqlConducteur = "select * from NBR_ANN_CONDUCTEUR";
+          preStmt = conn.prepareStatement(reqSqlConducteur);
+          ResultSet rscond = preStmt.executeQuery();
+         while (rscond.next()) {
+                String nbrAnnee = rscond.getString("NBRANNEE");
+                AssuranceAuto.jCombonbrANN.addItem(nbrAnnee);
+         }
+         // Marque du Véhicule
+         String reqSqlVehicule = "select * from MARQUE_VEHICULE";
+          preStmt = conn.prepareStatement(reqSqlVehicule);
+          ResultSet rsVehicule = preStmt.executeQuery();
+         while (rsVehicule.next()) {
+                String marqueVehicule = rsVehicule.getString("MARQUE");
+                AssuranceAuto.jCombomarqueVehicule.addItem(marqueVehicule);
+         }
+         //Année du Véhicule
+         String reqSqlModele = "select distinct(ANNEE) as ANNEE from MODELE_VEHICULE"
+                 + " group by ANNEE";
+          preStmt = conn.prepareStatement(reqSqlModele);
+          ResultSet rsAnnee = preStmt.executeQuery();
+         while (rsAnnee.next()) {
+                String modeleAnnee = rsAnnee.getString("ANNEE");
+                AssuranceAuto.jComboAnnVehi.addItem(modeleAnnee);
+         }
+         //modele du Véhicule
+         String reqSqlModeleV = "select * from MODELE_VEHICULE ";
+          preStmt = conn.prepareStatement(reqSqlModeleV);
+          ResultSet rsV = preStmt.executeQuery();
+         while (rsV.next()) {
+                String modeleV = rsV.getString("MODELE");
+                AssuranceAuto.jComboModele.addItem(modeleV);
          }
          
        } catch (SQLException ex) {
            ex.printStackTrace();
        } finally {
-            BaseDeDonnees.fermConnexion();
+        
         }
-       return tab;
     }
+    
+    protected static void requeteSelectAmor() {
+        
+       try {
+          conn = BaseDeDonnees.obtConnexion();
+          //Mois
+          String reqSqlAmor = "select * from AMORTISS";
+          preStmt = conn.prepareStatement(reqSqlAmor);
+          ResultSet rsAmor = preStmt.executeQuery();
+         while (rsAmor.next()) {
+                String amortissement = rsAmor.getString("DUREE");
+                Interface.jComboBox2.addItem(amortissement);
+         } 
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       } finally {
+        
+        }
+    }
+
 
 
 }
