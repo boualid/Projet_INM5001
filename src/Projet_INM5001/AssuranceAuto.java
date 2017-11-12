@@ -10,6 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 /**
  *
@@ -551,9 +555,18 @@ public class AssuranceAuto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCombomarqueVehiculeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombomarqueVehiculeActionPerformed
-        // TODO add your handling code here:
-        //Object[] elements = new Object[]{"Element 1", "Element 2", "Element 3", "Element 4", "Element 5"};
-        //liste1 = new JComboBox(elements);
+        ArrayList<String> tab = new ArrayList();
+        String selectedModel = (String) jCombomarqueVehicule.getSelectedItem();
+        System.out.println(selectedModel);
+        tab = BaseDeDonnees.requeteSelectModele(selectedModel);
+                //jComboBox2.removeAllItems();                
+                Iterator<String> it = tab.iterator();
+ 
+                while (it.hasNext()) {
+                    String s = it.next();
+                    jComboModele.addItem(s);
+                    System.out.println(s);
+                    }
     }//GEN-LAST:event_jCombomarqueVehiculeActionPerformed
 
     private void jComboAnnVehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAnnVehiActionPerformed
@@ -561,7 +574,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboAnnVehiActionPerformed
 
     private void jComboModeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboModeleActionPerformed
-        // TODO add your handling code here:
+
+               
     }//GEN-LAST:event_jComboModeleActionPerformed
 
     /**

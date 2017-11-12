@@ -5,6 +5,7 @@
  */
 package Projet_INM5001;
 
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 
 import oracle.jdbc.pool.OracleDataSource;
 
@@ -90,7 +92,6 @@ public class BaseDeDonnees {
     }
     
     protected static void requeteSelect() {
-        
        try {
           conn = BaseDeDonnees.obtConnexion();
           //Mois
@@ -135,6 +136,7 @@ public class BaseDeDonnees {
                 AssuranceAuto.jComboAnnVehi.addItem(modeleAnnee);
          }
          //modele du Véhicule
+         /*
          String reqSqlModeleV = "select * from MODELE_VEHICULE ";
           preStmt = conn.prepareStatement(reqSqlModeleV);
           ResultSet rsV = preStmt.executeQuery();
@@ -142,6 +144,7 @@ public class BaseDeDonnees {
                 String modeleV = rsV.getString("MODELE");
                 AssuranceAuto.jComboModele.addItem(modeleV);
          }
+*/
          
        } catch (SQLException ex) {
            ex.printStackTrace();
@@ -168,6 +171,30 @@ public class BaseDeDonnees {
         
         }
     }
+    
+    public static ArrayList<String> requeteSelectModele(String modele) {
+         ArrayList<String> list = new ArrayList();
+       try {
+          conn = BaseDeDonnees.obtConnexion();
+          String reqSqlMode = " select distinct md.MODELE\n" +
+                    " from MODELE_VEHICULE md , MARQUE_VEHICULE mq\n" +
+                    " where md.ID_MA = mq.ID\n" +
+                    " and mq.MARQUE = ? \n" +
+                    " group by md.MODELE";
+          preStmt = conn.prepareStatement(reqSqlMode);
+          preStmt.setString(1, modele);
+          ResultSet rsModele = preStmt.executeQuery();
+         while (rsModele.next()) {
+                 list.add(rsModele.getString("MODELE"));
+         } 
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       } finally {
+        
+        }
+       return list;
+    }
+    
 
 
 
