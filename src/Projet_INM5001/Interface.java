@@ -2,6 +2,10 @@ package Projet_INM5001;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -27,20 +31,28 @@ public class Interface extends javax.swing.JFrame {
 
     /**
      * *********************
-     * CONSTANTES
-     **********************
+     * CONSTANTES *********************
      */
-    private static final String MSG_ERR_REVBRUT = "Entrer un montant positif dans le champ « Revenus Bruts ».";
-    private static final String MSG_ERR_ENG = "Entrer un montant positif dans le champ « Engagements financiers ».";
-    private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif dans le champ « Mise de fonds ».";
-    private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif dans le champ «Limiter vos versements mensuels. ";
-    private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant positif dans le champ « Taxes municipales et scolaires ».";
-    private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif dans le champ « Coûts d'énergie ».";
-    private static final String MSG_ERR_FRAIS_PROP= "Entrer un montant dans le champ « Frais de copropriété ».";
+    private static final String MSG_ERR_REVBRUT = "Entrer un montant positif "
+            + "dans le champ « Revenus Bruts ».";
+    private static final String MSG_ERR_ENG = "Entrer un montant positif dans le"
+            + " champ « Engagements financiers ».";
+    private static final String MSG_ERR_MISEDEFOND = "Entrer un montant positif "
+            + "dans le champ « Mise de fonds ».";
+    private static final String MSG_ERR_VERSMENSUEL = "Entrer un montant positif"
+            + " dans le champ «Limiter vos versements mensuels. ";
+    private static final String MSG_ERR_TAXEMUNICIPALE = "Entrer un montant "
+            + "positif dans le champ « Taxes municipales et scolaires ».";
+    private static final String MSG_ERR_COUTENERGIE = "Entrer un montant positif "
+            + "dans le champ « Coûts d'énergie ».";
+    private static final String MSG_ERR_FRAIS_PROP = "Entrer un montant dans le "
+            + "champ « Frais de copropriété ».";
     private static final String MSG_ALERTE_MISE_FONDS = "Une mise de fonds  de "
             + "5% du prix de la maison est exigée !";
-    private static final String MSG_INFO_ASS_HYPO = "Une assurance hypothécaire"
+    private static final String MSG_INFO_ASS_HYPO_OBL = "Une assurance hypothécaire"
             + " (SCHL/Genworth) est obligatoire pour ce prêt";
+    private static final String MSG_INFO_ASS_HYPO_OPT = "Une assurance hypothécaire"
+            + " (SCHL/Genworth) est optionnelle. Désirez-vous cette assurance";
     private static final String MSG_INFO_NON_ADMISSIBLE = "Vous n'êtes pas "
             + "admissible pour un prêt: 40% de vos dépenses mensuelles fixes "
             + "dépasse votre limite de versement mensuel";
@@ -50,24 +62,46 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        requeteSelectAmortssm();
     }
 
     public void msg_erreur(String msg, String titre, int msgType) {
         JFrame frame = new JFrame();
 
         //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
-            UIManager.put("OptionPane.messageForeground", Color.RED);
+        UIManager.put("OptionPane.messageForeground", Color.RED);
         //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
-        UIManager.getLookAndFeelDefaults().put("Panel.background", new ColorUIResource(241, 240, 240));
+        UIManager.getLookAndFeelDefaults().put("Panel.background", 
+                new ColorUIResource(241, 240, 240));
 
         UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
         UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
 
-        JOptionPane.showMessageDialog(frame,msg, titre, msgType);
+        JOptionPane.showMessageDialog(frame, msg, titre, msgType);
 
     }
-
+  
+    private void requeteSelectAmortssm() {
+        
+        Connection conn = null;
+        PreparedStatement preStmt = null;
+       try {
+          conn = BaseDeDonnees.obtConnexion();
+          String reqSql = "select * from amortissement";
+          preStmt = conn.prepareStatement(reqSql);
+          ResultSet rs = preStmt.executeQuery();
+         while (rs.next()) {
+                int idAmort = rs.getInt("idAmortissement");
+                String dureeAmort = rs.getString("dureeAmortissement");
+                jComboBox2.addItem(dureeAmort);
+         }    
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       } finally {
+            BaseDeDonnees.fermConnexion();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,6 +162,7 @@ public class Interface extends javax.swing.JFrame {
         jLabelAssuranceHypo = new javax.swing.JLabel();
         jTAssuranceHypothecaire = new javax.swing.JTextField();
         jLabelMontantPrime = new javax.swing.JLabel();
+        jLabelMensuelAvecAss = new javax.swing.JLabel();
         jButtonPagePrincipale = new javax.swing.JButton();
         jButtonPagePrincipale1 = new javax.swing.JButton();
 
@@ -235,6 +270,7 @@ public class Interface extends javax.swing.JFrame {
 
         jComboBox2.setEditable(true);
         jComboBox2.setForeground(java.awt.Color.gray);
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sélectionner" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -362,8 +398,13 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jLabelMontantPrime.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelMontantPrime.setForeground(new java.awt.Color(0, 173, 82));
         jLabelMontantPrime.setText("Prime (SCHL/Genworth)");
+
+        jLabelMensuelAvecAss.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelMensuelAvecAss.setForeground(new java.awt.Color(0, 173, 82));
+        jLabelMensuelAvecAss.setText("Versement mensuel avec assurance");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -382,6 +423,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMensuelAvecAss)
                             .addComponent(jLabelMontantPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
@@ -418,13 +460,15 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelMontantPrime)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jLabelMensuelAvecAss)
+                .addContainerGap())
         );
 
         jButtonPagePrincipale.setBackground(new java.awt.Color(11, 109, 11));
         jButtonPagePrincipale.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPagePrincipale.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPagePrincipale.setText("Sortir");
+        jButtonPagePrincipale.setText("Quitter");
         jButtonPagePrincipale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPagePrincipaleActionPerformed(evt);
@@ -434,7 +478,7 @@ public class Interface extends javax.swing.JFrame {
         jButtonPagePrincipale1.setBackground(new java.awt.Color(11, 109, 11));
         jButtonPagePrincipale1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPagePrincipale1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPagePrincipale1.setText("Acceil");
+        jButtonPagePrincipale1.setText("Accueil");
         jButtonPagePrincipale1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPagePrincipale1ActionPerformed(evt);
@@ -478,8 +522,8 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
-                                .addComponent(jButtonPagePrincipale1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
+                                .addComponent(jButtonPagePrincipale1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButtonPagePrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(71, 71, 71)
@@ -683,18 +727,20 @@ public class Interface extends javax.swing.JFrame {
             msg_erreur(MSG_ERR_REVBRUT, "Erreur", JOptionPane.ERROR_MESSAGE);
             //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
         } else if (!engagement.matches("[0-9]{1,6}")) {
-            msg_erreur(MSG_ERR_ENG , "Erreur", JOptionPane.ERROR_MESSAGE);
+            msg_erreur(MSG_ERR_ENG, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
         } else if (!misedefond.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_MISEDEFOND , "Erreur", JOptionPane.ERROR_MESSAGE);
-            
-        }else if(!verseMensuelparmoi.matches("[0-9]{1,6}")){
-            ButCalculer.setEnabled(false);
-            msg_erreur(MSG_ERR_VERSMENSUEL , "Erreur", JOptionPane.ERROR_MESSAGE);              
-        }else if (!taxemunicipales.matches("[0-9]{1,6}")) {
-            msg_erreur(MSG_ERR_TAXEMUNICIPALE , "Erreur", JOptionPane.ERROR_MESSAGE);
+            msg_erreur(MSG_ERR_MISEDEFOND, "Erreur", JOptionPane.ERROR_MESSAGE);
+
+        } else if (jCoui.isSelected()) {
+            if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
+                ButCalculer.setEnabled(false);
+                msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (!taxemunicipales.matches("[0-9]{1,6}")) {
+            msg_erreur(MSG_ERR_TAXEMUNICIPALE, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
             //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
         } else if (!coutenergie.matches("[0-9]{1,6}")) {
@@ -724,10 +770,10 @@ public class Interface extends javax.swing.JFrame {
             coutEnerg = Double.parseDouble(coutenergie);
             //fraisproprietaire
             fraisProprio = Double.parseDouble(fraisproprietaire);
-            
+
             if (jCnom.isSelected() && (jTMois1.getText().isEmpty())) {
-                limitVersement = PretHypothecaires.calculeversement(revBruts, engagm, coutEnerg, fraisProprio); 
-                jTMois1.setText(limitVersement +"");
+                limitVersement = PretHypothecaires.calculeversement(revBruts, engagm, coutEnerg, fraisProprio);
+                jTMois1.setText(limitVersement + "");
             }
             calcAffichValMaison();
 
@@ -752,6 +798,7 @@ public class Interface extends javax.swing.JFrame {
         jTValeurmaximale.setText("");
         JTprêtHypothécaire.setText("");
         Messages.setText("");
+        jTAssuranceHypothecaire.setText("");
 
         jCnom.setSelected(false);
         jCoui.setSelected(false);
@@ -796,7 +843,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTAssuranceHypothecaireActionPerformed
 
     private void jButtonPagePrincipale1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipale1ActionPerformed
-       new InterfacePrinciple().setVisible(true);
+        new InterfacePrinciple().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonPagePrincipale1ActionPerformed
 
@@ -836,6 +883,9 @@ public class Interface extends javax.swing.JFrame {
 
     private void calcAffichValMaison() {
 
+        boolean assuranceHypoObligatoire;
+        int assuranceHypoOptionnelleAccepter = 0;
+        double mensualiteAssuranceHypo = 0.0;
         DecimalFormat df = new DecimalFormat("0.00");
         String amortChn = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
         amort = anChEnMoisChiff(amortChn);
@@ -844,35 +894,55 @@ public class Interface extends javax.swing.JFrame {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                     fraisProprio);
-
+                    System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
-                montantPret = valeurMaison - miseFonds;
+                
+                
 
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
-                    jTValeurmaximale.setText(0.0 + "");
-                    JTprêtHypothécaire.setText(0.0 + "");
-                    jTAssuranceHypothecaire.setText(0.0 + "");
+                    jTValeurmaximale.setText(0.0 + " " + "$");
+                    JTprêtHypothécaire.setText(0.0 + " " + "$");
+                    jTAssuranceHypothecaire.setText(0.0 + " " + "$");
                 } else {
-                    montantAssuranceHypo = AssuranceHypothecaire.
-                            assurancePretHypo(montantPret, valeurMaison);
-                    if (montantAssuranceHypo > 0) {
-                        msg_erreur(MSG_INFO_ASS_HYPO, "Message", JOptionPane.INFORMATION_MESSAGE);
+                    montantPret = valeurMaison - miseFonds;
+                    assuranceHypoObligatoire = AssuranceHypothecaire
+                            .assurancePretHypoObligatoire(montantPret, valeurMaison);
+                    montantAssuranceHypo = AssuranceHypothecaire
+                            .assurancePretHypo(montantPret, valeurMaison);
+                    mensualiteAssuranceHypo = AssuranceHypothecaire
+                            .mensualite(montantPret, 3.89, amort);
+                    
+                    if (assuranceHypoObligatoire) {
+                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.WARNING_MESSAGE);
                         jLabelMontantPrime.setText(jLabelMontantPrime.getText()
                         + " : Obligatoire !");
+                    } else {
+                        //msg_erreur(MSG_INFO_ASS_HYPO_OPT, "Message", JOptionPane.YES_NO_OPTION);
+                        assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog
+                                (rootPane, MSG_INFO_ASS_HYPO_OPT, "Message", 
+                                JOptionPane.YES_NO_OPTION);
+                        jLabelMontantPrime.setText(jLabelMontantPrime.getText()
+                        + " : Optionnelle !");
                     }
-                    //Affichage : valeur de la maison, montant prêt et assurance
-                    jTValeurmaximale.setText(valeurMaison + "");
-                    JTprêtHypothécaire.setText(montantPret + "");
-                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo));
+                    //Affichage : valeur de la maison, montants prêt et assurance
+                    jTValeurmaximale.setText(valeurMaison + " " + "$");
+                    montantPret = (double) Math.round(montantPret * 100) / 100;
+                    JTprêtHypothécaire.setText(montantPret + " " + "$");
+                    jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " " + "$");
+                    if (assuranceHypoObligatoire 
+                            || assuranceHypoOptionnelleAccepter == 0){
+                        jLabelMensuelAvecAss.setText(jLabelMensuelAvecAss.getText()
+                                + df.format(limitVersement + mensualiteAssuranceHypo));
+                    }
                 }
             } else if (valeurMaison == 0) {
                 msg_erreur(MSG_INFO_NON_ADMISSIBLE, "Message", JOptionPane.INFORMATION_MESSAGE);
                 Messages.setText(MSG_INFO_NON_ADMISSIBLE);
-                jTValeurmaximale.setText(0.0 + "");
-                JTprêtHypothécaire.setText(0.0 + "");
-                jTAssuranceHypothecaire.setText(0.0 + "");
+                jTValeurmaximale.setText(0.0 + " " + "$");
+                JTprêtHypothécaire.setText(0.0 + " " + "$");
+                jTAssuranceHypothecaire.setText(0.0 + " " + "$");
             }
         }
 
@@ -946,6 +1016,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAssuranceHypo;
+    private javax.swing.JLabel jLabelMensuelAvecAss;
     private javax.swing.JLabel jLabelMontantPrime;
     private javax.swing.JLabel jMisedefonds;
     private javax.swing.JPanel jPanel1;

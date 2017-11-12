@@ -25,6 +25,9 @@ public class Principale {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        //AssurenceAutoImp.calculeAssurenceAuto("honda", "civic", 2002, 160000, "male", 45, 18, "bon", "simple base");
+        
+        
           /**
      * @param args the command line arguments
      */
@@ -59,7 +62,7 @@ public class Principale {
             }
         });
   
-    
+    /*
         //Test début methode pour un "select" table Amortissement de la BD
         requeteSelectAmortssm();
         //Fin test
@@ -138,5 +141,6 @@ public class Principale {
         
         return nbLignes;
     }
-    
+*/
+ }    
 }

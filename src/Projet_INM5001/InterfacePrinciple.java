@@ -62,7 +62,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         jButtonQuitter.setBackground(new java.awt.Color(11, 109, 11));
         jButtonQuitter.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonQuitter.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonQuitter.setText("Sortir");
+        jButtonQuitter.setText("Quitter");
         jButtonQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQuitterActionPerformed(evt);
@@ -71,7 +71,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.darkGray);
-        jLabel1.setText("<html><center>Simulateur de calcul: <br> Prêt Hypothécaire & Assurance Prêt Hypothécaire <br>Assurance Auto</center></html> ");
+        jLabel1.setText("<html><center>Simulateur de calcul <br> Prêt Hypothécaire & Assurance Prêt Hypothécaire <br>Assurance Auto</center></html> ");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("<html>Le simulateur de calcul est un outil vous permettant de connaître le montant qui pourrait vous être accordé pour: <br> <ul><li>Prêt hypothécaire</li><li>Assurance prêt hypothécaire</li><li>Assurance auto.</li><br></ul>La précision du résultat dépend de l’exactitude des renseignements que vous inscrirez dans les différents champs.<html>");
