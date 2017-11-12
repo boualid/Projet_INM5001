@@ -62,7 +62,42 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        requeteSelectAmortssm();
+        BaseDeDonnees.requeteSelectAmor();
+        
+    }
+     /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Interface().setVisible(true);
+            }
+        });
     }
 
     public void msg_erreur(String msg, String titre, int msgType) {
@@ -80,27 +115,6 @@ public class Interface extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(frame, msg, titre, msgType);
 
-    }
-  
-    private void requeteSelectAmortssm() {
-        
-        Connection conn = null;
-        PreparedStatement preStmt = null;
-       try {
-          conn = BaseDeDonnees.obtConnexion();
-          String reqSql = "select * from amortissement";
-          preStmt = conn.prepareStatement(reqSql);
-          ResultSet rs = preStmt.executeQuery();
-         while (rs.next()) {
-                int idAmort = rs.getInt("idAmortissement");
-                String dureeAmort = rs.getString("dureeAmortissement");
-                jComboBox2.addItem(dureeAmort);
-         }    
-       } catch (SQLException ex) {
-           ex.printStackTrace();
-       } finally {
-            BaseDeDonnees.fermConnexion();
-        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -868,17 +882,6 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTMensualiteAssHypoActionPerformed
 
-    
-    //Methodes
-    //////////
-    private void initialConboBox2(){
-        ArrayList<String> tab = BaseDeDonnees.requeteSelectAmortssm();
-        for (int i = 0; i < tab.size(); i++) {
-            //jComboBox2.getSelectedItem(tab.get(i));
-            jComboBox2.addItem(tab.get(i));
-        }
-    }
-    
     protected int tryChnEnInt(String chaine, String msgErr) {
         int entier = 0;
         try {
@@ -970,40 +973,7 @@ public class Interface extends javax.swing.JFrame {
 
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfacePrinciple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InterfacePrinciple().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButCalculer;
@@ -1014,7 +984,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPagePrincipale;
     private javax.swing.JButton jButtonPagePrincipale1;
     private javax.swing.JCheckBox jCnom;
-    private javax.swing.JComboBox<String> jComboBox2;
+    protected static javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JCheckBox jCoui;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

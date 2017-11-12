@@ -16,77 +16,17 @@ import javax.swing.JComboBox;
  * @author bwali
  */
 public class AssuranceAuto extends javax.swing.JFrame {
-    private JComboBox liste1;
+   // private JComboBox liste1;
 
     /**
      * Creates new form AssuranceAuto
      */
     public AssuranceAuto() {
         initComponents();
-        requeteSelect();
+        BaseDeDonnees.requeteSelect();
     }
     
-        private void requeteSelect() {
         
-        Connection conn = null;
-        PreparedStatement preStmt = null;
-       try {
-          conn = BaseDeDonnees.obtConnexion();
-          //Mois
-          String reqSqlMois = "select * from mois";
-          preStmt = conn.prepareStatement(reqSqlMois);
-          ResultSet rsMois = preStmt.executeQuery();
-         while (rsMois.next()) {
-                String mois = rsMois.getString("mois");
-                jComboMois.addItem(mois);
-         } 
-         //État Matrimonial
-         String reqSqlEtat = "select * from ETAT_MATRIMONIAL";
-          preStmt = conn.prepareStatement(reqSqlEtat);
-          ResultSet rsEtat = preStmt.executeQuery();
-         while (rsEtat.next()) {
-                String etat = rsEtat.getString("Etat");
-                jComboEtat.addItem(etat);
-         } 
-         //nbr d'année en tant que conducteur principale
-          String reqSqlConducteur = "select * from NBR_ANN_CONDUCTEUR";
-          preStmt = conn.prepareStatement(reqSqlConducteur);
-          ResultSet rscond = preStmt.executeQuery();
-         while (rscond.next()) {
-                String nbrAnnee = rscond.getString("NBRANNEE");
-                jCombonbrANN.addItem(nbrAnnee);
-         }
-         // Marque du Véhicule
-         String reqSqlVehicule = "select * from MARQUE_VEHICULE";
-          preStmt = conn.prepareStatement(reqSqlVehicule);
-          ResultSet rsVehicule = preStmt.executeQuery();
-         while (rsVehicule.next()) {
-                String marqueVehicule = rsVehicule.getString("MARQUE");
-                jCombomarqueVehicule.addItem(marqueVehicule);
-         }
-         //Année du Véhicule
-         String reqSqlModele = "select distinct(ANNEE) as ANNEE from MODELE_VEHICULE group by ANNEE";
-          preStmt = conn.prepareStatement(reqSqlModele);
-          ResultSet rsAnnee = preStmt.executeQuery();
-         while (rsAnnee.next()) {
-                String modeleAnnee = rsAnnee.getString("ANNEE");
-                jComboAnnVehi.addItem(modeleAnnee);
-         }
-         //modele du Véhicule
-         String reqSqlModeleV = "select * from MODELE_VEHICULE ";
-          preStmt = conn.prepareStatement(reqSqlModeleV);
-          ResultSet rsV = preStmt.executeQuery();
-         while (rsV.next()) {
-                String modeleV = rsV.getString("MODELE");
-                jComboModele.addItem(modeleV);
-         }
-         
-       } catch (SQLException ex) {
-           ex.printStackTrace();
-       } finally {
-            BaseDeDonnees.fermConnexion();
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -572,8 +512,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
 
     private void jCombomarqueVehiculeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombomarqueVehiculeActionPerformed
         // TODO add your handling code here:
-        Object[] elements = new Object[]{"Element 1", "Element 2", "Element 3", "Element 4", "Element 5"};
-        liste1 = new JComboBox(elements);
+        //Object[] elements = new Object[]{"Element 1", "Element 2", "Element 3", "Element 4", "Element 5"};
+        //liste1 = new JComboBox(elements);
     }//GEN-LAST:event_jCombomarqueVehiculeActionPerformed
 
     private void jComboAnnVehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAnnVehiActionPerformed
@@ -623,12 +563,12 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonInterface;
     private javax.swing.JButton jButtonInterfacePrincipale;
-    private javax.swing.JComboBox<String> jComboAnnVehi;
-    private javax.swing.JComboBox<String> jComboEtat;
-    private javax.swing.JComboBox<String> jComboModele;
-    private javax.swing.JComboBox<String> jComboMois;
-    private javax.swing.JComboBox<String> jCombomarqueVehicule;
-    private javax.swing.JComboBox<String> jCombonbrANN;
+    protected static javax.swing.JComboBox<String> jComboAnnVehi;
+    protected static javax.swing.JComboBox<String> jComboEtat;
+    protected static javax.swing.JComboBox<String> jComboModele;
+    protected static javax.swing.JComboBox<String> jComboMois;
+    protected static javax.swing.JComboBox<String> jCombomarqueVehicule;
+    protected static javax.swing.JComboBox<String> jCombonbrANN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
