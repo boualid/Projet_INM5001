@@ -178,7 +178,7 @@
                               <Component id="Messages" min="-2" pref="660" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jPanel2" min="-2" pref="354" max="-2" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
@@ -690,7 +690,7 @@
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel20" max="32767" attributes="0"/>
-                          <Component id="jLabelAssuranceHypo" max="32767" attributes="0"/>
+                          <Component id="jLabelAssuranceHypo" pref="333" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -698,25 +698,22 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="jTValeurmaximale" min="-2" pref="177" max="-2" attributes="0"/>
-                                      <EmptySpace min="93" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="JTprêtHypothécaire" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                      <Component id="jTAssuranceHypothecaire" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
-                                      <Component id="jLabelMontantPrime" min="-2" pref="267" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JTprêtHypothécaire" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="jTAssuranceHypothecaire" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="jLabelMontantPrime" min="-2" pref="267" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="jTMensualiteAssHypo" min="-2" pref="176" max="-2" attributes="0"/>
-                                  <Component id="jLabelMensuelAvecAss" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="jTMensualiteAssHypo" min="-2" pref="176" max="-2" attributes="0"/>
+                              <Component id="jLabelMensuelAvecAss" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

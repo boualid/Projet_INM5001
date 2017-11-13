@@ -766,11 +766,11 @@ public class Interface extends javax.swing.JFrame {
             ButCalculer.setEnabled(false);
             msg_erreur(MSG_ERR_MISEDEFOND, "Erreur", JOptionPane.ERROR_MESSAGE);
 
-        } else if (jCoui.isSelected()) {
-            if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
+        } else if (jCoui.isSelected() && !verseMensuelparmoi.matches("[0-9]{1,6}")) {
+            //if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
                 ButCalculer.setEnabled(false);
                 msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
-            }
+            //}
         } else if (!taxemunicipales.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_TAXEMUNICIPALE, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
@@ -792,7 +792,7 @@ public class Interface extends javax.swing.JFrame {
             //mise de fond
             miseFonds = Double.parseDouble(misedefond);
             //versement Mensuel par mois
-            if (jCoui.isSelected() && !(jTMois1.getText().isEmpty())) {
+            if (jCoui.isSelected()/* && !(jTMois1.getText().isEmpty())*/) {
                 limitVersement = Double.parseDouble(verseMensuelparmoi);
             }
 
@@ -1045,8 +1045,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
 
-    //Initialisation de jComboBox2
-    //jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(BaseDeDonnees.requeteSelectAmortssm().toArray(new String[0])));
 
     //Attributs
     ////////////
