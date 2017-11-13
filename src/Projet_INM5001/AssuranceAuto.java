@@ -313,8 +313,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel12))
-                            .addComponent(jComboTypeassurance, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27))
+                            .addComponent(jLabel27)
+                            .addComponent(jComboTypeassurance, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -332,11 +332,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
                                 .addComponent(jCombonbrANN, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboDossier, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldage, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel24))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -361,7 +356,13 @@ public class AssuranceAuto extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioButtonMonsieur)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboDossier, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jTextFieldage, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel24))))
                         .addGap(0, 72, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -450,9 +451,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
                     .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboDossier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButtonInterface)
@@ -610,6 +611,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jCombonbrANN.setSelectedIndex(0);
         jRadioButtonMadame.setSelected(false);
         jRadioButtonMonsieur.setSelected(false);
+        //jComboModele.removeAllItems();
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -656,11 +658,11 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonInterface;
     private javax.swing.JButton jButtonInterfacePrincipale;
     protected static javax.swing.JComboBox<String> jComboAnnVehi;
-    private javax.swing.JComboBox<String> jComboDossier;
+    protected static javax.swing.JComboBox<String> jComboDossier;
     protected static javax.swing.JComboBox<String> jComboEtat;
     protected static javax.swing.JComboBox<String> jComboModele;
     protected static javax.swing.JComboBox<String> jComboMois;
-    private javax.swing.JComboBox<String> jComboTypeassurance;
+    protected static javax.swing.JComboBox<String> jComboTypeassurance;
     protected static javax.swing.JComboBox<String> jCombomarqueVehicule;
     protected static javax.swing.JComboBox<String> jCombonbrANN;
     private javax.swing.JLabel jLabel1;

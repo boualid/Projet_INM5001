@@ -135,16 +135,24 @@ public class BaseDeDonnees {
                 String modeleAnnee = rsAnnee.getString("ANNEE");
                 AssuranceAuto.jComboAnnVehi.addItem(modeleAnnee);
          }
-         //modele du Véhicule
-         /*
-         String reqSqlModeleV = "select * from MODELE_VEHICULE ";
-          preStmt = conn.prepareStatement(reqSqlModeleV);
-          ResultSet rsV = preStmt.executeQuery();
-         while (rsV.next()) {
-                String modeleV = rsV.getString("MODELE");
-                AssuranceAuto.jComboModele.addItem(modeleV);
+         //modele du Dossier         
+         String reqSqlDossier = "select * from dossier";
+          preStmt = conn.prepareStatement(reqSqlDossier);
+          ResultSet rsDossier = preStmt.executeQuery();
+         while (rsDossier.next()) {
+                String dossierV = rsDossier.getString("STATUS");
+                AssuranceAuto.jComboDossier.addItem(dossierV);
          }
-*/
+         
+         //modele du Type Assurance         
+         String reqSqlTypeAssurance = "select * from type_assurance";
+          preStmt = conn.prepareStatement(reqSqlTypeAssurance);
+          ResultSet rsAssurance = preStmt.executeQuery();
+         while (rsAssurance.next()) {
+                String assuranceV = rsAssurance.getString("ASSURANCE");
+                AssuranceAuto.jComboTypeassurance.addItem(assuranceV);
+         }
+
          
        } catch (SQLException ex) {
            ex.printStackTrace();
@@ -163,7 +171,7 @@ public class BaseDeDonnees {
           ResultSet rsAmor = preStmt.executeQuery();
          while (rsAmor.next()) {
                 String amortissement = rsAmor.getString("DUREE");
-                Interface.jComboBox2.addItem(amortissement);
+                Interface.jComboBoxAmortissement.addItem(amortissement);
          } 
        } catch (SQLException ex) {
            ex.printStackTrace();
