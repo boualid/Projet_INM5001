@@ -102,10 +102,7 @@ public class Interface extends javax.swing.JFrame {
 
     public void msg_erreur(String msg, String titre, int msgType) {
         JFrame frame = new JFrame();
-
-        //ui.put("OptionPane.background",new ColorUIResource(241,240,240));
         UIManager.put("OptionPane.messageForeground", Color.RED);
-        //ui.getLookAndFeelDefaults().put("OptionPane.messageForeground", Color.red);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
         UIManager.getLookAndFeelDefaults().put("Panel.background", 
                 new ColorUIResource(241, 240, 240));

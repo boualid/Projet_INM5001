@@ -6,6 +6,7 @@
 //import javax.swing.JComboBox;
 
 package Projet_INM5001;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,11 +16,45 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 /**
  *
  * @author bwali
  */
 public class AssuranceAuto extends javax.swing.JFrame {
+    /**
+     * *********************
+     * CONSTANTES *********************
+     */
+    private static final String MSG_ERR_TITRE = "Veuillez sélectionner un titre.";
+    
+    private static final String MSG_ERR_NOM = "Veuillez saisir votre nom de famille. ";
+         
+    private static final String MSG_ERR_PRENOM = "Veuillez saisir votre prenom. ";
+        
+    private static final String MSG_ERR_DATENAISSANCE = "Entrer une date de "
+            + "naissance en précisant un jour composé de 2 chiffres,\n "
+            + "en sélectionnant un mois et en précisant une année composée"
+            + " de 4 chiffres.";
+            
+    private static final String MSG_ERR_ÉTATMATRI = "Veuillez sélectionner votre"
+            + " État Matrimonial.";
+    private static final String MSG_ERR_NBRANNCONDUCTEUR = "Veuillez sélectionner un"
+            + " nombre d'années.";
+    private static final String MSG_ERR_AGE = "Veuillez Entrer un âge"
+            + " composé de 2 chiffres.";           
+    private static final String MSG_ERR_DOSSIER = "Veuillez sélectionner un type de "
+            + "dossier.";            
+    private static final String MSG_ERR_MARQUE = "Veuillez sélectionner une marque.";             
+    private static final String MSG_ERR_ANNEE_VE = "Veuillez sélectionner une année.";
+    private static final String MSG_ERR_MODÈLE = "Veuillez sélectionner un modèle.";
+    private static final String MSG_ERR_Kilométrage = "Veuillez entrer un kilométrage annuel.";
+    private static final String MSG_ERR_TYPEASSURANCE = "Veuillez sélectionner le type d'assurance.";
+    
+    
    // private JComboBox liste1;
 
     /**
@@ -28,6 +63,20 @@ public class AssuranceAuto extends javax.swing.JFrame {
     public AssuranceAuto() {
         initComponents();
         BaseDeDonnees.requeteSelect();
+    }
+    
+      public void msg_erreur(String msg, String titre, int msgType) {
+        JFrame frame = new JFrame();
+        UIManager.put("OptionPane.messageForeground", Color.RED);
+        UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
+        UIManager.getLookAndFeelDefaults().put("Panel.background", 
+                new ColorUIResource(241, 240, 240));
+
+        UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
+        UIManager.put("Button.foreground", new ColorUIResource(241, 240, 240));
+
+        JOptionPane.showMessageDialog(frame, msg, titre, msgType);
+
     }
     
         
@@ -259,6 +308,11 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Calculer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(11, 109, 11));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -382,9 +436,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
                             .addComponent(jRadioButtonMadame)
                             .addComponent(jRadioButtonMonsieur))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -611,10 +665,41 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jCombonbrANN.setSelectedIndex(0);
         jRadioButtonMadame.setSelected(false);
         jRadioButtonMonsieur.setSelected(false);
-        //jComboModele.removeAllItems();
+        jComboModele.removeAllItems();
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(!jRadioButtonMadame.isSelected() && !jRadioButtonMonsieur.isSelected()){
+            msg_erreur(MSG_ERR_TITRE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jTextFieldNom.getText().isEmpty()){
+            msg_erreur(MSG_ERR_NOM, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jTextFieldPrenom.getText().isEmpty()){
+             msg_erreur(MSG_ERR_PRENOM, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jTextFieldJour.getText().isEmpty()|| jComboMois.getSelectedItem() == "Sélectionner" ||
+                jTextFieldAnnee.getText().isEmpty()){
+             msg_erreur(MSG_ERR_DATENAISSANCE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jComboEtat.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_ÉTATMATRI, "Erreur", JOptionPane.ERROR_MESSAGE);            
+        }else if(jCombonbrANN.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_NBRANNCONDUCTEUR, "Erreur", JOptionPane.ERROR_MESSAGE); 
+        }else if(jTextFieldage.getText().isEmpty()){
+             msg_erreur(MSG_ERR_AGE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jComboDossier.getSelectedItem() == "Sélectionner" ){
+             msg_erreur(MSG_ERR_DOSSIER, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jCombomarqueVehicule.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_MARQUE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jComboAnnVehi.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_ANNEE_VE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jComboModele.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_MODÈLE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jTextFieldKilometrage.getText().isEmpty()){
+             msg_erreur(MSG_ERR_Kilométrage, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }else if(jComboTypeassurance.getSelectedItem() == "Sélectionner"){
+             msg_erreur(MSG_ERR_TYPEASSURANCE, "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
