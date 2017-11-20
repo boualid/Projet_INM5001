@@ -197,10 +197,20 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jRadioButtonMadame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButtonMadame.setForeground(java.awt.Color.gray);
         jRadioButtonMadame.setText("Madame ");
+        jRadioButtonMadame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMadameActionPerformed(evt);
+            }
+        });
 
         jRadioButtonMonsieur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButtonMonsieur.setForeground(java.awt.Color.gray);
         jRadioButtonMonsieur.setText("Monsieur");
+        jRadioButtonMonsieur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMonsieurActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(java.awt.Color.gray);
@@ -700,6 +710,19 @@ public class AssuranceAuto extends javax.swing.JFrame {
              msg_erreur(MSG_ERR_TYPEASSURANCE, "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButtonMonsieurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonsieurActionPerformed
+         if(jRadioButtonMonsieur.isSelected()){
+           jRadioButtonMadame.setSelected(false);
+           
+        }
+    }//GEN-LAST:event_jRadioButtonMonsieurActionPerformed
+
+    private void jRadioButtonMadameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMadameActionPerformed
+        if(jRadioButtonMadame.isSelected()){
+           jRadioButtonMonsieur.setSelected(false);
+        }
+    }//GEN-LAST:event_jRadioButtonMadameActionPerformed
 
     /**
      * @param args the command line arguments
