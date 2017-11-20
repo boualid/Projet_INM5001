@@ -735,6 +735,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
             result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, anVeh, kilomtr,
                 sex, age, anExp, doss, typAss);
         } else {
+            msg_erreur("vous devez avoir 15 ans ou plus", "Message", JOptionPane.WARNING_MESSAGE);
         }
         
         if (result != 0){
