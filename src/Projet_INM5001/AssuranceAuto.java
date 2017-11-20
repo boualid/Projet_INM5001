@@ -711,7 +711,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         }
         
         String marq = "", model = "", typAss = "", sex = "", anExpStr = "", doss = "";
-        int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0; 
+        int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0, anPermis = 0; 
         double  result = 0.0;
         
         marq = ((String)jCombomarqueVehicule.getSelectedItem()).trim().toLowerCase();
@@ -727,7 +727,10 @@ public class AssuranceAuto extends javax.swing.JFrame {
         anNais = Integer.parseInt(jTextFieldAnnee.getText().trim().toLowerCase());
         anExpStr = ((String)jCombonbrANN.getSelectedItem()).trim().toLowerCase();;;
         doss = ((String)jComboDossier.getSelectedItem()).trim().toLowerCase();
+        anPermis = Integer.parseInt(jTextFieldage.getText().trim().toLowerCase());;
         age = 2017 - anNais;
+        anExp = 2017 - anPermis;
+        
         if (age >= 15){
             result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, anVeh, kilomtr,
                 sex, age, anExp, doss, typAss);
