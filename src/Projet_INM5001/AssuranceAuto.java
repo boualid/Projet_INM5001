@@ -699,6 +699,35 @@ public class AssuranceAuto extends javax.swing.JFrame {
         }else if(jComboTypeassurance.getSelectedItem() == "Sélectionner"){
              msg_erreur(MSG_ERR_TYPEASSURANCE, "Erreur", JOptionPane.ERROR_MESSAGE);
         }
+        
+        String marq = "", model = "", typAss = "", sex = "", anExpStr = "", doss = "";
+        int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0; 
+        double  result = 0.0;
+        
+        marq = ((String)jCombomarqueVehicule.getSelectedItem()).trim().toLowerCase();
+        model = ((String)jComboModele.getSelectedItem()).trim().toLowerCase();
+        anVeh = Integer.parseInt(((String)jComboAnnVehi.getSelectedItem()).trim().toLowerCase());
+        kilomtr = Integer.parseInt(jTextFieldKilometrage.getText().trim().toLowerCase());
+        typAss = ((String)jComboTypeassurance.getSelectedItem()).trim().toLowerCase();
+        if (jRadioButtonMadame.isSelected()) 
+            sex =  "femele";
+        if (jRadioButtonMonsieur.isSelected()) 
+            sex =  "male";
+        //sex = (jRadioButtonMadame.isSelected())? "femele" : "male";
+        anNais = Integer.parseInt(jTextFieldAnnee.getText().trim().toLowerCase());
+        anExpStr = ((String)jCombonbrANN.getSelectedItem()).trim().toLowerCase();;;
+        doss = ((String)jComboDossier.getSelectedItem()).trim().toLowerCase();
+        age = 2017 - anNais;
+        if (age >= 15){
+            result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, anVeh, kilomtr,
+                sex, age, anExp, doss, typAss);
+        } else {
+        }
+        
+        if (result != 0){
+            jTextField6.setText("" + result);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
