@@ -268,6 +268,12 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel23.setForeground(java.awt.Color.gray);
         jLabel23.setText("Âge à l'obtention du premier permis de conduire canadien");
 
+        jTextFieldage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldageActionPerformed(evt);
+            }
+        });
+
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setForeground(java.awt.Color.gray);
         jLabel24.setText(" ans");
@@ -708,7 +714,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
              msg_erreur(MSG_ERR_Kilométrage, "Erreur", JOptionPane.ERROR_MESSAGE);
         }else if(jComboTypeassurance.getSelectedItem() == "Sélectionner"){
              msg_erreur(MSG_ERR_TYPEASSURANCE, "Erreur", JOptionPane.ERROR_MESSAGE);
-        }
+        }else{
         
         String marq = "", model = "", typAss = "", sex = "", anExpStr = "", doss = "";
         int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0, anPermis = 0; 
@@ -731,7 +737,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         age = 2017 - anNais;
         anExp = 2017 - anPermis;
         
-        if (age >= 15){
+        if (age >= 15 && anPermis>=15){
             result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, anVeh, kilomtr,
                 sex, age, anExp, doss, typAss);
         } else {
@@ -741,7 +747,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         if (result != 0){
             jTextField6.setText("" + result);
         }
-        
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButtonMonsieurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonsieurActionPerformed
@@ -756,6 +762,10 @@ public class AssuranceAuto extends javax.swing.JFrame {
            jRadioButtonMonsieur.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonMadameActionPerformed
+
+    private void jTextFieldageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldageActionPerformed
 
     /**
      * @param args the command line arguments
