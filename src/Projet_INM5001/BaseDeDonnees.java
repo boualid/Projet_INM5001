@@ -126,8 +126,7 @@ public class BaseDeDonnees {
                 AssuranceAuto.jCombomarqueVehicule.addItem(marqueVehicule);
          }
          //Année du Véhicule
-         String reqSqlModele = "select distinct(ANNEE) as ANNEE from MODELE_VEHICULE"
-                 + " group by ANNEE";
+         String reqSqlModele = "select * from ANN_VOI_TURE";
           preStmt = conn.prepareStatement(reqSqlModele);
           ResultSet rsAnnee = preStmt.executeQuery();
          while (rsAnnee.next()) {

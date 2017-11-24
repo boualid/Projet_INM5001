@@ -167,9 +167,9 @@ public class AssurenceAutoImp {
      */
     public static double xAnnee(double annee) {
         double resultat = 0.0;
-        double agevoiture = 2018 - annee;
+        double agevoiture = annee;
         System.out.println("anne voiture :" + agevoiture);
-        if (agevoiture > 0 && agevoiture <= 1) {
+        if (agevoiture >= 0 && agevoiture <= 1) {
             resultat = 1.0;
         } else if (agevoiture > 1 && agevoiture <= 3) {
             resultat = 0.95;
@@ -306,30 +306,7 @@ public class AssurenceAutoImp {
         System.out.println("le resultat Coefficient Experience est :" + resultat + "$");
         return resultat;
     }
-    
-    //Surcharge de la méthode de la méthode ci-dessus avec une chaine en param
-    public static double xExperience(String experience) {
-        double resultat = 0.0;
-        if (experience.equalsIgnoreCase("Moins de 1 an")) {
-            resultat = 20.0;
-        } else if (experience.equalsIgnoreCase("Entre 1 et 2 ans")
-                || experience.equalsIgnoreCase("Entre 2 et 3 ans")) {
-            resultat = 17.00;
-        } else if (experience.equalsIgnoreCase("Entre 3 et 4 ans")
-                || experience.equalsIgnoreCase("Entre 4 et 5 ans")
-                || experience.equalsIgnoreCase("5 ans et plus")) {
-            resultat = 15.00;
-        }  else if (experience.equalsIgnoreCase("N est pas conducteur principale actuellement")) {
-            resultat = 20.00;
-        } else {
-            resultat = 10.00;
-        }
-            
-        System.out.println("le resultat Coefficient Experience est :" + resultat + "$");
-        return resultat;
-    }
-
-    /**
+        /**
      *
      * @param experience
      * @return
@@ -344,14 +321,12 @@ public class AssurenceAutoImp {
                 resultat = 11;
                 break;
             case "moyenne":
-            case "moyen":
                 resultat = 19;
                 break;
             case "mauvais":
                 resultat = 46;
                 break;
             case "tres Mauvais":
-            case "grave":
                 resultat = 62;
                 break;
 
@@ -369,20 +344,16 @@ public class AssurenceAutoImp {
         double resultat = 0.0;
         switch (type) {
             case "simple base":
-            case "assurance simple":
-                resultat = 0.16;
+                resultat = 0.22;
                 break;
             case "simple tr":
-            case "assurance simple tous risque":
-                resultat = 0.24;
+                resultat = 0.40;
                 break;
             case "double base":
-            case "assurance double":
-                resultat = 0.27;
+                resultat = 0.38;
                 break;
             case "double tr":
-            case "assurance double tous risque":
-                resultat = 0.35;
+                resultat = 0.55;
                 break;
         }
         System.out.println("le resultat Coefficient Type est :" + resultat + "$");

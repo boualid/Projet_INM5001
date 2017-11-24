@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -694,6 +695,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int year = Calendar.getInstance().get(Calendar.YEAR);
         if(!jRadioButtonMadame.isSelected() && !jRadioButtonMonsieur.isSelected()){
             msg_erreur(MSG_ERR_TITRE, "Erreur", JOptionPane.ERROR_MESSAGE);
         }else if(jTextFieldNom.getText().isEmpty()){
@@ -724,7 +726,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         }else{
         
         String marq = "", model = "", typAss = "", sex = "", anExpStr = "", doss = "";
-        int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0, anPermis = 0; 
+        int anVeh = 0, anNais = 0, age = 0, anExp = 0, kilomtr = 0, anPermis = 0 , agevoiture = 0; 
         double  result = 0.0;
         
         marq = ((String)jCombomarqueVehicule.getSelectedItem()).trim().toLowerCase();
@@ -741,11 +743,14 @@ public class AssuranceAuto extends javax.swing.JFrame {
         anExpStr = ((String)jCombonbrANN.getSelectedItem()).trim().toLowerCase();;;
         doss = ((String)jComboDossier.getSelectedItem()).trim().toLowerCase();
         anPermis = Integer.parseInt(jTextFieldage.getText().trim().toLowerCase());;
-        age = 2017 - anNais;
-        anExp = 2017 - anPermis;
+        age = year - anNais;
+        anExp = year - anPermis;
+        agevoiture = year - anVeh ; 
+        System.out.println("agevoiture" + agevoiture);
+        System.out.println("anVeh" + anVeh);
         
         if (age >= 15 && anPermis>=15){
-            result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, anVeh, kilomtr,
+            result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, agevoiture, kilomtr,
                 sex, age, anExp, doss, typAss);
         } else {
             msg_erreur("vous devez avoir 15 ans ou plus", "Message", JOptionPane.WARNING_MESSAGE);
