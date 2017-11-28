@@ -36,6 +36,7 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Interface Principale");
 
         jPanel1.setBackground(new java.awt.Color(241, 240, 240));
 
