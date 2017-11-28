@@ -159,6 +159,7 @@ public class BaseDeDonnees {
         }
     }
     
+        
     protected static void requeteSelectAmor() {
         
        try {
