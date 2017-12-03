@@ -265,7 +265,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(java.awt.Color.gray);
-        jLabel12.setText("VOTRE VEHICULE");
+        jLabel12.setText("VOTRE VÉHICULE");
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Projet_INM5001/Personne.png"))); // NOI18N
         jLabel21.setText("jLabel21");
