@@ -668,7 +668,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
         ArrayList<String> tab = new ArrayList();
         String selectedModel = (String) jCombomarqueVehicule.getSelectedItem();
         System.out.println(selectedModel);
-        tab = BaseDeDonnees.requeteSelectModele(selectedModel);        
+        tab = BaseDeDonnees.requeteSelectModele(selectedModel);
+        jComboModele.removeAllItems();
+        jComboModele.addItem("Sélectionner");
                 Iterator<String> it = tab.iterator(); 
                 while (it.hasNext()) {
                     String s = it.next();
@@ -699,6 +701,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jCombomarqueVehicule.setSelectedIndex(0);
         jComboAnnVehi.setSelectedIndex(0);
         jComboModele.setSelectedIndex(0);
+        jComboModele.addItem("Sélectionner");
         jComboTypeassurance.setSelectedIndex(0);
         jCombonbrANN.setSelectedIndex(0);
         jRadioButtonMadame.setSelected(false);
