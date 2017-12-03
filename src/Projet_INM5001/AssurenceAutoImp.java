@@ -346,13 +346,13 @@ public class AssurenceAutoImp {
             case "simple base":
                 resultat = 0.22;
                 break;
-            case "simple tr":
+            case "simple tout risque":
                 resultat = 0.40;
                 break;
             case "double base":
                 resultat = 0.38;
                 break;
-            case "double tr":
+            case "double tout risque":
                 resultat = 0.55;
                 break;
         }

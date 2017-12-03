@@ -247,16 +247,16 @@ INSERT INTO NBR_ANN_CONDUCTEUR
  	VALUES(7 , 'N est pas conducteur principale actuellement')
 /
 INSERT INTO TYPE_ASSURANCE
- 	VALUES(1 , 'simple base')
+ 	VALUES(1 , 'Simple base')
 /
 INSERT INTO TYPE_ASSURANCE
- 	VALUES(2 , 'simple tr')
+ 	VALUES(2 , 'Simple tout risque')
 /
 INSERT INTO TYPE_ASSURANCE
- 	VALUES(3 , 'double base')
+ 	VALUES(3 , 'Double base')
 /
 INSERT INTO TYPE_ASSURANCE
- 	VALUES(4 , 'double tr')
+ 	VALUES(4 , 'Double tout risque')
 /
 INSERT INTO MARQUE_VEHICULE
  	VALUES(20 , 'lamburguini')
