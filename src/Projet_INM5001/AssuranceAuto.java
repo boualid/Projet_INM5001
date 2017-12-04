@@ -665,14 +665,14 @@ public class AssuranceAuto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCombomarqueVehiculeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombomarqueVehiculeActionPerformed
-        ArrayList<String> tab = new ArrayList();System.out.println("ligne1");
-        String selectedModel = (String) jCombomarqueVehicule.getSelectedItem();System.out.println("ligne2");
+        ArrayList<String> tab = new ArrayList();
+        String selectedModel = (String) jCombomarqueVehicule.getSelectedItem();
         System.out.println(selectedModel);
-        tab = BaseDeDonnees.requeteSelectModele(selectedModel);System.out.println("ligne4");
-        jComboModele.removeAllItems();System.out.println("ligne5");
-        jComboModele.addItem("Sélectionner");System.out.println("ligne6");
-                Iterator<String> it = tab.iterator(); System.out.println("ligne7");
-                while (it.hasNext()) {System.out.println("ligne8");
+        tab = BaseDeDonnees.requeteSelectModele(selectedModel);
+        jComboModele.removeAllItems();
+        jComboModele.addItem("Sélectionner");
+                Iterator<String> it = tab.iterator(); 
+                while (it.hasNext()) {
                     String s = it.next();
                     jComboModele.addItem(s);
                     System.out.println(s);
@@ -700,15 +700,12 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jComboDossier.setSelectedIndex(0);
         jCombomarqueVehicule.setSelectedIndex(0);
         jComboAnnVehi.setSelectedIndex(0);
-        System.out.println(jComboModele.getItemAt(0));
         jComboModele.setSelectedIndex(0);
-        //jComboModele.removeAllItems();
-        //jComboModele.addItem("Sélectionner");
         jComboTypeassurance.setSelectedIndex(0);
         jCombonbrANN.setSelectedIndex(0);
         jRadioButtonMadame.setSelected(false);
         jRadioButtonMonsieur.setSelected(false);
-        //jComboModele.removeAllItems();
+        //jComboModele.removeAllItems();Déjà fait ds 1e autre méthode
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
