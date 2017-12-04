@@ -175,7 +175,10 @@ public class Interface extends javax.swing.JFrame {
         jTAssuranceHypothecaire = new javax.swing.JTextField();
         jLabelMontantPrime = new javax.swing.JLabel();
         jLabelMensuelAvecAss = new javax.swing.JLabel();
-        jTMensualiteAssHypo = new javax.swing.JTextField();
+        jTMensualiteAvecAssHypo = new javax.swing.JTextField();
+        jTMensualiteSansAssHypo = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jButtonPagePrincipale = new javax.swing.JButton();
         jButtonPagePrincipale1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -418,13 +421,27 @@ public class Interface extends javax.swing.JFrame {
 
         jLabelMensuelAvecAss.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelMensuelAvecAss.setForeground(new java.awt.Color(0, 173, 82));
-        jLabelMensuelAvecAss.setText("Versement mensuel avec assurance");
+        jLabelMensuelAvecAss.setText("Versement mensuel");
 
-        jTMensualiteAssHypo.addActionListener(new java.awt.event.ActionListener() {
+        jTMensualiteAvecAssHypo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTMensualiteAssHypoActionPerformed(evt);
+                jTMensualiteAvecAssHypoActionPerformed(evt);
             }
         });
+
+        jTMensualiteSansAssHypo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTMensualiteSansAssHypoActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 173, 82));
+        jLabel22.setText("sans assurance");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 173, 82));
+        jLabel23.setText("avec assurance");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -434,25 +451,36 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addComponent(jLabelAssuranceHypo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jTValeurmaximale, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(jTValeurmaximale, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelMontantPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTprêtHypothécaire, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTAssuranceHypothecaire, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMontantPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTMensualiteAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelMensuelAvecAss)))
+                            .addComponent(jLabel22)
+                            .addComponent(jLabelMensuelAvecAss)
+                            .addComponent(jTMensualiteSansAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTMensualiteAvecAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23))
+                        .addGap(97, 97, 97)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -479,9 +507,15 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelMensuelAvecAss))
                     .addComponent(jLabel21))
-                .addGap(18, 18, 18)
-                .addComponent(jTMensualiteAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTMensualiteSansAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTMensualiteAvecAssHypo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jButtonPagePrincipale.setBackground(new java.awt.Color(11, 109, 11));
@@ -702,7 +736,7 @@ public class Interface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1157, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -883,14 +917,18 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxAmortissementActionPerformed
 
-    private void jTMensualiteAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteAssHypoActionPerformed
+    private void jTMensualiteAvecAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteAvecAssHypoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTMensualiteAssHypoActionPerformed
+    }//GEN-LAST:event_jTMensualiteAvecAssHypoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new AssuranceAuto().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTMensualiteSansAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteSansAssHypoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTMensualiteSansAssHypoActionPerformed
 
     protected int tryChnEnInt(String chaine, String msgErr) {
         int entier = 0;
@@ -933,7 +971,7 @@ public class Interface extends javax.swing.JFrame {
                     jTValeurmaximale.setText(0.0 + " " + "$");
                     JTprêtHypothécaire.setText(0.0 + " " + "$");
                     jTAssuranceHypothecaire.setText(0.0 + " " + "$");
-                    jTMensualiteAssHypo.setText(0.0 + " " + "$");
+                    jTMensualiteAvecAssHypo.setText(0.0 + " " + "$");
                 } else {
                     montantPret = valeurMaison - miseFonds;
                     assuranceHypoObligatoire = AssuranceHypothecaire
@@ -947,27 +985,28 @@ public class Interface extends javax.swing.JFrame {
                         msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane
                                 .INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
-                                + "Obligatoire !");
+                                + "OBLIGATOIRE !");
                     } else {
                         //msg_erreur(MSG_INFO_ASS_HYPO_OPT, "Message", JOptionPane.YES_NO_OPTION);
                         assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog
                                 (rootPane, MSG_INFO_ASS_HYPO_OPT, "Message", 
                                 JOptionPane.YES_NO_OPTION);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
-                        + "Optionnelle !");
+                        + "OPTIONNELLE !");
                     }
                     //Affichage : valeur de la maison, montants prêt et assurance
                     jTValeurmaximale.setText(valeurMaison + " " + "$");
                     montantPret = (double) Math.round(montantPret * 100) / 100;
                     JTprêtHypothécaire.setText(montantPret + " " + "$");
+                    jTMensualiteSansAssHypo.setText(df.format(limitVersement) + " $");
                     jTAssuranceHypothecaire.setText("");
-                    jTMensualiteAssHypo.setText("");
+                    jTMensualiteAvecAssHypo.setText("");
 
                     if (assuranceHypoObligatoire 
                             || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){
                         jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " $");
                         double limVers = Double.parseDouble(jTMois1.getText());
-                        jTMensualiteAssHypo.setText(df.format(limVers 
+                        jTMensualiteAvecAssHypo.setText(df.format(limitVersement 
                                 + mensualiteAssuranceHypo) + " $");
                     }
                 }
@@ -977,7 +1016,8 @@ public class Interface extends javax.swing.JFrame {
                 jTValeurmaximale.setText(0.0 + " " + "$");
                 JTprêtHypothécaire.setText(0.0 + " " + "$");
                 jTAssuranceHypothecaire.setText(0.0 + " " + "$");
-                jTMensualiteAssHypo.setText(0.0 + " " + "$");
+                jTMensualiteAvecAssHypo.setText(0.0 + " " + "$");
+                jTMensualiteSansAssHypo.setText(0.0 + " " + "$");
             }
         }
 
@@ -1011,6 +1051,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1031,7 +1073,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTAssuranceHypothecaire;
     private javax.swing.JTextField jTEngagements;
-    private javax.swing.JTextField jTMensualiteAssHypo;
+    private javax.swing.JTextField jTMensualiteAvecAssHypo;
+    private javax.swing.JTextField jTMensualiteSansAssHypo;
     private javax.swing.JTextField jTMisedefonds;
     private javax.swing.JTextField jTMois1;
     private javax.swing.JTextField jTMois2;
