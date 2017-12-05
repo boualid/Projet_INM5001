@@ -834,8 +834,8 @@ public class Interface extends javax.swing.JFrame {
             engagm = Double.parseDouble(engagement);
             //mise de fond
             miseFonds = Double.parseDouble(misedefond);
-            //versement Mensuel par mois
-            if (jCoui.isSelected()/* && !(jTMois1.getText().isEmpty())*/) {
+            //versement Mensuel
+            if (jCoui.isSelected()) {
                 limitVersement = Double.parseDouble(verseMensuelparmoi);
             }
 
