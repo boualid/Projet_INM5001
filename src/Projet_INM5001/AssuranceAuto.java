@@ -555,6 +555,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(0, 173, 82));
         jLabel20.setText("Votre prime d'assurance annuelle");
 
+        jTextField6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(0, 173, 82));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -564,6 +566,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 173, 82));
         jLabel26.setText("Votre prime d'assurance mensuelle ");
+
+        jTextMensuelle.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jTextMensuelle.setForeground(new java.awt.Color(0, 173, 82));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
