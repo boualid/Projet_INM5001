@@ -387,12 +387,16 @@ public class Interface extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(0, 173, 82));
         jLabel18.setText("Valeur maximale de la maison :");
 
+        jTValeurmaximale.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTValeurmaximale.setForeground(new java.awt.Color(0, 173, 82));
         jTValeurmaximale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTValeurmaximaleActionPerformed(evt);
             }
         });
 
+        JTprêtHypothécaire.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        JTprêtHypothécaire.setForeground(new java.awt.Color(0, 173, 82));
         JTprêtHypothécaire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTprêtHypothécaireActionPerformed(evt);
@@ -409,6 +413,8 @@ public class Interface extends javax.swing.JFrame {
         jLabelAssuranceHypo.setForeground(new java.awt.Color(0, 173, 82));
         jLabelAssuranceHypo.setText("Assurance prêt Hypothécaire");
 
+        jTAssuranceHypothecaire.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTAssuranceHypothecaire.setForeground(new java.awt.Color(0, 173, 82));
         jTAssuranceHypothecaire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTAssuranceHypothecaireActionPerformed(evt);
@@ -423,12 +429,16 @@ public class Interface extends javax.swing.JFrame {
         jLabelMensuelAvecAss.setForeground(new java.awt.Color(0, 173, 82));
         jLabelMensuelAvecAss.setText("Versement mensuel");
 
+        jTMensualiteAvecAssHypo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jTMensualiteAvecAssHypo.setForeground(new java.awt.Color(0, 173, 82));
         jTMensualiteAvecAssHypo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTMensualiteAvecAssHypoActionPerformed(evt);
             }
         });
 
+        jTMensualiteSansAssHypo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jTMensualiteSansAssHypo.setForeground(new java.awt.Color(0, 173, 82));
         jTMensualiteSansAssHypo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTMensualiteSansAssHypoActionPerformed(evt);
@@ -1005,7 +1015,7 @@ public class Interface extends javax.swing.JFrame {
                     if (assuranceHypoObligatoire 
                             || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){
                         jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " $");
-                        double limVers = Double.parseDouble(jTMois1.getText());
+                        //double limVers = Double.parseDouble(jTMois1.getText());
                         jTMensualiteAvecAssHypo.setText(df.format(limitVersement 
                                 + mensualiteAssuranceHypo) + " $");
                     }
