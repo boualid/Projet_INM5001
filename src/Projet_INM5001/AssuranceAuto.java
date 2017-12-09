@@ -765,9 +765,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
             sex =  "male";
         //sex = (jRadioButtonMadame.isSelected())? "femele" : "male";
         anNais = Integer.parseInt(jTextFieldAnnee.getText().trim().toLowerCase());
-        anExpStr = ((String)jCombonbrANN.getSelectedItem()).trim().toLowerCase();;;
+        anExpStr = ((String)jCombonbrANN.getSelectedItem()).trim().toLowerCase();
         doss = ((String)jComboDossier.getSelectedItem()).trim().toLowerCase();
-        anPermis = Integer.parseInt(jTextFieldage.getText().trim().toLowerCase());;
+        anPermis = Integer.parseInt(jTextFieldage.getText().trim().toLowerCase());
         age = year - anNais;
         anExp = year - anPermis;
         agevoiture = year - anVeh ;     
