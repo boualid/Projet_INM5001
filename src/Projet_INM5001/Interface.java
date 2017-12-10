@@ -873,6 +873,8 @@ public class Interface extends javax.swing.JFrame {
         Messages.setText("");
         jTAssuranceHypothecaire.setText("");
         jComboBoxAmortissement.setSelectedIndex(0);
+        jTMensualiteAvecAssHypo.setText("");
+        jTMensualiteSansAssHypo.setText("");
 
         jCnom.setSelected(false);
         jCoui.setSelected(false);
@@ -1009,6 +1011,7 @@ public class Interface extends javax.swing.JFrame {
                     jTMensualiteSansAssHypo.setText(df.format(limitVersement) + " $");
                     jTAssuranceHypothecaire.setText("");
                     jTMensualiteAvecAssHypo.setText("");
+                    jTMensualiteSansAssHypo.setText("");
 
                     if (assuranceHypoObligatoire 
                             || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){

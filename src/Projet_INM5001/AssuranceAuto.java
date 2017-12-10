@@ -101,7 +101,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jComboAnnVehi = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldKilometrage = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboModele = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
@@ -142,7 +141,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextPrimeAssurance = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jTextMensuelle = new javax.swing.JTextField();
 
@@ -185,9 +184,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(java.awt.Color.gray);
-        jLabel5.setText("Kilométrage annuel effectué avec le véhicule");
-
-        jLabel6.setText("par année");
+        jLabel5.setText("Kilométrage ");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.gray);
@@ -367,12 +364,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
                                         .addComponent(jCombomarqueVehicule, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jTextFieldKilometrage, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldKilometrage, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboModele, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 108, Short.MAX_VALUE))
+                                .addGap(0, 261, Short.MAX_VALUE))
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(50, 50, 50))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -508,7 +502,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldKilometrage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
                     .addComponent(jComboEtat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -555,11 +548,11 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(0, 173, 82));
         jLabel20.setText("Votre prime d'assurance annuelle");
 
-        jTextField6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 173, 82));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jTextPrimeAssurance.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTextPrimeAssurance.setForeground(new java.awt.Color(0, 173, 82));
+        jTextPrimeAssurance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jTextPrimeAssuranceActionPerformed(evt);
             }
         });
 
@@ -580,8 +573,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(jLabel26)
                     .addComponent(jLabel19)
-                    .addComponent(jTextMensuelle, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextPrimeAssurance, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextMensuelle, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -592,12 +585,12 @@ public class AssuranceAuto extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextPrimeAssurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextMensuelle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(jTextMensuelle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -699,6 +692,8 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jTextFieldJour.setText("");
         jTextFieldAnnee.setText("");
         jTextFieldage.setText("");
+        jTextPrimeAssurance.setText("");
+        jTextMensuelle.setText("");
         jTextFieldKilometrage.setText("");
         jComboMois.setSelectedIndex(0);
         jComboEtat.setSelectedIndex(0);
@@ -781,7 +776,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         if (result != 0){
             jTextMensuelle.setText("" + result +" "+"$");
             annuelle = result * 12;
-            jTextField6.setText("" + annuelle+" "+"$");
+            jTextPrimeAssurance.setText("" + annuelle+" "+"$");
         }
         
         }
@@ -804,9 +799,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldageActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jTextPrimeAssuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPrimeAssuranceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_jTextPrimeAssuranceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -880,7 +875,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -890,7 +884,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonMadame;
     private javax.swing.JRadioButton jRadioButtonMonsieur;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextFieldAnnee;
     private javax.swing.JTextField jTextFieldJour;
     private javax.swing.JTextField jTextFieldKilometrage;
@@ -898,5 +891,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPrenom;
     private javax.swing.JTextField jTextFieldage;
     private javax.swing.JTextField jTextMensuelle;
+    private javax.swing.JTextField jTextPrimeAssurance;
     // End of variables declaration//GEN-END:variables
 }
