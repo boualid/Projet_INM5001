@@ -21,10 +21,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
-/**
- *
- * @author bwali
- */
 public class AssuranceAuto extends javax.swing.JFrame {
     /**
      * *********************
@@ -55,9 +51,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private static final String MSG_ERR_Kilométrage = "Veuillez entrer un kilométrage annuel.";
     private static final String MSG_ERR_TYPEASSURANCE = "Veuillez sélectionner le type d'assurance.";
     
-    
-   // private JComboBox liste1;
-
     /**
      * Creates new form AssuranceAuto
      */
@@ -80,8 +73,6 @@ public class AssuranceAuto extends javax.swing.JFrame {
 
     }
     
-        
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -704,9 +695,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         jComboTypeassurance.setSelectedIndex(0);
         jCombonbrANN.setSelectedIndex(0);
         jRadioButtonMadame.setSelected(false);
-        jRadioButtonMonsieur.setSelected(false);
-        //jComboModele.removeAllItems();Déjà fait ds 1e autre méthode
-        
+        jRadioButtonMonsieur.setSelected(false);    
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -796,11 +785,11 @@ public class AssuranceAuto extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonMadameActionPerformed
 
     private void jTextFieldageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldageActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldageActionPerformed
 
     private void jTextPrimeAssuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPrimeAssuranceActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextPrimeAssuranceActionPerformed
 
     /**

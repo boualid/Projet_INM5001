@@ -23,10 +23,6 @@ import javax.swing.plaf.ColorUIResource;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- *
- * @author bwali
- */
 public class Interface extends javax.swing.JFrame {
 
     /**
@@ -63,9 +59,10 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         BaseDeDonnees.requeteSelectAmor();
-        
+
     }
-     /**
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -104,7 +101,7 @@ public class Interface extends javax.swing.JFrame {
         JFrame frame = new JFrame();
         UIManager.put("OptionPane.messageForeground", Color.RED);
         UIManager.put("OptionPane.background", new ColorUIResource(241, 240, 240));
-        UIManager.getLookAndFeelDefaults().put("Panel.background", 
+        UIManager.getLookAndFeelDefaults().put("Panel.background",
                 new ColorUIResource(241, 240, 240));
 
         UIManager.put("Button.background", new ColorUIResource(241, 240, 240));
@@ -113,6 +110,7 @@ public class Interface extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(frame, msg, titre, msgType);
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -756,8 +754,6 @@ public class Interface extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    //Methodes pour 'ActionPerformed'
-    //////////////////////////////////
 
     private void jTRevenusbrutsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRevenusbrutsActionPerformed
 
@@ -784,8 +780,6 @@ public class Interface extends javax.swing.JFrame {
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
 
         Messages.setText("");
-        //Messages.setText("ButCalculerActionPerformed");
-        //System.out.println("");//test
 
         String revenusbrut = jTRevenusbruts.getText().trim();
         String engagement = jTEngagements.getText().trim();
@@ -809,8 +803,8 @@ public class Interface extends javax.swing.JFrame {
 
         } else if (jCoui.isSelected() && !verseMensuelparmoi.matches("[0-9]{1,6}")) {
             //if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
-                ButCalculer.setEnabled(false);
-                msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
+            ButCalculer.setEnabled(false);
+            msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
             //}
         } else if (!taxemunicipales.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_TAXEMUNICIPALE, "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -972,9 +966,9 @@ public class Interface extends javax.swing.JFrame {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                     fraisProprio);
-                    //System.out.print("valeur de la maison" + valeurMaison);
+            //System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
-                
+
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
@@ -990,19 +984,17 @@ public class Interface extends javax.swing.JFrame {
                             .assurancePretHypo(montantPret, valeurMaison);
                     mensualiteAssuranceHypo = AssuranceHypothecaire
                             .mensualite(montantAssuranceHypo, 0.0389, amort);
-                    
+
                     if (assuranceHypoObligatoire) {
-                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane
-                                .INFORMATION_MESSAGE);
+                        msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
                                 + "OBLIGATOIRE !");
                     } else {
                         //msg_erreur(MSG_INFO_ASS_HYPO_OPT, "Message", JOptionPane.YES_NO_OPTION);
-                        assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog
-                                (rootPane, MSG_INFO_ASS_HYPO_OPT, "Message", 
+                        assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog(rootPane, MSG_INFO_ASS_HYPO_OPT, "Message",
                                 JOptionPane.YES_NO_OPTION);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
-                        + "OPTIONNELLE !");
+                                + "OPTIONNELLE !");
                     }
                     //Affichage : valeur de la maison, montants prêt et assurance
                     jTValeurmaximale.setText(valeurMaison + " " + "$");
@@ -1013,11 +1005,11 @@ public class Interface extends javax.swing.JFrame {
                     jTMensualiteAvecAssHypo.setText("");
                     jTMensualiteSansAssHypo.setText("");
 
-                    if (assuranceHypoObligatoire 
-                            || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION){
+                    if (assuranceHypoObligatoire
+                            || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION) {
                         jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " $");
                         //double limVers = Double.parseDouble(jTMois1.getText());
-                        jTMensualiteAvecAssHypo.setText(df.format(limitVersement 
+                        jTMensualiteAvecAssHypo.setText(df.format(limitVersement
                                 + mensualiteAssuranceHypo) + " $");
                     }
                 }
@@ -1034,7 +1026,6 @@ public class Interface extends javax.swing.JFrame {
 
     }
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButCalculer;
@@ -1098,7 +1089,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
-
 
     //Attributs
     ////////////

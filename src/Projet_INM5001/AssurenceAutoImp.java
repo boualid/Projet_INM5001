@@ -5,10 +5,6 @@
  */
 package Projet_INM5001;
 
-/**
- *
- * @author naim ouakaf
- */
 public class AssurenceAutoImp {
 
     /**
@@ -38,7 +34,6 @@ public class AssurenceAutoImp {
         resultat = (((coefficientVoiture) + (coefficientDriver)) * (coefficientType));
 
         resultat = resultat = (double) Math.round(resultat * 100) / 100;
-        System.out.println("le resultat finale est :" + resultat + "$");
         return resultat;
     }
 
@@ -64,7 +59,6 @@ public class AssurenceAutoImp {
 
         resultat = (((coefficientMarque + coefficientModele) * coefficientAnnee) * coefficientKilometrage);
         resultat = resultat = (double) Math.round(resultat * 100) / 100;
-        System.out.println("le resultat Coefficient Voiture est :" + resultat + "$");
         return resultat;
     }
 
@@ -81,30 +75,29 @@ public class AssurenceAutoImp {
             case "bugatti":
                 resultat = 640.00;
                 break;
-                
+
             case "mercedes":
             case "bmw":
             case "audi":
             case "porshe":
                 resultat = 380.0;
                 break;
-                
+
             case "mazda":
             case "honda":
             case "toyota":
             case "ford":
                 resultat = 120.0;
                 break;
-                
+
             case "camion":
                 resultat = 330.00;
                 break;
-                
+
             case "moto":
                 resultat = 110.00;
 
         }
-        System.out.println("le resultat Coefficient marque est :" + resultat + "$");
         return resultat;
     }
 
@@ -121,15 +114,15 @@ public class AssurenceAutoImp {
             case "veyron":
                 resultat = 420.00;
                 break;
-                
+
             case "s600":
             case "x6":
             case "a7":
             case "panamera":
-            
+
                 resultat = 440.0;
                 break;
-                
+
             case "c250":
             case "x3":
             case "a3":
@@ -137,26 +130,26 @@ public class AssurenceAutoImp {
             case "yaris":
             case "corolla":
             case "civic":
-            case "mazda3":               
+            case "mazda3":
                 resultat = 120.0;
                 break;
-                
-            case "cammionette":               
+
+            case "cammionette":
                 resultat = 210.00;
                 break;
-                
-            case "poid Lourd":                
+
+            case "poid Lourd":
                 resultat = 500.00;
                 break;
-                
+
             case "125cc":
                 resultat = 130.00;
                 break;
-                
+
             case "50cc":
                 resultat = 90.00;
         }
-        System.out.println("le resultat Coefficient Modele est :" + resultat + "$");
+
         return resultat;
     }
 
@@ -182,7 +175,6 @@ public class AssurenceAutoImp {
         } else if (agevoiture > 10) {
             resultat = 0.66;
         }
-        System.out.println("le resultat Coefficient Annee est :" + resultat + "$");
         return resultat;
     }
 
@@ -207,7 +199,6 @@ public class AssurenceAutoImp {
         } else if (kilometrage > 160000.00) {
             resultat = 0.75;
         }
-        System.out.println("le resultat Coefficient Kilometrage est :" + resultat + "$");
         return resultat;
     }
 
@@ -233,7 +224,6 @@ public class AssurenceAutoImp {
 
         resultat = (coefficientsex + coefficientage + coefficientexperience + coefficientdossier);
         resultat = resultat = (double) Math.round(resultat * 100) / 100;
-        System.out.println("le resultat Coefficient Driver est :" + resultat + "$");
         return resultat;
     }
 
@@ -252,7 +242,6 @@ public class AssurenceAutoImp {
                 resultat = 7;
                 break;
         }
-        System.out.println("le resultat Coefficient Sex est :" + resultat + "$");
         return resultat;
     }
 
@@ -268,10 +257,10 @@ public class AssurenceAutoImp {
             resultat = 19.0;
         } else if (age > 25 && age <= 35) {
             resultat = 15;
-        //} else if (age > 30 && age <= 40) {
+
         } else if (age > 35 && age <= 45) {
             resultat = 12;
-        //} else if (age > 40 && age <= 55) {
+
         } else if (age > 45 && age <= 55) {
             resultat = 10;
         } else if (age > 55 && age <= 65) {
@@ -281,7 +270,6 @@ public class AssurenceAutoImp {
         } else {
             resultat = 0;
         }
-        System.out.println("le resultat Coefficient Age est :" + resultat + "$");
         return resultat;
     }
 
@@ -303,10 +291,10 @@ public class AssurenceAutoImp {
         } else if (experience > 15) {
             resultat = 10.00;
         }
-        System.out.println("le resultat Coefficient Experience est :" + resultat + "$");
         return resultat;
     }
-        /**
+
+    /**
      *
      * @param experience
      * @return
@@ -331,7 +319,6 @@ public class AssurenceAutoImp {
                 break;
 
         }
-        System.out.println("le resultat Coefficient Dossier est :" + resultat + "$");
         return resultat;
     }
 
@@ -356,7 +343,6 @@ public class AssurenceAutoImp {
                 resultat = 0.55;
                 break;
         }
-        System.out.println("le resultat Coefficient Type est :" + resultat + "$");
         return resultat;
     }
 

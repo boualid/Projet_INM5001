@@ -5,10 +5,6 @@
  */
 package Projet_INM5001;
 
-/**
- *
- * @author bwali
- */
 public class InterfacePrinciple extends javax.swing.JFrame {
 
     /**
@@ -148,7 +144,6 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         new Interface().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonPrêtActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
