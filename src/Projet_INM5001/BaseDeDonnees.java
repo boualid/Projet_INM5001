@@ -66,6 +66,10 @@ public class BaseDeDonnees {
         }
     }
 
+    /**
+     * Méthode pour fermer la connexion à la base de données
+          * @param conn l'objet connexion
+    */
     public static void fermConnexion(Connection conn) {
         try {
             if (conn != null) {
@@ -76,6 +80,11 @@ public class BaseDeDonnees {
         }
     }
 
+    /**
+     * Méthode pour faire des requêtes sur la base de données
+     * @param reqSelect une chaine contenant la requête SQL
+     * @return resSet l'objet ResultSet contenant les résultats de la requête SQL
+    */
     public static ResultSet requeteSelect(String reqSelect) throws SQLException {
 
         ResultSet resSet = null;
@@ -87,6 +96,11 @@ public class BaseDeDonnees {
         return resSet;
     }
 
+    /**
+     * Méthode pour préparer les requêtes sur la base de données
+     * @param reqSelect une chaine contenant la requête SQL
+     * @return preStmt l'objet PreparedStatement 
+    */
     public static PreparedStatement requeteAutre(String reqSql) throws SQLException {
 
         obtConnexion();
@@ -95,6 +109,11 @@ public class BaseDeDonnees {
         return preStmt;
     }
 
+    /**
+     * Méthode pour faire une requête sur la base de données : select de tous 
+     * les enregistrements dpliusieurs tables et les placer dans les éléments
+     * dans les objets des interfaces graphiques
+    */
     protected static void requeteSelect() {
         try {
             conn = BaseDeDonnees.obtConnexion();
@@ -163,6 +182,10 @@ public class BaseDeDonnees {
         }
     }
 
+    /**
+     * Méthode pour faire une requête sur la base de données : select de tous 
+     * les enregistrements de la  tables AMORTISS
+    */
     protected static void requeteSelectAmor() {
 
         try {
@@ -182,6 +205,12 @@ public class BaseDeDonnees {
         }
     }
 
+     /**
+     * Méthode pour faire une requête sur la base de données : select de tous 
+     * les enregistrements de les  tabless MARQUE_VEHICULE et MODELE_VEHICULE
+     * @param modele une chaine contenant la requête SQL
+     * @return list objet ArrayList contenant le résultat de la requête SQL
+    */
     public static ArrayList<String> requeteSelectModele(String modele) {
         ArrayList<String> list = new ArrayList();
         try {
