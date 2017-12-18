@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Classe qui fait la connexion et des requêtes sur la base de données
  */
 package Projet_INM5001;
 
@@ -31,7 +29,12 @@ public class BaseDeDonnees {
     private static Connection conn = null;
     private static Statement stmt = null;
     private static PreparedStatement preStmt = null;
-
+    
+    /**
+     * Méthode pour la connexion à la base de données
+     * @return conn retourn l'objet connexion à la BD
+     * @throws exception de type SQLException
+     */
     public static Connection obtConnexion() throws SQLException {
 
         if (conn == null) {
@@ -42,11 +45,18 @@ public class BaseDeDonnees {
         return conn;
     }
 
+    /**
+     * Méthode pour fermer la connexion à la base de données
+     */
     public static void fermConnexion() {
         fermStatement(stmt);
         fermConnexion(conn);
     }
 
+    /**
+     * Méthode pour fermer l'objet statement pour les requêtes la base de données
+     * @param stmt l'objet statement
+     */
     public static void fermStatement(Statement stmt) {
         try {
             if (stmt != null) {
