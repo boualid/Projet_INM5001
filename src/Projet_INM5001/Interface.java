@@ -1,3 +1,6 @@
+/**
+ * Interface prêt, Assurance hypothécaire 
+ */
 package Projet_INM5001;
 
 import java.awt.Color;
@@ -18,9 +21,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.ColorUIResource;
 
-/*
- * Interface prêt, Assurance hypothécaire 
- */
+
 public class Interface extends javax.swing.JFrame {
 
     /**
