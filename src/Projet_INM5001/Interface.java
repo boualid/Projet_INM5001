@@ -19,15 +19,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.ColorUIResource;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Interface prêt, Assurance hypothécaire 
  */
 public class Interface extends javax.swing.JFrame {
 
     /**
      * *********************
-     * CONSTANTES *********************
+     * CONSTANTES 
+     ***********************
      */
     private static final String MSG_ERR_REVBRUT = "Entrer un montant positif "
             + "dans le champ « Revenus Bruts ».";
@@ -52,6 +51,15 @@ public class Interface extends javax.swing.JFrame {
     private static final String MSG_INFO_NON_ADMISSIBLE = "Vous n'êtes pas "
             + "admissible pour un prêt: 40% de vos dépenses mensuelles fixes "
             + "dépasse votre limite de versement mensuel";
+    //Données perso
+    double revBruts, miseFonds, engagm, limitVersement;
+    //Infos de la maison
+    double taxMunicipalesScol, coutEnerg, fraisProprio, valeurMaison;
+    //Infos du prêt
+    int amort;
+    double montantPret;
+    double montantAssuranceHypo;
+
 
     /**
      * Creates new form Interface
@@ -96,7 +104,13 @@ public class Interface extends javax.swing.JFrame {
             }
         });
     }
-
+    /**
+     * Cette méthode permet de reconfigure la couleur 
+     * et insérer le message d'erreur dans la fenêtre  de popup.
+     * @param msg
+     * @param titre
+     * @param msgType 
+     */
     public void msg_erreur(String msg, String titre, int msgType) {
         JFrame frame = new JFrame();
         UIManager.put("OptionPane.messageForeground", Color.RED);
@@ -762,7 +776,13 @@ public class Interface extends javax.swing.JFrame {
     private void jTMisedefondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMisedefondsActionPerformed
 
     }//GEN-LAST:event_jTMisedefondsActionPerformed
-
+    /**
+     * Radio Bouton de limite de versement mensuels
+     * Si l'utilisateur décide de saisir le montant de versement mentiels 
+     * en choisissant le radio oui, le bouton radio non se désactive  
+     * 
+     * @param evt 
+     */
     private void jCouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCouiActionPerformed
         if (jCoui.isSelected()) {
             jCnom.setSelected(false);
@@ -776,7 +796,14 @@ public class Interface extends javax.swing.JFrame {
     private void jTMois1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMois1ActionPerformed
 
     }//GEN-LAST:event_jTMois1ActionPerformed
-
+    /**
+     * Bouton Calculer
+     * permet de:
+     *  - Validation de tous les champs d'interface
+     *  - Générer une fenêtre de pop up dans le cas où un des champs et non valide
+     *  - Calculer le montant de prêt hypothécaire et assurance hypothécaire 
+     * @param evt 
+     */
     private void ButCalculerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalculerActionPerformed
 
         Messages.setText("");
@@ -844,7 +871,11 @@ public class Interface extends javax.swing.JFrame {
             jTRevenusbrutsActionPerformed(evt);
         }
     }//GEN-LAST:event_ButCalculerActionPerformed
-
+    /**
+     * Bouton Effacer
+     * Sert à réinitialiser tout les champs de l'interface prêt hypothécaire 
+     * @param evt 
+     */
     private void ButEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButEffacerActionPerformed
         jTRevenusbruts.setText("");
         jTEngagements.setText("");
@@ -883,7 +914,12 @@ public class Interface extends javax.swing.JFrame {
     private void jTValeurmaximaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTValeurmaximaleActionPerformed
 
     }//GEN-LAST:event_jTValeurmaximaleActionPerformed
-
+    /**
+     * Si l'utilisateur choisi de cocher sur le bouton radio nom
+     * (il ne veut pas saisir le montant de versement mentiels ),
+     * le bouton  radio oui se désactive.
+     * @param evt 
+     */
     private void jCnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCnomActionPerformed
         if (jCnom.isSelected()) {
             jCoui.setSelected(false);
@@ -894,7 +930,10 @@ public class Interface extends javax.swing.JFrame {
     private void JTprêtHypothécaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTprêtHypothécaireActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTprêtHypothécaireActionPerformed
-
+    /**
+     * Bouton Quitter 
+     * @param evt 
+     */
     private void jButtonPagePrincipaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipaleActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonPagePrincipaleActionPerformed
@@ -902,7 +941,11 @@ public class Interface extends javax.swing.JFrame {
     private void jTAssuranceHypothecaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTAssuranceHypothecaireActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTAssuranceHypothecaireActionPerformed
-
+    /**
+     * Bouton page d'acceuil
+     * bouton qui ramène à l'interface d'acceuil
+     * @param evt 
+     */
     private void jButtonPagePrincipale1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagePrincipale1ActionPerformed
         new InterfacePrinciple().setVisible(true);
         this.setVisible(false);
@@ -915,7 +958,11 @@ public class Interface extends javax.swing.JFrame {
     private void jTMensualiteAvecAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteAvecAssHypoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTMensualiteAvecAssHypoActionPerformed
-
+    /**
+     * Bouton Interface Assurance 
+     * bouton qui ramène à l'interface Assurance Auto
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new AssuranceAuto().setVisible(true);
         this.setVisible(false);
@@ -924,7 +971,12 @@ public class Interface extends javax.swing.JFrame {
     private void jTMensualiteSansAssHypoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMensualiteSansAssHypoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTMensualiteSansAssHypoActionPerformed
-
+    /**
+     * Cette méthode permet de converti une chaine de caractère en une entier 
+     * @param chaine
+     * @param msgErr
+     * @return un entier 
+     */
     protected int tryChnEnInt(String chaine, String msgErr) {
         int entier = 0;
         try {
@@ -943,6 +995,13 @@ public class Interface extends javax.swing.JFrame {
         //Convertit en nombre de mois et retourne le résultat
         return 12 * tryChnEnInt(anCh, "Vous devez choisir un amortissement");
     }
+    /**
+     * Bouton Calculer
+     * permet de:
+     *  - Validation de tous les champs d'interface
+     *  - Générer une fenêtre de pop up dans le cas où un des champs et non valide
+     *  - Calculer le montant de le montant de prêt hypothécaire et assurance hypothécaire
+     */
 
     private void calcAffichValMaison() {
 
@@ -1074,15 +1133,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jdonnéesperso;
     // End of variables declaration//GEN-END:variables
 
-    //Attributs
-    ////////////
-    //Données perso
-    double revBruts, miseFonds, engagm, limitVersement;
-    //Infos de la maison
-    double taxMunicipalesScol, coutEnerg, fraisProprio, valeurMaison;
-    //Infos du prêt
-    int amort;
-    double montantPret;
-    double montantAssuranceHypo;
 
 }

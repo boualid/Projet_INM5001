@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * Interface d'accueil
  */
 package Projet_INM5001;
 
@@ -130,16 +129,25 @@ public class InterfacePrinciple extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Bouton pour quitter 
+     * @param evt 
+     */
     private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonQuitterActionPerformed
-
+    /**
+     * Bouton qui permet de passer à l'interface Assurance Auto
+     * @param evt 
+     */
     private void jButtonAssuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAssuranceActionPerformed
         new AssuranceAuto().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAssuranceActionPerformed
-
+    /**
+     * Bouton qui permet de passer à l'interface Prêt Hypothécaire
+     * @param evt 
+     */
     private void jButtonPrêtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrêtActionPerformed
         new Interface().setVisible(true);
         this.setVisible(false);
