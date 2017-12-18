@@ -1,6 +1,9 @@
-/*
- * Classe qui fait la connexion et des requêtes sur la base de données
+/**
+ * Classe qui fait la connexion et des requêtes sur la base de données et met 
+ * éventuellement les résultats directement dans des objets de les interfaces
+ * graphiques
  */
+
 package Projet_INM5001;
 
 import java.awt.List;
@@ -68,7 +71,7 @@ public class BaseDeDonnees {
 
     /**
      * Méthode pour fermer la connexion à la base de données
-          * @param conn l'objet connexion
+     * @param conn l'objet connexion
     */
     public static void fermConnexion(Connection conn) {
         try {

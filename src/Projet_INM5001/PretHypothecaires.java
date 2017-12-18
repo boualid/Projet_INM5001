@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Classe qui calcule le montant du prêt hypothécaire et la valeur de la maison, les mensualités de ce 
+ * prêt et vérifies si un utilisateur est admissimible à ce prêt
  */
 package Projet_INM5001;
 
