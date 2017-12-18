@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Interface de calcul Assurance Auto
  */
-//import javax.swing.JComboBox;
+
 
 package Projet_INM5001;
 import java.awt.Color;
@@ -23,15 +21,15 @@ import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 public class AssuranceAuto extends javax.swing.JFrame {
     /**
-     * *********************
-     * CONSTANTES *********************
+     * ************
+     * CONSTANTES
+     * ************
      */
-    private static final String MSG_ERR_TITRE = "Veuillez sélectionner un titre.";
     
-    private static final String MSG_ERR_NOM = "Veuillez saisir votre nom de famille. ";
-         
-    private static final String MSG_ERR_PRENOM = "Veuillez saisir votre prenom. ";
-        
+    //Messages - validation
+    private static final String MSG_ERR_TITRE = "Veuillez sélectionner un titre.";    
+    private static final String MSG_ERR_NOM = "Veuillez saisir votre nom de famille. ";         
+    private static final String MSG_ERR_PRENOM = "Veuillez saisir votre prenom. ";        
     private static final String MSG_ERR_DATENAISSANCE = "Entrer une date de "
             + "naissance en précisant un jour composé de 2 chiffres,\n "
             + "en sélectionnant un mois et en précisant une année composée"
@@ -52,12 +50,19 @@ public class AssuranceAuto extends javax.swing.JFrame {
     private static final String MSG_ERR_TYPEASSURANCE = "Veuillez sélectionner le type d'assurance.";
     
     /**
-     * Creates new form AssuranceAuto
+     * CONSTRUCTEUR 
      */
     public AssuranceAuto() {
         initComponents();
         BaseDeDonnees.requeteSelect();
     }
+    /*
+    * Cette méthode permet de reconfigure la couleur de popup
+    * et affiche les messages d'erreurs.
+    * @param msg : le message d'erreur
+    * @param titre 
+    * @param msgType
+    */
     
       public void msg_erreur(String msg, String titre, int msgType) {
         JFrame frame = new JFrame();
@@ -637,26 +642,38 @@ public class AssuranceAuto extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Bouton qui améne à l'interface d'accueil
+     * @param evt 
+     */
     private void jButtonInterfacePrincipaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInterfacePrincipaleActionPerformed
         new InterfacePrinciple().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonInterfacePrincipaleActionPerformed
-
+    /**
+     * Bouton qui améne à l'interface prêt Hypothécaire  
+     * @param evt 
+     */
   
     private void jButtonInterfaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInterfaceActionPerformed
         new Interface().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonInterfaceActionPerformed
-
+    /**
+     * Bouton quitter
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
           System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * combo box pour les  marques de voitures
+     * il se connecte au base de données pour afficher la liste de marque de voiture.
+     * @param evt 
+     */
     private void jCombomarqueVehiculeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombomarqueVehiculeActionPerformed
         ArrayList<String> tab = new ArrayList();
         String selectedModel = (String) jCombomarqueVehicule.getSelectedItem();
-        System.out.println(selectedModel);
         tab = BaseDeDonnees.requeteSelectModele(selectedModel);
         jComboModele.removeAllItems();
         jComboModele.addItem("Sélectionner");
@@ -664,10 +681,12 @@ public class AssuranceAuto extends javax.swing.JFrame {
                 while (it.hasNext()) {
                     String s = it.next();
                     jComboModele.addItem(s);
-                    System.out.println(s);
                     }
     }//GEN-LAST:event_jCombomarqueVehiculeActionPerformed
-
+    /**
+     * Combo box 
+     * @param evt 
+     */
     private void jComboAnnVehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAnnVehiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboAnnVehiActionPerformed
@@ -751,10 +770,7 @@ public class AssuranceAuto extends javax.swing.JFrame {
         anPermis = Integer.parseInt(jTextFieldage.getText().trim().toLowerCase());;
         age = year - anNais;
         anExp = year - anPermis;
-        agevoiture = year - anVeh ; 
-        System.out.println("agevoiture" + agevoiture);
-        System.out.println("anVeh" + anVeh);
-        
+        agevoiture = year - anVeh ;     
         if (age >= 15 && anPermis>=15){
             result = AssurenceAutoImp.calculeAssurenceAuto(marq, model, agevoiture, kilomtr,
                 sex, age, anExp, doss, typAss);
@@ -765,7 +781,9 @@ public class AssuranceAuto extends javax.swing.JFrame {
         if (result != 0){
             jTextMensuelle.setText("" + result +" "+"$");
             annuelle = result * 12;
+            annuelle = annuelle = (double) Math.round(annuelle * 100) / 100;
             jTextPrimeAssurance.setText("" + annuelle+" "+"$");
+            
         }
         
         }

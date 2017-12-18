@@ -54,8 +54,9 @@ public class PretHypothecaires {
         revenuNet = revenuBrut - (tax + chargesAnnuelle + taxMunicipaleEtScolaire);
         revenuNetMensuelle = revenuNet / 12;
         percentage = (revenuNetMensuelle * 40) / 100;
-        resultat = pretHypothecaires + miseDeFonds;
-
+        if(percentage>=versementMensuel){
+            resultat = pretHypothecaires + miseDeFonds;
+        }
         return resultat;
     }
 

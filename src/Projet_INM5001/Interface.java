@@ -792,34 +792,25 @@ public class Interface extends javax.swing.JFrame {
         if (!revenusbrut.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
             msg_erreur(MSG_ERR_REVBRUT, "Erreur", JOptionPane.ERROR_MESSAGE);
-            //Messages.setText("Entrer un montant positif dans le champ « Revenus Bruts ».");     
         } else if (!engagement.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_ENG, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
-            //Messages.setText("Entrer un montant positif dans le champ « Engagements financiers ».");
         } else if (!misedefond.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
             msg_erreur(MSG_ERR_MISEDEFOND, "Erreur", JOptionPane.ERROR_MESSAGE);
-
         } else if (jCoui.isSelected() && !verseMensuelparmoi.matches("[0-9]{1,6}")) {
-            //if (!verseMensuelparmoi.matches("[0-9]{1,6}")) {
             ButCalculer.setEnabled(false);
             msg_erreur(MSG_ERR_VERSMENSUEL, "Erreur", JOptionPane.ERROR_MESSAGE);
-            //}
         } else if (!taxemunicipales.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_TAXEMUNICIPALE, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
-            //Messages.setText("Entrer un montant positif dans le champ « Taxes municipales et scolaires ».");
         } else if (!coutenergie.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_COUTENERGIE, "Erreur", JOptionPane.ERROR_MESSAGE);
-            ButCalculer.setEnabled(false);
-            //Messages.setText("Entrer un montant positif dans le champ « Coûts d'énergie ».");                
+            ButCalculer.setEnabled(false); 
         } else if (!fraisproprietaire.matches("[0-9]{1,6}")) {
             msg_erreur(MSG_ERR_FRAIS_PROP, "Erreur", JOptionPane.ERROR_MESSAGE);
             ButCalculer.setEnabled(false);
-            //Messages.setText("Entrer un montant dans le champ « Frais de copropriété ».");
         } else {
-
             //revenusbrut
             revBruts = Double.parseDouble(revenusbrut);
             //engagement
@@ -945,7 +936,7 @@ public class Interface extends javax.swing.JFrame {
     }
 
     protected int anChEnMoisChiff(String anCh) {
-
+        
         //Met nombre d'années en chiffres seulement
         anCh = anCh.replace("ans", "").trim();
 
@@ -966,9 +957,7 @@ public class Interface extends javax.swing.JFrame {
             valeurMaison = PretHypothecaires.calculePretHypothecaires(miseFonds,
                     limitVersement, amort, revBruts, engagm, coutEnerg,
                     fraisProprio);
-            //System.out.print("valeur de la maison" + valeurMaison);
             if (valeurMaison > 0) {
-
                 if (miseFonds < ((valeurMaison * 5) / 100)) {
                     msg_erreur(MSG_ALERTE_MISE_FONDS, "Alerte", JOptionPane.WARNING_MESSAGE);
                     Messages.setText(MSG_ALERTE_MISE_FONDS);
@@ -984,31 +973,26 @@ public class Interface extends javax.swing.JFrame {
                             .assurancePretHypo(montantPret, valeurMaison);
                     mensualiteAssuranceHypo = AssuranceHypothecaire
                             .mensualite(montantAssuranceHypo, 0.0389, amort);
-
                     if (assuranceHypoObligatoire) {
                         msg_erreur(MSG_INFO_ASS_HYPO_OBL, "Message", JOptionPane.INFORMATION_MESSAGE);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
                                 + "OBLIGATOIRE !");
                     } else {
-                        //msg_erreur(MSG_INFO_ASS_HYPO_OPT, "Message", JOptionPane.YES_NO_OPTION);
                         assuranceHypoOptionnelleAccepter = JOptionPane.showConfirmDialog(rootPane, MSG_INFO_ASS_HYPO_OPT, "Message",
                                 JOptionPane.YES_NO_OPTION);
                         jLabelMontantPrime.setText("Prime (SCHL/gENWORTH) : "
                                 + "OPTIONNELLE !");
                     }
-                    //Affichage : valeur de la maison, montants prêt et assurance
+                    valeurMaison = (double) Math.round(valeurMaison * 100) / 100;
                     jTValeurmaximale.setText(valeurMaison + " " + "$");
                     montantPret = (double) Math.round(montantPret * 100) / 100;
                     JTprêtHypothécaire.setText(montantPret + " " + "$");
                     jTMensualiteSansAssHypo.setText(df.format(limitVersement) + " $");
                     jTAssuranceHypothecaire.setText("");
                     jTMensualiteAvecAssHypo.setText("");
-                    jTMensualiteSansAssHypo.setText("");
-
                     if (assuranceHypoObligatoire
                             || assuranceHypoOptionnelleAccepter == JOptionPane.YES_OPTION) {
                         jTAssuranceHypothecaire.setText(df.format(montantAssuranceHypo) + " $");
-                        //double limVers = Double.parseDouble(jTMois1.getText());
                         jTMensualiteAvecAssHypo.setText(df.format(limitVersement
                                 + mensualiteAssuranceHypo) + " $");
                     }

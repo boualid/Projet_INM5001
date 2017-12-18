@@ -161,7 +161,6 @@ public class AssurenceAutoImp {
     public static double xAnnee(double annee) {
         double resultat = 0.0;
         double agevoiture = annee;
-        System.out.println("anne voiture :" + agevoiture);
         if (agevoiture >= 0 && agevoiture <= 1) {
             resultat = 1.0;
         } else if (agevoiture > 1 && agevoiture <= 3) {
